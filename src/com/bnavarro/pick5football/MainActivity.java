@@ -67,6 +67,7 @@ public class MainActivity extends Activity {
 	private ArrayAdapter<String> adapter1;
 	private ListView listview;
 	private String currentWeek;
+	private ArrayList<String> matchupList;
 	
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -95,7 +96,7 @@ public class MainActivity extends Activity {
 		}
 
 		  listview = (ListView) findViewById(R.id.listview);
-		  
+		  listview.setChoiceMode(ListView.CHOICE_MODE_MULTIPLE);
 		  listview.setOnItemLongClickListener(new OnItemLongClickListener() {
 				@Override
 				public boolean onItemLongClick(final AdapterView<?> parent,
@@ -108,14 +109,22 @@ public class MainActivity extends Activity {
 						@Override
 						public boolean onMenuItemClick(MenuItem item) {
 							matchups[option].makePick(item.getTitle().toString());
-						    adapter1.clear();
-						    adapter1.addAll(createList(matchups));
-						    listview.setAdapter(adapter1);
-						    listview.requestFocusFromTouch();
-						    listview.setSelection(option);
+							matchupList.set(option, matchups[option].displayMatchupDetails());
+							if ("Pick None".equalsIgnoreCase(item.getTitle().toString()))
+								listview.setItemChecked(option, false);
+							else
+								listview.setItemChecked(option, true);
+							adapter1.notifyDataSetChanged();
+							
+						   //adapter1.clear();
+						   // adapter1.addAll(createList(matchups));
+						   // listview.setAdapter(adapter1);
+						    //listview.requestFocusFromTouch();
+						   // listview.setSelection(option);
 						   // listview.setBackgroundColor(getResources().getColor(R.color.background_color));
 						    //listview.getChildAt(1).setBackgroundColor(getResources().getColor(R.color.background_color));
 						    //view.setSelected(true);
+							
 							return false;
 						}
 						
@@ -137,7 +146,7 @@ public class MainActivity extends Activity {
 		            int position, long id) {
 		          //final String item = (String) parent.getItemAtPosition(position);
 		        	//view.setBackgroundColor(getResources().getColor(R.color.background_color));
-		        	view.setSelected(true);
+		        	//view.setSelected(true);
 		        	}
 
 		      });
@@ -156,8 +165,9 @@ public class MainActivity extends Activity {
 					 try {
 						 currentWeek = item;
 						createMatchups(false);
+						matchupList = createList(matchups);
 						 adapter1 = new ArrayAdapter<String>(parent.getContext(),
-						 R.layout.list, R.id.label, createList(matchups));
+						android.R.layout.simple_list_item_activated_1, matchupList);
 						listview.setAdapter(adapter1);
 						listview.setVisibility(View.VISIBLE);
 					} catch (XmlPullParserException e) {
