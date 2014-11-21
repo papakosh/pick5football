@@ -1,10 +1,12 @@
 package com.bnavarro.pick5football;
 
 import java.io.BufferedInputStream;
+import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
+import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStream;
@@ -17,7 +19,9 @@ import org.xmlpull.v1.XmlPullParserException;
 import com.bnavarro.pick5football.R;
 import com.bnavarro.pick5football.async.RetrieveMatchesAsync;
 import com.bnavarro.pick5football.async.SubmitPicksAsync;
+import com.bnavarro.pick5football.listeners.LoadMatchesMenuItemClickListener;
 import com.bnavarro.pick5football.listeners.RetrieveMatchesMenuItemClickListener;
+import com.bnavarro.pick5football.listeners.SaveMatchesMenuItemClickListener;
 import com.bnavarro.pick5football.listeners.SubmitPicksMenuItemClickListener;
 import com.dropbox.client2.DropboxAPI;
 import com.dropbox.client2.android.AndroidAuthSession;
@@ -68,6 +72,7 @@ public class MainActivity extends Activity {
 	private ListView listview;
 	private String currentWeek;
 	private ArrayList<String> matchupList;
+	private ArrayList<String> currentPicks;
 	
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -116,15 +121,6 @@ public class MainActivity extends Activity {
 								listview.setItemChecked(option, true);
 							adapter1.notifyDataSetChanged();
 							
-						   //adapter1.clear();
-						   // adapter1.addAll(createList(matchups));
-						   // listview.setAdapter(adapter1);
-						    //listview.requestFocusFromTouch();
-						   // listview.setSelection(option);
-						   // listview.setBackgroundColor(getResources().getColor(R.color.background_color));
-						    //listview.getChildAt(1).setBackgroundColor(getResources().getColor(R.color.background_color));
-						    //view.setSelected(true);
-							
 							return false;
 						}
 						
@@ -144,9 +140,6 @@ public class MainActivity extends Activity {
 		        @Override
 		        public void onItemClick(AdapterView<?> parent, final View view,
 		            int position, long id) {
-		          //final String item = (String) parent.getItemAtPosition(position);
-		        	//view.setBackgroundColor(getResources().getColor(R.color.background_color));
-		        	//view.setSelected(true);
 		        	}
 
 		      });
@@ -210,6 +203,11 @@ public class MainActivity extends Activity {
     	menu.add("Update Matchups");
     	menu.getItem(1).setOnMenuItemClickListener(new RetrieveMatchesMenuItemClickListener(this));
     	
+    	menu.add("Save Picks");
+    	menu.getItem(2).setOnMenuItemClickListener(new SaveMatchesMenuItemClickListener(this));
+    	
+    	menu.add("Load Picks");
+    	menu.getItem(3).setOnMenuItemClickListener(new LoadMatchesMenuItemClickListener(this));
     	return true;
     }
     
@@ -276,13 +274,56 @@ public class MainActivity extends Activity {
 	}
 	
 	public void submitPicks (String picks) throws DropboxException, IOException{
-		File file = new File(dataDir.getAbsolutePath() + "/picks.txt");
+		File file = savePicks(picks);
+        new SubmitPicksAsync(getApplicationContext(), mDBApi, null, file).execute();
+	}
+
+
+
+
+	public File savePicks(String picks) throws IOException {
+		File file = new File(dataDir.getAbsolutePath() + "/" + currentWeek + "-picks.txt");
 		file.createNewFile();
 	    FileWriter filewriter = new FileWriter(file);
         BufferedWriter out = new BufferedWriter(filewriter);
         out.write(picks);
         out.close();
-        new SubmitPicksAsync(getApplicationContext(), mDBApi, null, file).execute();
+		return file;
+	}
+	
+	public void loadPicks() throws IOException {
+		File file = new File(dataDir.getAbsolutePath() + "/" + currentWeek + "-picks.txt");
+		currentPicks = new ArrayList<String>();
+		if (file.canRead()){
+		    FileReader filereader = new FileReader(file);
+	        BufferedReader in = new BufferedReader(filereader);
+	        String line;
+	        int num = 0;
+	        while ((line=in.readLine()) != null){
+	        	//System.out.println("line " + num + " is " + line);
+	        	//num++;
+	        	currentPicks.add(line.trim());
+	        }
+
+	        in.close();
+	        
+	        while (num < currentPicks.size()){
+	        	for (int i =0; i <matchups.length; i++){
+	        		if (matchups[i].getTeam1().contains(currentPicks.get(num)) || matchups[i].getTeam2().contains(currentPicks.get(num))  ){
+	        		   matchups[i].makePick(currentPicks.get(num));
+	        		   matchupList.set(i, matchups[i].displayMatchupDetails());
+	        		   listview.setItemChecked(i, true);
+	        		   num++;
+	        		   break;
+	        		}
+	        	}
+	        }
+	       	adapter1.notifyDataSetChanged();
+	        
+	        
+		}else {
+			System.out.println("no such file");
+		}
 	}
 	
 	public void updateMatchups () throws DropboxException, IOException, XmlPullParserException{
