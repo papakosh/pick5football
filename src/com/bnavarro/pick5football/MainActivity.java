@@ -17,6 +17,7 @@ import org.xmlpull.v1.XmlPullParser;
 import org.xmlpull.v1.XmlPullParserException;
 
 import com.bnavarro.pick5football.R;
+import com.bnavarro.pick5football.async.GameDayAsync;
 import com.bnavarro.pick5football.async.RetrieveMatchesAsync;
 import com.bnavarro.pick5football.async.SubmitPicksAsync;
 import com.bnavarro.pick5football.listeners.LoadMatchesMenuItemClickListener;
@@ -140,6 +141,8 @@ public class MainActivity extends Activity {
 		        @Override
 		        public void onItemClick(AdapterView<?> parent, final View view,
 		            int position, long id) {
+		        		new GameDayAsync(getApplicationContext(), MainActivity.this).execute();
+		        	
 		        	}
 
 		      });
@@ -192,6 +195,7 @@ public class MainActivity extends Activity {
         parser.setInput(in_s, null);
         matchups= parseXML(parser);
         in_s.close();
+        
     }
 
     @Override
