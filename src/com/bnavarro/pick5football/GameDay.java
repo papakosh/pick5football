@@ -7,8 +7,15 @@ public class GameDay {
 	private Integer visitingTeamScore;
 	private String quarter;
 	private String time;
+	private String clock;
 	
 	
+	public String getClock() {
+		return clock;
+	}
+	public void setClock(String clock) {
+		this.clock = clock;
+	}
 	public String getHomeTeam() {
 		return homeTeam;
 	}

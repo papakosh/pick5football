@@ -36,6 +36,7 @@ import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.DialogInterface.OnClickListener;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.util.Log;
 import android.util.Xml;
@@ -141,8 +142,20 @@ public class MainActivity extends Activity {
 		        @Override
 		        public void onItemClick(AdapterView<?> parent, final View view,
 		            int position, long id) {
-		        		new GameDayAsync(getApplicationContext(), MainActivity.this).execute();
-		        	
+
+			        	Intent intent = new Intent(MainActivity.this, GameDayActivity.class);
+			        	intent.putExtra("TEAM_1", matchups[position].getTeam1());
+			        	intent.putExtra("TEAM_2", matchups[position].getTeam2());
+			        	intent.putExtra("HOME_TEAM", matchups[position].getHomeTeam());
+			        	intent.putExtra("WEEK", "14");
+			        	
+			        	if (!CommonUtils.hasText(matchups[position].getPickSelection()))
+			        		listview.setItemChecked(position, false);
+			        	else
+			        		listview.setItemChecked(position, true);
+			        	adapter1.notifyDataSetChanged();
+			        	startActivity(intent);
+
 		        	}
 
 		      });
