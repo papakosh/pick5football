@@ -12,8 +12,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
-import android.widget.Toast;
-
+import com.bnavarro.pick5football.constants.*;
 public class GameDayActivity extends Activity {
 
 	
@@ -22,13 +21,14 @@ public class GameDayActivity extends Activity {
 		  super.onCreate(savedInstanceState);
 	      setContentView(R.layout.activity_gameday);
 	      
-	      TextView textView = (TextView)findViewById(R.id.gameDayText);
+	      TextView scoreTextView = (TextView)findViewById(R.id.scoreText);
+	      TextView timeTextView = (TextView)findViewById(R.id.timeText);
 	      
 	      Intent intent = getIntent();
  
-	    String team1 = intent.getStringExtra("TEAM_1");  
-	    String team2 = intent.getStringExtra("TEAM_2");  
-  		String homeTeamOrig = intent.getStringExtra("HOME_TEAM");
+	    String team1 = intent.getStringExtra(IntentDataConstants.FIRST_TEAM);  
+	    String team2 = intent.getStringExtra(IntentDataConstants.SECOND_TEAM);  
+  		String homeTeamOrig = intent.getStringExtra(IntentDataConstants.HOME_TEAM);
   		String homeTeam;
   		String visitingTeam;
   		GameDay gameDay = new GameDay ();
@@ -47,19 +47,34 @@ public class GameDayActivity extends Activity {
 			gameDay = new GameDayAsync(getApplicationContext(), GameDayActivity.this,gameDay).execute().get();
 			
 			if (gameDay.getQuarter()!= null){
-    			if ((gameDay.getQuarter().contains("F")) || (gameDay.getQuarter().contains("H"))){
-    				textView.setText (gameDay.getHomeTeam() + " " + gameDay.getHomeTeamScore() + " - " + gameDay.getVisitingTeam() + " " + gameDay.getVisitingTeamScore() + " in the " + gameDay.getQuarter() + " quarter");
-    			}else if ((gameDay.getQuarter().contains("P"))){
-    				textView.setText (gameDay.getHomeTeam() + " and " + gameDay.getVisitingTeam() + " play at "+ gameDay.getTime() + " pm E.T.");
+    			if ((gameDay.getQuarter().contains(GameDayConstants.FINAL_SCORE)) || (gameDay.getQuarter().contains(GameDayConstants.HALF_TIME))){
+    				scoreTextView.setText (gameDay.getHomeTeam() + " " + gameDay.getHomeTeamScore() + " - " + gameDay.getVisitingTeam() + " " + gameDay.getVisitingTeamScore());
+    				if (gameDay.getQuarter().contains(GameDayConstants.FINAL_SCORE))
+    					timeTextView.setText( "Final Score");
+    				else
+    					timeTextView.setText( "Half-time");
+    			}else if ((gameDay.getQuarter().contains(GameDayConstants.NOT_PLAYED))){
+    				scoreTextView.setText (gameDay.getHomeTeam() + " and " + gameDay.getVisitingTeam() + " play at "+ gameDay.getTime() + " pm E.T.");
+    				timeTextView.setText("");
     			}else {
-    				textView.setText ( gameDay.getHomeTeam() + " " + gameDay.getHomeTeamScore() + " - " + gameDay.getVisitingTeam() + " " + gameDay.getVisitingTeamScore() + " in the " + gameDay.getQuarter() + " quarter with " + gameDay.getClock());
+    				scoreTextView.setText ( gameDay.getHomeTeam() + " " + gameDay.getHomeTeamScore() + " - " + gameDay.getVisitingTeam() + " " + gameDay.getVisitingTeamScore());
+    				String quarterText;
+    				if (gameDay.getQuarter().contains(GameDayConstants.FIRST_QUARTER))
+    					quarterText = "1st Quarter";
+    				else if (gameDay.getQuarter().contains(GameDayConstants.SECOND_QUARTER))
+    					quarterText = "2nd Quarter";
+    				else if (gameDay.getQuarter().contains(GameDayConstants.THIRD_QUARTER))
+    					quarterText = "3rd Quarter";
+    				else if (gameDay.getQuarter().contains(GameDayConstants.FOURTH_QUARTER))
+    					quarterText = "4th Quarter";
+    				else
+    					quarterText = "Overtime";
+    				
+    				timeTextView.setText(gameDay.getClock() + " left in the " + quarterText);
     			}
     		}else {
-    			textView.setText ( "No game data available");
+    			scoreTextView.setText ( "No Game Data Available");
     		}
-			
-			//textView.setText("No Data Available for the game between " + intent.getStringExtra("HOME_TEAM") + " and " +
-		    //		  intent.getStringExtra("VISITING_TEAM"));
 		} catch (InterruptedException | ExecutionException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

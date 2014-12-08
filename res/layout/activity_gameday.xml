@@ -11,11 +11,22 @@
     tools:context=".GameDayActivity">
     
     <TextView
-        android:id="@+id/gameDayText"
+        android:id="@+id/scoreText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@+id/label"
-        android:textSize="20sp">
+        android:textSize="20sp"
+        android:layout_centerHorizontal="true">
+    </TextView>
+    
+    <TextView
+        android:id="@+id/timeText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@+id/label"
+        android:textSize="20sp"
+        android:layout_below="@+id/scoreText"
+        android:layout_centerHorizontal="true">
     </TextView>
     
     

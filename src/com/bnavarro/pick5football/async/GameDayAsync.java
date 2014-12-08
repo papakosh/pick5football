@@ -55,26 +55,6 @@ public class GameDayAsync extends AsyncTask<Void, Long, GameDay> {
 	        
 	        GameDayParser gdParser = new GameDayParser (parser, gameDay);
 	        gdParser.parse();
-	       //mainActivity.runOnUiThread(new Runnable() {
-	        //	public void run() {
-//	        		if (gameDay.getQuarter()!= null){
-//	        			if ((gameDay.getQuarter().contains("F")) || (gameDay.getQuarter().contains("H"))){
-//	        				Toast.makeText(context, gameDay.getHomeTeam() + " " + gameDay.getHomeTeamScore() + " - " + gameDay.getVisitingTeam() + " " + gameDay.getVisitingTeamScore() + " in the " + gameDay.getQuarter() + " quarter", Toast.LENGTH_LONG).show();
-//	        			}else if ((gameDay.getQuarter().contains("P"))){
-//	        				Toast.makeText(context, "Game is on at "+ gameDay.getTime(), Toast.LENGTH_LONG).show();
-//	        			}else {
-//	        				Toast.makeText(context, gameDay.getHomeTeam() + " " + gameDay.getHomeTeamScore() + " - " + gameDay.getVisitingTeam() + " " + gameDay.getVisitingTeamScore() + " in the " + gameDay.getQuarter() + " quarter with " + gameDay.getClock() + " left", Toast.LENGTH_LONG).show();
-//	        			}
-//	        		}else {
-//	        			Toast.makeText(context, "No game data available", Toast.LENGTH_LONG).show();
-//	        		}
-//	   	
-//	        		//Toast.makeText(context, gameDay.getHomeTeamScore() + " - " + gameDay.getVisitingTeamScore(), Toast.LENGTH_SHORT).show();;
-//	        		System.out.println (gameDay.getHomeTeam() + " vs " + gameDay.getVisitingTeam());
-//	        		System.out.println( gameDay.getHomeTeamScore() + " - " + gameDay.getVisitingTeamScore() );
-//	        		System.out.println( "Quarter is " + gameDay.getQuarter()); 
-	        //	}
-	        //});
 	        in_s.close();
 		} catch (FileNotFoundException e) {
 			// TODO Auto-generated catch block

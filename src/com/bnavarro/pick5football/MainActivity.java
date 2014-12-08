@@ -20,6 +20,7 @@ import com.bnavarro.pick5football.R;
 import com.bnavarro.pick5football.async.GameDayAsync;
 import com.bnavarro.pick5football.async.RetrieveMatchesAsync;
 import com.bnavarro.pick5football.async.SubmitPicksAsync;
+import com.bnavarro.pick5football.constants.IntentDataConstants;
 import com.bnavarro.pick5football.listeners.LoadMatchesMenuItemClickListener;
 import com.bnavarro.pick5football.listeners.RetrieveMatchesMenuItemClickListener;
 import com.bnavarro.pick5football.listeners.SaveMatchesMenuItemClickListener;
@@ -144,10 +145,10 @@ public class MainActivity extends Activity {
 		            int position, long id) {
 
 			        	Intent intent = new Intent(MainActivity.this, GameDayActivity.class);
-			        	intent.putExtra("TEAM_1", matchups[position].getTeam1());
-			        	intent.putExtra("TEAM_2", matchups[position].getTeam2());
-			        	intent.putExtra("HOME_TEAM", matchups[position].getHomeTeam());
-			        	intent.putExtra("WEEK", "14");
+			        	intent.putExtra(IntentDataConstants.FIRST_TEAM, matchups[position].getTeam1());
+			        	intent.putExtra(IntentDataConstants.SECOND_TEAM, matchups[position].getTeam2());
+			        	intent.putExtra(IntentDataConstants.HOME_TEAM, matchups[position].getHomeTeam());
+			        	intent.putExtra(IntentDataConstants.WEEK, "14");
 			        	
 			        	if (!CommonUtils.hasText(matchups[position].getPickSelection()))
 			        		listview.setItemChecked(position, false);
