@@ -21,6 +21,7 @@ public class GameDayActivity extends Activity {
 		  super.onCreate(savedInstanceState);
 	      setContentView(R.layout.activity_gameday);
 	      
+	      TextView dateTextView = (TextView)findViewById(R.id.dateText);
 	      TextView scoreTextView = (TextView)findViewById(R.id.scoreText);
 	      TextView timeTextView = (TextView)findViewById(R.id.timeText);
 	      
@@ -47,6 +48,8 @@ public class GameDayActivity extends Activity {
 			gameDay = new GameDayAsync(getApplicationContext(), GameDayActivity.this,gameDay).execute().get();
 			
 			if (gameDay.getQuarter()!= null){
+				String date = gameDay.getDate().substring(4, 6) + "/" + gameDay.getDate().substring(6, 8) + "/"+gameDay.getDate().substring(0, 4);
+				dateTextView.setText(date);
     			if ((gameDay.getQuarter().contains(GameDayConstants.FINAL_SCORE)) || (gameDay.getQuarter().contains(GameDayConstants.HALF_TIME))){
     				scoreTextView.setText (gameDay.getHomeTeam() + " " + gameDay.getHomeTeamScore() + " - " + gameDay.getVisitingTeam() + " " + gameDay.getVisitingTeamScore());
     				if (gameDay.getQuarter().contains(GameDayConstants.FINAL_SCORE))
@@ -74,6 +77,8 @@ public class GameDayActivity extends Activity {
     			}
     		}else {
     			scoreTextView.setText ( "No Game Data Available");
+    			timeTextView.setText("");
+    			dateTextView.setText("");
     		}
 		} catch (InterruptedException | ExecutionException e) {
 			// TODO Auto-generated catch block

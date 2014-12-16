@@ -29,9 +29,11 @@ public class GameDayParser {
                     name = xmlParser.getName();
                     //System.out.println("NAME = " + name);
                     if (name.equalsIgnoreCase("g")){
+                    	
                     	if (xmlParser.getAttributeName(5).equalsIgnoreCase("K")){//game currently playing
                     		if (gameDay.getHomeTeam().equalsIgnoreCase(xmlParser.getAttributeValue(6)) &&
                     		gameDay.getVisitingTeam().equalsIgnoreCase(xmlParser.getAttributeValue(9))	){
+                    		gameDay.setDate(xmlParser.getAttributeValue(0).substring(0, 8));
                     		gameDay.setClock(xmlParser.getAttributeValue(5));
 	                    	gameDay.setQuarter(xmlParser.getAttributeValue(4));
 	                    	gameDay.setTime(xmlParser.getAttributeValue(3));
@@ -39,9 +41,10 @@ public class GameDayParser {
 	                    	gameDay.setVisitingTeamScore(Integer.valueOf(xmlParser.getAttributeValue(11)));
                     		}
                     	}  
-                    	else{//game not started
+                    	else{//game not started/finished
 	                    	if (gameDay.getHomeTeam().equalsIgnoreCase(xmlParser.getAttributeValue(5)) &&
 	                    		gameDay.getVisitingTeam().equalsIgnoreCase(xmlParser.getAttributeValue(8))	){
+	                    		gameDay.setDate(xmlParser.getAttributeValue(0).substring(0, 8));
 		                    	gameDay.setQuarter(xmlParser.getAttributeValue(4));
 		                    	gameDay.setTime(xmlParser.getAttributeValue(3));
 		                    	gameDay.setHomeTeamScore(Integer.valueOf(xmlParser.getAttributeValue(7)));

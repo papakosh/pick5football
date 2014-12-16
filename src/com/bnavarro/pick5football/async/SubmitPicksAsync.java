@@ -38,8 +38,7 @@ public class SubmitPicksAsync extends AsyncTask<Void, Long, Boolean> {
 	}
 	
 	@Override
-	protected Boolean doInBackground(Void... params) {
-				
+	protected Boolean doInBackground(Void... params) {	
 		 Intent i = new Intent(Intent.ACTION_SEND);
 		 i.setType("message/rfc822");
 		 i.putExtra(Intent.EXTRA_EMAIL  , new String[]{"recipient@example.com"});
@@ -48,42 +47,7 @@ public class SubmitPicksAsync extends AsyncTask<Void, Long, Boolean> {
 		 
 		 mainActivity.startActivity(Intent.createChooser(i, "Send mail..."));
 		
-//		FileInputStream inputStream = null;
-//		Entry response;
-//		try {
-//			inputStream = new FileInputStream(mFile);
-//			 response = mDBApi.putFile("/"+mFile.getName(), inputStream,
-//                    mFile.length(), null, null);
-//			 
-//			 Log.i("DbExampleLog", "The uploaded file's rev is: " + response.rev);
-//			 
-//			 Intent i = new Intent(Intent.ACTION_SEND);
-//			 i.setType("message/rfc822");
-//			 i.putExtra(Intent.EXTRA_EMAIL  , new String[]{"recipient@example.com"});
-//			 i.putExtra(Intent.EXTRA_SUBJECT, "subject of email");
-//			 i.putExtra(Intent.EXTRA_TEXT   , "body of email");
-//			 try {
-//				 mainActivity.startActivity(Intent.createChooser(i, "Send mail..."));
-//			 } catch (android.content.ActivityNotFoundException ex) {
-//			     Toast.makeText(mainActivity, "There are no email clients installed.", Toast.LENGTH_SHORT).show();
-//			 }
-//			 
-//			 
-//		} catch (FileNotFoundException e) {
-//			e.printStackTrace();
-//		} catch (DropboxException e) {
-//			e.printStackTrace();
-//		}finally{
-//			if (inputStream != null)
-//				try {
-//					inputStream.close();
-//				} catch (IOException e) {
-//					// TODO Auto-generated catch block
-//					e.printStackTrace();
-//				}
-//			
-//			mFile.delete();
-//		}
+
 		return true;
 	}
 	

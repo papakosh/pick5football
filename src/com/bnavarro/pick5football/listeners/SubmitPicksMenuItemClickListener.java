@@ -7,6 +7,7 @@ import java.io.FileWriter;
 import java.io.IOException;
 
 import com.bnavarro.pick5football.MainActivity;
+import com.bnavarro.pick5football.Matchup;
 import com.bnavarro.pick5football.async.SubmitPicksAsync;
 import com.dropbox.client2.exception.DropboxException;
 
@@ -24,18 +25,31 @@ public class SubmitPicksMenuItemClickListener implements OnMenuItemClickListener
 	
 	@Override
 	public boolean onMenuItemClick(MenuItem item) {
+				
+		Integer count = 0;
 		StringBuffer yourPicks = new StringBuffer("");
 		for (int i = 0; i < activity.getMatchups().length; i++){
 			if (activity.getMatchups()[i].getPickSelection() != null){
 				yourPicks.append(activity.getMatchups()[i].getPickSelection());
 				yourPicks.append("\n");
+				count++;
 			}
 		}
 		
 		try {
+			if (count.intValue() == 5){
 				submitPicks (yourPicks.toString());
 				Toast.makeText(activity.getApplicationContext(), "Picks Submission Successful", 
 						   Toast.LENGTH_LONG).show();
+			}else{
+				if (count.intValue()  < 5){
+					Toast.makeText(activity.getApplicationContext(), "Error: Too few picks entered. Please select five picks.", 
+							   Toast.LENGTH_LONG).show();
+				}else{
+					Toast.makeText(activity.getApplicationContext(), "Error: Too many picks entered. Please, select five picks.", 
+							   Toast.LENGTH_LONG).show();
+				}
+			}
 			
 		} catch (FileNotFoundException e) {
 			Toast.makeText(activity.getApplicationContext(), "Picks Submission Failed", 
