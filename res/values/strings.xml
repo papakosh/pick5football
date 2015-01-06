@@ -5,7 +5,7 @@
     <string name="action_settings">Submit Picks</string>
     <string name="title_activity_main">MainActivity</string>
     <string name="title_activity_gameday">GameDayActivity</string>
-    <string-array name="dev_options_array">
+    <string-array name="weeks_array">
         <item>Week 1</item>
         <item>Week 2</item>
         <item>Week 3</item>

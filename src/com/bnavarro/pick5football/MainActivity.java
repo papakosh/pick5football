@@ -5,23 +5,25 @@ import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.Locale;
+import java.util.concurrent.ExecutionException;
+import java.util.concurrent.TimeoutException;
 
 import org.xmlpull.v1.XmlPullParser;
 import org.xmlpull.v1.XmlPullParserException;
 
 import com.bnavarro.pick5football.R;
-import com.bnavarro.pick5football.async.GameDayAsync;
 import com.bnavarro.pick5football.async.RetrieveMatchesAsync;
 import com.bnavarro.pick5football.async.SubmitPicksAsync;
 import com.bnavarro.pick5football.constants.IntentDataConstants;
+import com.bnavarro.pick5football.constants.MenuConstants;
 import com.bnavarro.pick5football.listeners.LoadMatchesMenuItemClickListener;
+import com.bnavarro.pick5football.listeners.MatchItemListener;
 import com.bnavarro.pick5football.listeners.RetrieveMatchesMenuItemClickListener;
 import com.bnavarro.pick5football.listeners.SaveMatchesMenuItemClickListener;
 import com.bnavarro.pick5football.listeners.SubmitPicksMenuItemClickListener;
@@ -45,113 +47,97 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
-import android.widget.AdapterView.OnItemClickListener;
-import android.widget.AdapterView.OnItemLongClickListener;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.PopupMenu;
-import android.widget.TextView;
-import android.widget.Toast;
 import android.widget.PopupMenu.OnMenuItemClickListener;
 import android.widget.Spinner;
 
-
+/**
+ * 
+ * @author navman
+ *
+ */
 public class MainActivity extends Activity {
 	
-	private Matchup[] matchups;
+	//Screen fields
+	private Spinner spnGameWeeks;	
+	private ListView listview;
 	
-
-	private PopupMenu popupMenu;
-	private Integer option;
-	
+	//Data Access fields
 	private DropboxAPI<AndroidAuthSession> mDBApi;
-	
 	final static private String APP_KEY = "1t3c5oggvr0hnhe";
 	final static private String APP_SECRET = "1zh1mvowilxj04d";
 	final static private AccessType ACCESS_TYPE = AccessType.APP_FOLDER;
 	private String exstPath;
 	private File dataDir;
+	
+	//Interaction fields
+	private Matchup[] matchups;
+	private PopupMenu popupMenu;
+	private Integer option;
 	private ArrayAdapter<String> adapter1;
-	private ListView listview;
 	private String currentWeek;
 	private ArrayList<String> matchupList;
 	private ArrayList<String> currentPicks;
+	
+	private RetrieveMatchesAsync retrieval;
 	
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        AndroidAuthSession session = buildSession();
-        mDBApi = new DropboxAPI<AndroidAuthSession>(session);
-        //StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build(); 
-        //StrictMode.setThreadPolicy(policy);
         
-       // matchups = new Matchup[16];
+        intializeComponents ();
         
-		Spinner spinner = (Spinner)findViewById(R.id.spinnerDevOptions);
+		initializeDataDirectory();
+        
+		listview.setOnItemClickListener(new MatchItemListener(this));
+	//new AdapterView.OnItemClickListener() {
+//		@Override
+//        public void onItemClick(AdapterView<?> parent, final View view, int position, long id) {
+//        	option = position;					
+//			popupMenu = new PopupMenu(parent.getContext(), view);
+//			popupMenu.setOnMenuItemClickListener(new OnMenuItemClickListener(){
+//			@Override
+//			public boolean onMenuItemClick(MenuItem item) {
+//				if (MenuConstants.NONE.equalsIgnoreCase(item.getTitle().toString())){
+//					matchups[option].makePick(item.getTitle().toString());
+//					matchupList.set(option, matchups[option].displayMatchupDetails());
+//					listview.setItemChecked(option, false);
+//				}else if (MenuConstants.VIEW_GAME.equalsIgnoreCase(item.getTitle().toString())){
+//					Intent intent = new Intent(MainActivity.this, GameDayActivity.class);
+//		        	intent.putExtra(IntentDataConstants.FIRST_TEAM, matchups[option].getTeam1());
+//		        	intent.putExtra(IntentDataConstants.SECOND_TEAM, matchups[option].getTeam2());
+//		        	intent.putExtra(IntentDataConstants.HOME_TEAM, matchups[option].getHomeTeam());
+//		        	intent.putExtra(IntentDataConstants.WEEK, "14");
+//		        	
+//		        	if (!CommonUtils.hasText(matchups[option].getPickSelection()))
+//		        		listview.setItemChecked(option, false);
+//		        	else
+//		        		listview.setItemChecked(option, true);
+//		        	adapter1.notifyDataSetChanged();
+//		        	startActivity(intent);
+//				}else{
+//					matchups[option].makePick(item.getTitle().toString());
+//					matchupList.set(option, matchups[option].displayMatchupDetails());
+//				
+//					listview.setItemChecked(option, true);
+//				}
+//				adapter1.notifyDataSetChanged();
+//				
+//				return false;
+//			} 
+//			});
+//			popupMenu.getMenu().add("Pick None");
+//			popupMenu.getMenu().add("Pick " + matchups[position].getTeam1());
+//			popupMenu.getMenu().add("Pick " + matchups[position].getTeam2());
+//			popupMenu.getMenu().add("View Game Score");
+//			popupMenu.show();
+//        } 
+//		});
 
-		ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this.getBaseContext(), R.array.dev_options_array, android.R.layout.simple_spinner_dropdown_item);
-		adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-		spinner.setAdapter(adapter);
-		
-		 File exst = Environment.getExternalStorageDirectory();
-		 exstPath = exst.getPath();
-		 dataDir = new File(exstPath+"/Pick5FootballData");
-		if (!dataDir.exists()){
-			boolean success= dataDir.mkdir();
-			System.out.println("directory created is " + success);
-		}
-
-		  listview = (ListView) findViewById(R.id.listview);
-		  listview.setChoiceMode(ListView.CHOICE_MODE_MULTIPLE);
-		  listview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-		        @Override
-		        public void onItemClick(AdapterView<?> parent, final View view,
-		            int position, long id) {
-		        	option = position;					
-					popupMenu = new PopupMenu(parent.getContext(), view);
-					popupMenu.setOnMenuItemClickListener(new OnMenuItemClickListener(){
-						@Override
-						public boolean onMenuItemClick(MenuItem item) {
-							if ("Pick None".equalsIgnoreCase(item.getTitle().toString())){
-								matchups[option].makePick(item.getTitle().toString());
-								matchupList.set(option, matchups[option].displayMatchupDetails());
-								listview.setItemChecked(option, false);
-							}else if ("View Game Score".equalsIgnoreCase(item.getTitle().toString())){
-								Intent intent = new Intent(MainActivity.this, GameDayActivity.class);
-					        	intent.putExtra(IntentDataConstants.FIRST_TEAM, matchups[option].getTeam1());
-					        	intent.putExtra(IntentDataConstants.SECOND_TEAM, matchups[option].getTeam2());
-					        	intent.putExtra(IntentDataConstants.HOME_TEAM, matchups[option].getHomeTeam());
-					        	intent.putExtra(IntentDataConstants.WEEK, "14");
-					        	
-					        	if (!CommonUtils.hasText(matchups[option].getPickSelection()))
-					        		listview.setItemChecked(option, false);
-					        	else
-					        		listview.setItemChecked(option, true);
-					        	adapter1.notifyDataSetChanged();
-					        	startActivity(intent);
-							}else{
-								matchups[option].makePick(item.getTitle().toString());
-								matchupList.set(option, matchups[option].displayMatchupDetails());
-							
-								listview.setItemChecked(option, true);
-							}
-							adapter1.notifyDataSetChanged();
-							
-							return false;
-						}
-						
-					});
-					popupMenu.getMenu().add("Pick None");
-					popupMenu.getMenu().add("Pick " + matchups[position].getTeam1());
-					popupMenu.getMenu().add("Pick " + matchups[position].getTeam2());
-					popupMenu.getMenu().add("View Game Score");
-					popupMenu.show();
-		        	}
-
-		      });
-
-			spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+		  spnGameWeeks.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
 	            public void onNothingSelected(AdapterView<?> arg0) {
 
 	            }
@@ -174,6 +160,15 @@ public class MainActivity extends Activity {
 						e.printStackTrace();
 					}catch (DropboxException e) {
 						e.printStackTrace();
+					} catch (InterruptedException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					} catch (ExecutionException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					} catch (TimeoutException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
 					}
 
 				}
@@ -181,15 +176,42 @@ public class MainActivity extends Activity {
 		    
     }
     
+    private void intializeComponents(){
+    	spnGameWeeks = (Spinner)findViewById(R.id.spnGameWeeks);
+    	ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(
+    										this.getBaseContext(), R.array.weeks_array, 
+    										android.R.layout.simple_spinner_dropdown_item);
+		adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+		spnGameWeeks.setAdapter(adapter);
+		
+    	mDBApi = new DropboxAPI<AndroidAuthSession>(buildSession());
+    	
+    	listview = (ListView) findViewById(R.id.listview);
+		listview.setChoiceMode(ListView.CHOICE_MODE_MULTIPLE);
+    }
     
+    private void initializeDataDirectory (){
+    	File exst = Environment.getExternalStorageDirectory();
+		exstPath = exst.getPath();
+		dataDir = new File(exstPath+"/Pick5FootballData");
+		if (!dataDir.exists()){
+			boolean success= dataDir.mkdir();
+			System.out.println("Pick5FootballData directory created is " + success + " at"+ exstPath +"/Pick5FootballData");
+		}else{
+			System.out.println("No action taken. Pick5FootballData directory already exists " + " at"+ exstPath +"/Pick5FootballData");
+		}
+    }
 
     
-    private void createMatchups (boolean isUpdate) throws XmlPullParserException, IOException, DropboxException{
+    private void createMatchups (boolean isUpdate) throws XmlPullParserException, IOException, DropboxException, InterruptedException, ExecutionException, TimeoutException{
     	String week = currentWeek.replace(" ", "").toLowerCase(Locale.ENGLISH);
     	File dropBoxFile = new File(dataDir.getAbsolutePath()+"/"+week+ ".xml");
     	if (!dropBoxFile.exists() || isUpdate){
-    		  new RetrieveMatchesAsync(getApplicationContext(), mDBApi, null, dropBoxFile).execute();
+    		retrieval =  new RetrieveMatchesAsync(getApplicationContext(), mDBApi, null, dropBoxFile);
+    		retrieval.execute();
+        	retrieval.get();
     	}
+
     	XmlPullParser parser = Xml.newPullParser();
     	InputStream in_s = new BufferedInputStream(new FileInputStream(dropBoxFile));
 	    parser.setFeature(XmlPullParser.FEATURE_PROCESS_NAMESPACES, false);
@@ -329,10 +351,18 @@ public class MainActivity extends Activity {
 		}
 	}
 	
-	public void updateMatchups () throws DropboxException, IOException, XmlPullParserException{
+	public void updateMatchups () throws DropboxException, IOException, XmlPullParserException, InterruptedException, ExecutionException, TimeoutException{
 		 createMatchups(true);
-		 adapter1.clear();
-		 adapter1.addAll(createList(matchups));
+		// matchupList = createList(matchups);
+		 if (matchups == null){
+			 System.out.println ("matchups is null");
+		 	return;
+		 }else{
+		 for (int i = 0; i < matchups.length; i++){
+			 System.out.println ("Spread for " + i + " is " + matchups[i].getSpread());
+			 matchupList.set(i,  matchups[i].displayMatchupDetails());
+		 }
+		 }
 		 adapter1.notifyDataSetChanged();
 	}
 
@@ -397,5 +427,17 @@ public class MainActivity extends Activity {
     
     public DropboxAPI<AndroidAuthSession> getDropboxAccess(){
     	return mDBApi;
+    }
+    
+    public ArrayList<String> getMatchupList(){
+    	return  matchupList;
+    }
+    
+    public ListView getListView(){
+    	return listview;
+    }
+    
+    public ArrayAdapter<String> getMatchArrayAdapter (){
+    	return adapter1;
     }
 }

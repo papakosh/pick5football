@@ -2,6 +2,8 @@ package com.bnavarro.pick5football.listeners;
 
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.util.concurrent.ExecutionException;
+import java.util.concurrent.TimeoutException;
 
 import org.xmlpull.v1.XmlPullParserException;
 
@@ -33,6 +35,15 @@ public class RetrieveMatchesMenuItemClickListener implements
 		catch (IOException e) {
 			e.printStackTrace();
 		} catch (XmlPullParserException e) {
+			e.printStackTrace();
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (ExecutionException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (TimeoutException e) {
+			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		return false;
