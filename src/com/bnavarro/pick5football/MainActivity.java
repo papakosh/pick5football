@@ -20,18 +20,18 @@ import org.xmlpull.v1.XmlPullParserException;
 import com.bnavarro.pick5football.R;
 import com.bnavarro.pick5football.async.RetrieveMatchesAsync;
 import com.bnavarro.pick5football.async.SubmitPicksAsync;
-import com.bnavarro.pick5football.constants.IntentDataConstants;
 import com.bnavarro.pick5football.constants.MenuConstants;
+import com.bnavarro.pick5football.constants.XMLConstants;
 import com.bnavarro.pick5football.listeners.LoadMatchesMenuItemClickListener;
 import com.bnavarro.pick5football.listeners.MatchItemListener;
 import com.bnavarro.pick5football.listeners.RetrieveMatchesMenuItemClickListener;
 import com.bnavarro.pick5football.listeners.SaveMatchesMenuItemClickListener;
 import com.bnavarro.pick5football.listeners.SubmitPicksMenuItemClickListener;
+import com.bnavarro.pick5football.listeners.WeekItemListener;
 import com.dropbox.client2.DropboxAPI;
 import com.dropbox.client2.android.AndroidAuthSession;
 import com.dropbox.client2.exception.DropboxException;
 import com.dropbox.client2.session.AppKeyPair;
-import com.dropbox.client2.session.Session.AccessType;
 
 import android.os.Bundle;
 import android.os.Environment;
@@ -39,19 +39,16 @@ import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.DialogInterface.OnClickListener;
-import android.content.Intent;
 import android.content.SharedPreferences;
 import android.util.Log;
 import android.util.Xml;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
-import android.widget.PopupMenu;
-import android.widget.PopupMenu.OnMenuItemClickListener;
 import android.widget.Spinner;
+import android.widget.Toast;
 
 /**
  * 
@@ -68,19 +65,18 @@ public class MainActivity extends Activity {
 	private DropboxAPI<AndroidAuthSession> mDBApi;
 	final static private String APP_KEY = "1t3c5oggvr0hnhe";
 	final static private String APP_SECRET = "1zh1mvowilxj04d";
-	final static private AccessType ACCESS_TYPE = AccessType.APP_FOLDER;
+	//final static private AccessType ACCESS_TYPE = AccessType.APP_FOLDER; //May be used in the future, not sure.
 	private String exstPath;
 	private File dataDir;
 	
 	//Interaction fields
 	private Matchup[] matchups;
-	private PopupMenu popupMenu;
-	private Integer option;
 	private ArrayAdapter<String> adapter1;
 	private String currentWeek;
 	private ArrayList<String> matchupList;
 	private ArrayList<String> currentPicks;
 	
+	//Aynschronous tasks
 	private RetrieveMatchesAsync retrieval;
 	
     @Override
@@ -93,87 +89,8 @@ public class MainActivity extends Activity {
 		initializeDataDirectory();
         
 		listview.setOnItemClickListener(new MatchItemListener(this));
-	//new AdapterView.OnItemClickListener() {
-//		@Override
-//        public void onItemClick(AdapterView<?> parent, final View view, int position, long id) {
-//        	option = position;					
-//			popupMenu = new PopupMenu(parent.getContext(), view);
-//			popupMenu.setOnMenuItemClickListener(new OnMenuItemClickListener(){
-//			@Override
-//			public boolean onMenuItemClick(MenuItem item) {
-//				if (MenuConstants.NONE.equalsIgnoreCase(item.getTitle().toString())){
-//					matchups[option].makePick(item.getTitle().toString());
-//					matchupList.set(option, matchups[option].displayMatchupDetails());
-//					listview.setItemChecked(option, false);
-//				}else if (MenuConstants.VIEW_GAME.equalsIgnoreCase(item.getTitle().toString())){
-//					Intent intent = new Intent(MainActivity.this, GameDayActivity.class);
-//		        	intent.putExtra(IntentDataConstants.FIRST_TEAM, matchups[option].getTeam1());
-//		        	intent.putExtra(IntentDataConstants.SECOND_TEAM, matchups[option].getTeam2());
-//		        	intent.putExtra(IntentDataConstants.HOME_TEAM, matchups[option].getHomeTeam());
-//		        	intent.putExtra(IntentDataConstants.WEEK, "14");
-//		        	
-//		        	if (!CommonUtils.hasText(matchups[option].getPickSelection()))
-//		        		listview.setItemChecked(option, false);
-//		        	else
-//		        		listview.setItemChecked(option, true);
-//		        	adapter1.notifyDataSetChanged();
-//		        	startActivity(intent);
-//				}else{
-//					matchups[option].makePick(item.getTitle().toString());
-//					matchupList.set(option, matchups[option].displayMatchupDetails());
-//				
-//					listview.setItemChecked(option, true);
-//				}
-//				adapter1.notifyDataSetChanged();
-//				
-//				return false;
-//			} 
-//			});
-//			popupMenu.getMenu().add("Pick None");
-//			popupMenu.getMenu().add("Pick " + matchups[position].getTeam1());
-//			popupMenu.getMenu().add("Pick " + matchups[position].getTeam2());
-//			popupMenu.getMenu().add("View Game Score");
-//			popupMenu.show();
-//        } 
-//		});
-
-		  spnGameWeeks.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-	            public void onNothingSelected(AdapterView<?> arg0) {
-
-	            }
-
-				@Override
-				public void onItemSelected(AdapterView<?> parent, View arg1,
-						int pos, long id) {
-					 String item = (String)parent.getItemAtPosition(pos);
-					 try {
-						 currentWeek = item;
-						createMatchups(false);
-						matchupList = createList(matchups);
-						 adapter1 = new ArrayAdapter<String>(parent.getContext(),
-						android.R.layout.simple_list_item_activated_1, matchupList);
-						listview.setAdapter(adapter1);
-						listview.setVisibility(View.VISIBLE);
-					} catch (XmlPullParserException e) {
-						e.printStackTrace();
-					} catch (IOException e) {
-						e.printStackTrace();
-					}catch (DropboxException e) {
-						e.printStackTrace();
-					} catch (InterruptedException e) {
-						// TODO Auto-generated catch block
-						e.printStackTrace();
-					} catch (ExecutionException e) {
-						// TODO Auto-generated catch block
-						e.printStackTrace();
-					} catch (TimeoutException e) {
-						// TODO Auto-generated catch block
-						e.printStackTrace();
-					}
-
-				}
-	        });
-		    
+		spnGameWeeks.setOnItemSelectedListener(new WeekItemListener(this));
+    
     }
     
     private void intializeComponents(){
@@ -203,7 +120,7 @@ public class MainActivity extends Activity {
     }
 
     
-    private void createMatchups (boolean isUpdate) throws XmlPullParserException, IOException, DropboxException, InterruptedException, ExecutionException, TimeoutException{
+    public void createMatchups (boolean isUpdate) throws XmlPullParserException, IOException, DropboxException, InterruptedException, ExecutionException, TimeoutException{
     	String week = currentWeek.replace(" ", "").toLowerCase(Locale.ENGLISH);
     	File dropBoxFile = new File(dataDir.getAbsolutePath()+"/"+week+ ".xml");
     	if (!dropBoxFile.exists() || isUpdate){
@@ -218,22 +135,21 @@ public class MainActivity extends Activity {
         parser.setInput(in_s, null);
         matchups= parseXML(parser);
         in_s.close();
-        
     }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-    	menu.add("Submit Your Picks");
+    	menu.add(MenuConstants.FILE_MENU.SUBMIT_PICKS);
     	SubmitPicksMenuItemClickListener submitPicksListener = new SubmitPicksMenuItemClickListener (this);
     	menu.getItem(0).setOnMenuItemClickListener(submitPicksListener);
 
-    	menu.add("Update Matchups");
+    	menu.add(MenuConstants.FILE_MENU.REFRESH_MATCHES);
     	menu.getItem(1).setOnMenuItemClickListener(new RetrieveMatchesMenuItemClickListener(this));
     	
-    	menu.add("Save Picks");
+    	menu.add(MenuConstants.FILE_MENU.SAVE_PICKS);
     	menu.getItem(2).setOnMenuItemClickListener(new SaveMatchesMenuItemClickListener(this));
     	
-    	menu.add("Load Picks");
+    	menu.add(MenuConstants.FILE_MENU.LOAD_PICKS);
     	menu.getItem(3).setOnMenuItemClickListener(new LoadMatchesMenuItemClickListener(this));
     	return true;
     }
@@ -276,7 +192,7 @@ public class MainActivity extends Activity {
     	myPrefs.edit().clear().commit();
 	}
 	
-	private ArrayList<String> createList (Matchup[] matchups){
+	public ArrayList<String> createList (Matchup[] matchups){
 			 final ArrayList<String> list = new ArrayList<String>();
 		    for (int i = 0; i < matchups.length; ++i) {
 		      list.add(matchups[i].displayMatchupDetails());
@@ -304,9 +220,6 @@ public class MainActivity extends Activity {
 		File file = savePicks(picks);
         new SubmitPicksAsync(getApplicationContext(), mDBApi, null, file).execute();
 	}
-
-
-
 
 	public File savePicks(String picks) throws IOException {
 		File file = new File(dataDir.getAbsolutePath() + "/" + currentWeek + "-picks.txt");
@@ -347,21 +260,19 @@ public class MainActivity extends Activity {
 	        
 	        
 		}else {
-			System.out.println("no such file");
+			Toast.makeText(getApplicationContext(), "No previous pick selections found", Toast.LENGTH_LONG).show();
 		}
 	}
 	
 	public void updateMatchups () throws DropboxException, IOException, XmlPullParserException, InterruptedException, ExecutionException, TimeoutException{
 		 createMatchups(true);
-		// matchupList = createList(matchups);
 		 if (matchups == null){
 			 System.out.println ("matchups is null");
 		 	return;
 		 }else{
-		 for (int i = 0; i < matchups.length; i++){
-			 System.out.println ("Spread for " + i + " is " + matchups[i].getSpread());
-			 matchupList.set(i,  matchups[i].displayMatchupDetails());
-		 }
+			 for (int i = 0; i < matchups.length; i++){
+				 matchupList.set(i,  matchups[i].displayMatchupDetails());
+			 }
 		 }
 		 adapter1.notifyDataSetChanged();
 	}
@@ -390,25 +301,25 @@ public class MainActivity extends Activity {
                     break;
                 case XmlPullParser.START_TAG:
                     name = parser.getName();
-                    if (name.equalsIgnoreCase("MATCHUP")){
+                    if (name.equalsIgnoreCase(XMLConstants.MATCHES.TAG_MATCHUP)){
                     	currentMatchup = new Matchup();
                     } else if (currentMatchup != null){
-                        if (name.equalsIgnoreCase("TEAM1")){
+                        if (name.equalsIgnoreCase(XMLConstants.MATCHES.TAG_TEAM_1)){
                         	currentMatchup.setTeam1(parser.nextText());
-                        } else if (name.equalsIgnoreCase("TEAM2")){
+                        } else if (name.equalsIgnoreCase(XMLConstants.MATCHES.TAG_TEAM_2)){
                         	currentMatchup.setTeam2(parser.nextText());
-                        } else if (name.equalsIgnoreCase("HOME")){
+                        } else if (name.equalsIgnoreCase(XMLConstants.MATCHES.TAG_HOME)){
                         	currentMatchup.setHomeTeam(parser.nextText());
-                        } else if (name.equalsIgnoreCase("SPREAD")){
+                        } else if (name.equalsIgnoreCase(XMLConstants.MATCHES.TAG_SPREAD)){
                         	currentMatchup.setSpread(Double.valueOf(parser.nextText()));
-                        } else if (name.equalsIgnoreCase("FAVORED")){
+                        } else if (name.equalsIgnoreCase(XMLConstants.MATCHES.TAG_FAVORED)){
                         	currentMatchup.setFavoredTeam(parser.nextText());
                         } 
                     }
                     break;
                 case XmlPullParser.END_TAG:
                     name = parser.getName();
-                    if (name.equalsIgnoreCase("MATCHUP") && currentMatchup != null){
+                    if (name.equalsIgnoreCase(XMLConstants.MATCHES.TAG_MATCHUP) && currentMatchup != null){
                     	week.add(currentMatchup);
                     } 
             }
@@ -440,4 +351,20 @@ public class MainActivity extends Activity {
     public ArrayAdapter<String> getMatchArrayAdapter (){
     	return adapter1;
     }
+    
+    public void setCurrentMatchWeek(String week){
+    	this.currentWeek=week;
+    }
+    
+    public void setMatchupList (ArrayList<String> matchupList){
+    	this.matchupList = matchupList;
+    	
+    }
+    
+    public void setListAdapter (ArrayAdapter<String> adapter){
+    	this.adapter1 = adapter;
+    	listview.setAdapter(adapter1);
+		listview.setVisibility(View.VISIBLE);
+    }
+    
 }

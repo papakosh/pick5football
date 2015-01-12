@@ -16,13 +16,10 @@ import android.util.Log;
 
 public class RetrieveMatchesAsync extends AsyncTask<Void, Long, Boolean> {
 
-	//private Context mContext;
 	private DropboxAPI<?> mDBApi;
-	//private String mPath;
 	private File mFile;
 	public RetrieveMatchesAsync(Context context, DropboxAPI<?> api, String dropboxPath,
 	        File file) {
-		//mContext = context.getApplicationContext();
 		mDBApi=api;
 		mFile=file;
 	}

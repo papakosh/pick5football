@@ -34,11 +34,11 @@ public class MatchItemListener implements AdapterView.OnItemClickListener{
 		popupMenu.setOnMenuItemClickListener(new OnMenuItemClickListener(){
 		@Override
 		public boolean onMenuItemClick(MenuItem item) {
-			if (MenuConstants.NONE.equalsIgnoreCase(item.getTitle().toString())){
+			if (MenuConstants.MATCH_MENU.NONE.equalsIgnoreCase(item.getTitle().toString())){
 				matchups[position].makePick(item.getTitle().toString());
 				matchupList.set(position, matchups[position].displayMatchupDetails());
 				listview.setItemChecked(position, false);
-			}else if (MenuConstants.VIEW_GAME.equalsIgnoreCase(item.getTitle().toString())){
+			}else if (MenuConstants.MATCH_MENU.VIEW_GAME.equalsIgnoreCase(item.getTitle().toString())){
 				Intent intent = new Intent(activity, GameDayActivity.class);
 	        	intent.putExtra(IntentDataConstants.FIRST_TEAM, matchups[position].getTeam1());
 	        	intent.putExtra(IntentDataConstants.SECOND_TEAM, matchups[position].getTeam2());
@@ -62,10 +62,10 @@ public class MatchItemListener implements AdapterView.OnItemClickListener{
 			return false;
 		} 
 		});
-		popupMenu.getMenu().add("Pick None");
-		popupMenu.getMenu().add("Pick " + matchups[position].getTeam1());
-		popupMenu.getMenu().add("Pick " + matchups[position].getTeam2());
-		popupMenu.getMenu().add("View Game Score");
+		popupMenu.getMenu().add(MenuConstants.MATCH_MENU.NONE);
+		popupMenu.getMenu().add(MenuConstants.MATCH_MENU.PICK + matchups[position].getTeam1());
+		popupMenu.getMenu().add(MenuConstants.MATCH_MENU.PICK + matchups[position].getTeam2());
+		popupMenu.getMenu().add(MenuConstants.MATCH_MENU.VIEW_GAME);
 		popupMenu.show();
     } 
 

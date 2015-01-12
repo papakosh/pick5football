@@ -7,10 +7,7 @@ import com.bnavarro.pick5football.async.GameDayAsync;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.LayoutInflater;
 import android.view.MenuItem;
-import android.view.View;
-import android.view.ViewGroup;
 import android.widget.TextView;
 import com.bnavarro.pick5football.constants.*;
 public class GameDayActivity extends Activity {
@@ -50,25 +47,25 @@ public class GameDayActivity extends Activity {
 			if (gameDay.getQuarter()!= null){
 				String date = gameDay.getDate().substring(4, 6) + "/" + gameDay.getDate().substring(6, 8) + "/"+gameDay.getDate().substring(0, 4);
 				dateTextView.setText(date);
-    			if ((gameDay.getQuarter().contains(GameDayConstants.FINAL_SCORE)) || (gameDay.getQuarter().contains(GameDayConstants.HALF_TIME))){
+    			if ((gameDay.getQuarter().contains(XMLConstants.GAME_DAY.ATTR_FINAL_SCORE)) || (gameDay.getQuarter().contains(XMLConstants.GAME_DAY.ATTR_HALF_TIME))){
     				scoreTextView.setText (gameDay.getHomeTeam() + " " + gameDay.getHomeTeamScore() + " - " + gameDay.getVisitingTeam() + " " + gameDay.getVisitingTeamScore());
-    				if (gameDay.getQuarter().contains(GameDayConstants.FINAL_SCORE))
+    				if (gameDay.getQuarter().contains(XMLConstants.GAME_DAY.ATTR_FINAL_SCORE))
     					timeTextView.setText( "Final Score");
     				else
     					timeTextView.setText( "Half-time");
-    			}else if ((gameDay.getQuarter().contains(GameDayConstants.NOT_PLAYED))){
+    			}else if ((gameDay.getQuarter().contains(XMLConstants.GAME_DAY.ATTR_NOT_PLAYED))){
     				scoreTextView.setText (gameDay.getHomeTeam() + " and " + gameDay.getVisitingTeam() + " play at "+ gameDay.getTime() + " pm E.T.");
     				timeTextView.setText("");
     			}else {
     				scoreTextView.setText ( gameDay.getHomeTeam() + " " + gameDay.getHomeTeamScore() + " - " + gameDay.getVisitingTeam() + " " + gameDay.getVisitingTeamScore());
     				String quarterText;
-    				if (gameDay.getQuarter().contains(GameDayConstants.FIRST_QUARTER))
+    				if (gameDay.getQuarter().contains(XMLConstants.GAME_DAY.ATTR_FIRST_QUARTER))
     					quarterText = "1st Quarter";
-    				else if (gameDay.getQuarter().contains(GameDayConstants.SECOND_QUARTER))
+    				else if (gameDay.getQuarter().contains(XMLConstants.GAME_DAY.ATTR_SECOND_QUARTER))
     					quarterText = "2nd Quarter";
-    				else if (gameDay.getQuarter().contains(GameDayConstants.THIRD_QUARTER))
+    				else if (gameDay.getQuarter().contains(XMLConstants.GAME_DAY.ATTR_THIRD_QUARTER))
     					quarterText = "3rd Quarter";
-    				else if (gameDay.getQuarter().contains(GameDayConstants.FOURTH_QUARTER))
+    				else if (gameDay.getQuarter().contains(XMLConstants.GAME_DAY.ATTR_FOURTH_QUARTER))
     					quarterText = "4th Quarter";
     				else
     					quarterText = "Overtime";
@@ -81,7 +78,6 @@ public class GameDayActivity extends Activity {
     			dateTextView.setText("");
     		}
 		} catch (InterruptedException | ExecutionException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	      

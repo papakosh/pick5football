@@ -9,15 +9,6 @@ public class Matchup {
 	private String homeTeam;
 	private String favoredTeam;
 	private String headlineDetails;
-
-//	public Matchup(String team1, String team2, String homeTeam, String favoredTeam, Double spread ){
-//		this.team1=team1;
-//		this.team2=team2;
-//		//headline = team1.concat(" vs ").concat(team2);
-//		extendedInfo = new String[2];
-//		extendedInfo[0] = homeTeam;
-//		extendedInfo[1] = favoredTeam.concat(" favored by ").concat(spread.toString());
-//	}
 	
 	public Matchup (){
 		

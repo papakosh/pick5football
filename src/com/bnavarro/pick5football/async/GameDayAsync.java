@@ -38,9 +38,6 @@ public class GameDayAsync extends AsyncTask<Void, Long, GameDay> {
 		
 		XmlPullParser parser = Xml.newPullParser();
     	InputStream in_s;
-//    	gameDay = new GameDay ();
-//    	gameDay.setHomeTeam("NE");
-//    	gameDay.setVisitingTeam("DET");
     	
     	 File exst = Environment.getExternalStorageDirectory();
  		String exstPath = exst.getPath();
