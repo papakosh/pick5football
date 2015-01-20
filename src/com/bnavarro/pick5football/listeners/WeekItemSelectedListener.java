@@ -14,10 +14,16 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.AdapterView.OnItemSelectedListener;
 
-public class WeekItemListener implements OnItemSelectedListener {
+/** When a week is selected from the dropdown, the current week is 
+ * set and the matches are retrieved remotely and displayed to the user in a list format.
+ *  
+ * @author navman
+ *
+ */
+public class WeekItemSelectedListener implements OnItemSelectedListener {
 
 	private MainActivity activity;
-	public WeekItemListener (MainActivity activity){
+	public WeekItemSelectedListener (MainActivity activity){
 		this.activity = activity;
 	}
 	
@@ -51,7 +57,6 @@ public class WeekItemListener implements OnItemSelectedListener {
 
 	@Override
 	public void onNothingSelected(AdapterView<?> arg0) {
-		// TODO Auto-generated method stub
 
 	}
 

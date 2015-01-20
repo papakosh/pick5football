@@ -7,6 +7,12 @@ import com.bnavarro.pick5football.MainActivity;
 import android.view.MenuItem;
 import android.view.MenuItem.OnMenuItemClickListener;
 
+/** Gathers each of the user's pick selections and saves them to a file. 
+ * The file is named <Current Week #> - picks.txt (i.e. Week 17 - picks.txt for Week 17)
+ * 
+ * @author brian navarro
+ *
+ */
 public class SaveMatchesMenuItemClickListener implements
 		OnMenuItemClickListener {
 

@@ -18,10 +18,20 @@ import android.widget.ListView;
 import android.widget.PopupMenu;
 import android.widget.PopupMenu.OnMenuItemClickListener;
 
-public class MatchItemListener implements AdapterView.OnItemClickListener{
+/** Displays a popup menu when a match is clicked on.
+ * The following options are shown:
+ * <li>Pick None  (select no team)
+ * <li>Pick Team 1 (select team 1, team 1 value is dynamic) 
+ * <li>Pick Team 2 (select team 2, team 2 value is dynamic) 
+ * <li>View Game Score (view the live details of the match on GameDay screen)
+ * 
+ * @author brian navarro
+ *
+ */
+public class ViewMatchMenuItemClickListener implements AdapterView.OnItemClickListener{
 
 	MainActivity activity;
-	public MatchItemListener (MainActivity activity){
+	public ViewMatchMenuItemClickListener (MainActivity activity){
 		this.activity = activity;
 	}
 	@Override
@@ -43,7 +53,7 @@ public class MatchItemListener implements AdapterView.OnItemClickListener{
 	        	intent.putExtra(IntentDataConstants.FIRST_TEAM, matchups[position].getTeam1());
 	        	intent.putExtra(IntentDataConstants.SECOND_TEAM, matchups[position].getTeam2());
 	        	intent.putExtra(IntentDataConstants.HOME_TEAM, matchups[position].getHomeTeam());
-	        	intent.putExtra(IntentDataConstants.WEEK, "14");
+	        	intent.putExtra(IntentDataConstants.WEEK,  activity.getCurrentWeek());
 	        	
 	        	if (!CommonUtils.hasText(matchups[position].getPickSelection()))
 	        		listview.setItemChecked(position, false);

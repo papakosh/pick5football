@@ -7,7 +7,6 @@ import java.io.FileWriter;
 import java.io.IOException;
 
 import com.bnavarro.pick5football.MainActivity;
-import com.bnavarro.pick5football.Matchup;
 import com.bnavarro.pick5football.async.SubmitPicksAsync;
 import com.dropbox.client2.exception.DropboxException;
 
@@ -15,6 +14,14 @@ import android.view.MenuItem;
 import android.view.MenuItem.OnMenuItemClickListener;
 import android.widget.Toast;
 
+/** Gathers each of the user's pick selections,  validates that exactly five have been made, 
+ * saves them in a local file, and then pastes them into an email to be sent. 
+ * The file is named <Current Week #> - picks.txt (i.e. Week 17 - picks.txt for Week 17). The 
+ * user is prompted to choose the email provider (gmail or other) to be used to send the picks.
+ * 
+ * @author navman
+ *
+ */
 public class SubmitPicksMenuItemClickListener implements OnMenuItemClickListener {
 
 	private MainActivity activity;

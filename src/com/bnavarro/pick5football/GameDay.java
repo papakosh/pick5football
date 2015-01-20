@@ -1,5 +1,14 @@
 package com.bnavarro.pick5football;
 
+/**
+ * Stores game day information for a selected match. This includes home team, visiting team, 
+ * home score, visiting score, current quarter, start time and day, and game clock.
+ * 
+ * 
+ * 
+ * @author brian navarro
+ *
+ */
 public class GameDay {
 	private String homeTeam;
 	private String visitingTeam;
@@ -59,7 +68,5 @@ public class GameDay {
 	public void setTime(String time) {
 		this.time = time;
 	}
-	
-	
 
 }

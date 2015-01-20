@@ -1,5 +1,18 @@
 package com.bnavarro.pick5football;
 
+/** Stores match selection details. This includes:
+ * <li>team 1 name
+ * <li>team 2 name
+ * <li>the spread (0.0 means pick-em)
+ * <li>pick selection
+ * <li>home team (city of home team)
+ * <li>favored team (city of favored team)
+ * <li>Formatted version of the above fields for screen display
+ * </br>
+ * 
+ * @author brian navarro
+ *
+ */
 public class Matchup {
 
 	private String team1;

@@ -6,7 +6,13 @@ import org.xmlpull.v1.XmlPullParser;
 import org.xmlpull.v1.XmlPullParserException;
 
 import com.bnavarro.pick5football.GameDay;
+import com.bnavarro.pick5football.constants.XMLConstants;
 
+/** XML parser to extract game day fields from nfl score xml file.
+ * 
+ * @author navman
+ *
+ */
 public class GameDayParser {
 
 	private XmlPullParser xmlParser;
@@ -27,10 +33,8 @@ public class GameDayParser {
                     break;
                 case XmlPullParser.START_TAG:
                     name = xmlParser.getName();
-                    //System.out.println("NAME = " + name);
-                    if (name.equalsIgnoreCase("g")){
-                    	
-                    	if (xmlParser.getAttributeName(5).equalsIgnoreCase("K")){//game currently playing
+                    if (name.equalsIgnoreCase(XMLConstants.GAME_DAY.ROOT)){
+                    	if (xmlParser.getAttributeName(5).equalsIgnoreCase(XMLConstants.GAME_DAY.ATTR_NM_CLOCK)){//game currently playing
                     		if (gameDay.getHomeTeam().equalsIgnoreCase(xmlParser.getAttributeValue(6)) &&
                     		gameDay.getVisitingTeam().equalsIgnoreCase(xmlParser.getAttributeValue(9))	){
                     		gameDay.setDate(xmlParser.getAttributeValue(0).substring(0, 8));

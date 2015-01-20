@@ -13,19 +13,25 @@ import com.dropbox.client2.exception.DropboxException;
 import android.view.MenuItem;
 import android.view.MenuItem.OnMenuItemClickListener;
 
-public class RetrieveMatchesMenuItemClickListener implements
+/** Refreshes the matches list by pulling the latest xml from private repository,
+ * and then updating the current list with new match details (typically spread and who is favored).
+ * 
+ * @author brian navarro
+ *
+ */
+public class RefreshMatchesMenuItemClickListener implements
 		OnMenuItemClickListener {
 
 	private MainActivity activity;
 
-	public RetrieveMatchesMenuItemClickListener (MainActivity activity){
+	public RefreshMatchesMenuItemClickListener (MainActivity activity){
 		this.activity= activity;
 	}
 	
 	@Override
 	public boolean onMenuItemClick(MenuItem item) {
 		try {
-			activity.updateMatchups ();
+			activity.refreshMatchups ();
 			
 		} catch (FileNotFoundException e) {
 			e.printStackTrace();
@@ -37,13 +43,10 @@ public class RetrieveMatchesMenuItemClickListener implements
 		} catch (XmlPullParserException e) {
 			e.printStackTrace();
 		} catch (InterruptedException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} catch (ExecutionException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} catch (TimeoutException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		return false;

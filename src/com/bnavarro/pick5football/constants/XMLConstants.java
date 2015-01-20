@@ -1,15 +1,22 @@
 package com.bnavarro.pick5football.constants;
 
+/** Constants for when referring to xml data.
+ * 
+ * @author brian navarro
+ *
+ */
 public class XMLConstants {
 
 	public static class GAME_DAY{
-		public static String ATTR_FINAL_SCORE = "F";
-		public static String ATTR_HALF_TIME = "H";
-		public static String ATTR_NOT_PLAYED = "P";
-		public static String ATTR_FIRST_QUARTER = "1";
-		public static String ATTR_SECOND_QUARTER = "2";
-		public static String ATTR_THIRD_QUARTER = "3";
-		public static String ATTR_FOURTH_QUARTER = "4";
+		public static String ATTR_VAL_FINAL_SCORE = "F";
+		public static String ATTR_VAL_HALF_TIME = "H";
+		public static String ATTR_VAL_NOT_PLAYED = "P";
+		public static String ATTR_VAL_FIRST_QUARTER = "1";
+		public static String ATTR_VAL_SECOND_QUARTER = "2";
+		public static String ATTR_VAL_THIRD_QUARTER = "3";
+		public static String ATTR_VAL_FOURTH_QUARTER = "4";
+		public static String ATTR_NM_CLOCK = "K";
+		public static String ROOT = "g";
 	}
 	
 	public static class MATCHES{

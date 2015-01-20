@@ -23,11 +23,11 @@ import com.bnavarro.pick5football.async.SubmitPicksAsync;
 import com.bnavarro.pick5football.constants.MenuConstants;
 import com.bnavarro.pick5football.constants.XMLConstants;
 import com.bnavarro.pick5football.listeners.LoadMatchesMenuItemClickListener;
-import com.bnavarro.pick5football.listeners.MatchItemListener;
-import com.bnavarro.pick5football.listeners.RetrieveMatchesMenuItemClickListener;
+import com.bnavarro.pick5football.listeners.ViewMatchMenuItemClickListener;
+import com.bnavarro.pick5football.listeners.RefreshMatchesMenuItemClickListener;
 import com.bnavarro.pick5football.listeners.SaveMatchesMenuItemClickListener;
 import com.bnavarro.pick5football.listeners.SubmitPicksMenuItemClickListener;
-import com.bnavarro.pick5football.listeners.WeekItemListener;
+import com.bnavarro.pick5football.listeners.WeekItemSelectedListener;
 import com.dropbox.client2.DropboxAPI;
 import com.dropbox.client2.android.AndroidAuthSession;
 import com.dropbox.client2.exception.DropboxException;
@@ -50,9 +50,22 @@ import android.widget.ListView;
 import android.widget.Spinner;
 import android.widget.Toast;
 
-/**
+/** <P>Screen component for displaying the week selection which drives the list of matches displayed. </P>
+ *  <P>The upper right hand corner menu displays four options. 
+ * <li>submit picks
+ * <li>refresh matches
+ * <li>save picks
+ * <li>load picks
+ * </P> 
+ * </br>
+ * <P>After clicking on a match, a menu will display four options.
+ *  <li>Pick None - Unselects pick selection
+ *  <li>Pick Team 1 (dynamic) - Make team 1 pick selection
+ *  <li>Pick Team 2 (dynamic) - Make team 2 pick selection
+ *  <li>View Game Score - Check score of the game
+ * </P>
  * 
- * @author navman
+ * @author brian navarro
  *
  */
 public class MainActivity extends Activity {
@@ -65,9 +78,9 @@ public class MainActivity extends Activity {
 	private DropboxAPI<AndroidAuthSession> mDBApi;
 	final static private String APP_KEY = "1t3c5oggvr0hnhe";
 	final static private String APP_SECRET = "1zh1mvowilxj04d";
-	//final static private AccessType ACCESS_TYPE = AccessType.APP_FOLDER; //May be used in the future, not sure.
 	private String exstPath;
 	private File dataDir;
+	//final static private AccessType ACCESS_TYPE = AccessType.APP_FOLDER; //May be used in the future, not sure.
 	
 	//Interaction fields
 	private Matchup[] matchups;
@@ -88,9 +101,9 @@ public class MainActivity extends Activity {
         
 		initializeDataDirectory();
         
-		listview.setOnItemClickListener(new MatchItemListener(this));
-		spnGameWeeks.setOnItemSelectedListener(new WeekItemListener(this));
+		spnGameWeeks.setOnItemSelectedListener(new WeekItemSelectedListener(this));
     
+		listview.setOnItemClickListener(new ViewMatchMenuItemClickListener(this));
     }
     
     private void intializeComponents(){
@@ -144,7 +157,7 @@ public class MainActivity extends Activity {
     	menu.getItem(0).setOnMenuItemClickListener(submitPicksListener);
 
     	menu.add(MenuConstants.FILE_MENU.REFRESH_MATCHES);
-    	menu.getItem(1).setOnMenuItemClickListener(new RetrieveMatchesMenuItemClickListener(this));
+    	menu.getItem(1).setOnMenuItemClickListener(new RefreshMatchesMenuItemClickListener(this));
     	
     	menu.add(MenuConstants.FILE_MENU.SAVE_PICKS);
     	menu.getItem(2).setOnMenuItemClickListener(new SaveMatchesMenuItemClickListener(this));
@@ -218,7 +231,7 @@ public class MainActivity extends Activity {
 	
 	public void submitPicks (String picks) throws DropboxException, IOException{
 		File file = savePicks(picks);
-        new SubmitPicksAsync(getApplicationContext(), mDBApi, null, file).execute();
+        new SubmitPicksAsync(this, file,picks).execute();
 	}
 
 	public File savePicks(String picks) throws IOException {
@@ -264,7 +277,7 @@ public class MainActivity extends Activity {
 		}
 	}
 	
-	public void updateMatchups () throws DropboxException, IOException, XmlPullParserException, InterruptedException, ExecutionException, TimeoutException{
+	public void refreshMatchups () throws DropboxException, IOException, XmlPullParserException, InterruptedException, ExecutionException, TimeoutException{
 		 createMatchups(true);
 		 if (matchups == null){
 			 System.out.println ("matchups is null");
@@ -367,4 +380,7 @@ public class MainActivity extends Activity {
 		listview.setVisibility(View.VISIBLE);
     }
     
+    public String getCurrentWeek (){
+    	return currentWeek;
+    }
 }

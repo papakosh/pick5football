@@ -16,19 +16,22 @@ import com.bnavarro.pick5football.GameDay;
 import com.bnavarro.pick5football.GameDayParser;
 
 import android.app.Activity;
-import android.content.Context;
+
 import android.os.AsyncTask;
 import android.os.Environment;
 import android.util.Xml;
-import android.widget.Toast;
 
+/** Retrieve game day information from NFL.com 
+ * and parse it in a background task
+ * 
+ * @author brian navarro
+ *
+ */
 public class GameDayAsync extends AsyncTask<Void, Long, GameDay> {
 
-	private Context context;
 	private GameDay gameDay;
-	private Activity mainActivity;
-	public GameDayAsync (Context context, Activity mainActivity, GameDay gameDay){
-		this.context=context;
+	private Activity mainActivity; //likely used later when showing progress of downloading data in toast message
+	public GameDayAsync (Activity mainActivity, GameDay gameDay){
 		this.mainActivity=mainActivity;
 		this.gameDay=gameDay;
 	}
@@ -54,13 +57,10 @@ public class GameDayAsync extends AsyncTask<Void, Long, GameDay> {
 	        gdParser.parse();
 	        in_s.close();
 		} catch (FileNotFoundException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} catch (XmlPullParserException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} 
 		return gameDay;

@@ -14,6 +14,12 @@ import android.content.Context;
 import android.os.AsyncTask;
 import android.util.Log;
 
+/** Retrieve match selection details from private repository on dropbox
+and store the file locally.
+ * 
+ * @author brian navarro
+ *
+ */
 public class RetrieveMatchesAsync extends AsyncTask<Void, Long, Boolean> {
 
 	private DropboxAPI<?> mDBApi;

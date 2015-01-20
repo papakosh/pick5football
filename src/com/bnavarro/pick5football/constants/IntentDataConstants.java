@@ -1,5 +1,10 @@
 package com.bnavarro.pick5football.constants;
 
+/** Constants for values transferred between Activities
+ * 
+ * @author brian navarro
+ *
+ */
 public class IntentDataConstants {
 
 	public static String FIRST_TEAM = "Team 1";

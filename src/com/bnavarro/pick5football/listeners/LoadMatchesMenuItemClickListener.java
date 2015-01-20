@@ -5,6 +5,12 @@ import com.bnavarro.pick5football.MainActivity;
 import android.view.MenuItem;
 import android.view.MenuItem.OnMenuItemClickListener;
 
+/** Reads the match selections from a local file and displays them to the user. The selected file
+ * is <current week #> - picks.txt (i.e. Week 17 - picks.txt for week 17 picks).
+ * 
+ * @author brian navarro
+ *
+ */
 public class LoadMatchesMenuItemClickListener implements
 		OnMenuItemClickListener {
 
@@ -19,7 +25,6 @@ public class LoadMatchesMenuItemClickListener implements
 		try {
 			activity.loadPicks();
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		return false;
