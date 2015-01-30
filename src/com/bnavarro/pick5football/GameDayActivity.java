@@ -39,63 +39,43 @@ public class GameDayActivity extends Activity {
 	private String team2Data;
 	private String homeTeamData;
 	
+	private static String FIRST_QUARTER = "1st Quarter";
+	private static String SECOND_QUARTER = "2nd Quarter";
+	private static String THIRD_QUARTER = "3rd Quarter";
+	private static String FOURTH_QUARTER = "4th Quarter";
+	private static String OVERTIME_QUARTER="Overtime";
+	private static String HALF_TIME = "H";
+	private static String FINAL_SCORE = "F";
 	
+	/** Display screen components with values populated. 
+	 * 
+	 */
 	@Override
     protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 	    setContentView(R.layout.activity_gameday);
 	      
 	    initializeComponents();
-	    initializeData ();
+	    setDataValues ();
 	    
-	  	String homeTeam;
-	  	String visitingTeam;
+	  	String homeTeamSign;
+	  	String visitingTeamSign;
 	
   		if (team1Data.contains(homeTeamData)){
-  			homeTeam = TeamSign.getSignFromTeamName(team1Data);
-  			visitingTeam=TeamSign.getSignFromTeamName(team2Data);
+  			homeTeamSign = TeamSign.getSignFromTeamName(team1Data);
+  			visitingTeamSign=TeamSign.getSignFromTeamName(team2Data);
   		}else{
-  			homeTeam = TeamSign.getSignFromTeamName(team2Data);
-  			visitingTeam=TeamSign.getSignFromTeamName(team1Data);
+  			homeTeamSign = TeamSign.getSignFromTeamName(team2Data);
+  			visitingTeamSign=TeamSign.getSignFromTeamName(team1Data);
   		}
-  		gameDay.setHomeTeam(homeTeam);
-  		gameDay.setVisitingTeam(visitingTeam);
-  		
+  		MatchGameParms parms = new MatchGameParms (homeTeamSign,visitingTeamSign);
   		try {
-			gameDay = new GameDayAsync(GameDayActivity.this,gameDay).execute().get();
+			gameDay = new GameDayAsync(GameDayActivity.this,parms).execute().get();
 			
 			if (gameDay.getQuarter()!= null){
-				String date = gameDay.getDate().substring(4, 6) + "/" + gameDay.getDate().substring(6, 8) + "/"+gameDay.getDate().substring(0, 4);
-				dateTextView.setText(date);
-    			if ((gameDay.getQuarter().contains(XMLConstants.GAME_DAY.ATTR_VAL_FINAL_SCORE)) || (gameDay.getQuarter().contains(XMLConstants.GAME_DAY.ATTR_VAL_HALF_TIME))){
-    				scoreTextView.setText (gameDay.getHomeTeam() + " " + gameDay.getHomeTeamScore() + " - " + gameDay.getVisitingTeam() + " " + gameDay.getVisitingTeamScore());
-    				if (gameDay.getQuarter().contains(XMLConstants.GAME_DAY.ATTR_VAL_FINAL_SCORE))
-    					timeTextView.setText( "Final Score");
-    				else
-    					timeTextView.setText( "Half-time");
-    			}else if ((gameDay.getQuarter().contains(XMLConstants.GAME_DAY.ATTR_VAL_NOT_PLAYED))){
-    				scoreTextView.setText (gameDay.getHomeTeam() + " and " + gameDay.getVisitingTeam() + " play at "+ gameDay.getTime() + " pm E.T.");
-    				timeTextView.setText("");
-    			}else {
-    				scoreTextView.setText ( gameDay.getHomeTeam() + " " + gameDay.getHomeTeamScore() + " - " + gameDay.getVisitingTeam() + " " + gameDay.getVisitingTeamScore());
-    				String quarterText;
-    				if (gameDay.getQuarter().contains(XMLConstants.GAME_DAY.ATTR_VAL_FIRST_QUARTER))
-    					quarterText = "1st Quarter";
-    				else if (gameDay.getQuarter().contains(XMLConstants.GAME_DAY.ATTR_VAL_SECOND_QUARTER))
-    					quarterText = "2nd Quarter";
-    				else if (gameDay.getQuarter().contains(XMLConstants.GAME_DAY.ATTR_VAL_THIRD_QUARTER))
-    					quarterText = "3rd Quarter";
-    				else if (gameDay.getQuarter().contains(XMLConstants.GAME_DAY.ATTR_VAL_FOURTH_QUARTER))
-    					quarterText = "4th Quarter";
-    				else
-    					quarterText = "Overtime";
-    				
-    				timeTextView.setText(gameDay.getClock() + " left in the " + quarterText);
-    			}
+				displayGameDayDetailsForAvailableGame ();
     		}else {
-    			scoreTextView.setText ( "No Game Data Available");
-    			timeTextView.setText("");
-    			dateTextView.setText("");
+    			displayGameDayDetailsForUnavailableGame();
     		}
 		} catch (InterruptedException | ExecutionException e) {
 			e.printStackTrace();
@@ -114,6 +94,10 @@ public class GameDayActivity extends Activity {
         return super.onOptionsItemSelected(item);
     }
 	
+	/**
+	 * Initiliaze screen and data components
+	 * 
+	 */
 	private void initializeComponents (){
 	      dateTextView = (TextView)findViewById(R.id.dateText);
 	      scoreTextView = (TextView)findViewById(R.id.scoreText);
@@ -123,9 +107,97 @@ public class GameDayActivity extends Activity {
 	      gameDay = new GameDay ();
 	}
 
-	private void initializeData (){
+	/** Set global data values
+	 * 
+	 */
+	private void setDataValues (){
 		team1Data = intent.getStringExtra(IntentDataConstants.FIRST_TEAM);  
 	    team2Data = intent.getStringExtra(IntentDataConstants.SECOND_TEAM);  
   		homeTeamData = intent.getStringExtra(IntentDataConstants.HOME_TEAM);
+	}
+	
+	/** Display game day details for games to be played and being played. For both types,
+	 * the date of the game is always displayed. Refer to the individual methods called below for the additional details 
+	 * displayed for each type.
+	 * 
+	 * <li>Game Date text formatted: Month / Day / Year (12/07/2014)
+	 * 
+	 */
+	private void displayGameDayDetailsForAvailableGame(){
+			String date = CommonUtils.concatenate(gameDay.getDate().substring(4, 6), 
+												  "/", gameDay.getDate().substring(6, 8), 
+												  "/", gameDay.getDate().substring(0, 4));
+			dateTextView.setText(date);
+//			if ((gameDay.getQuarter().contains(XMLConstants.GAME_DAY.ATTR_VAL_FINAL_SCORE)) 
+//					|| (gameDay.getQuarter().contains(XMLConstants.GAME_DAY.ATTR_VAL_HALF_TIME))){
+//				displayGameDetailsForScoredGame();
+//			}else
+			
+			if ((gameDay.getQuarter().contains(XMLConstants.GAME_DAY.ATTR_VAL_NOT_PLAYED))){
+				displayGameDetailsForUnplayedGame();
+			}else {
+				displayGameDetailsForInProgressGame();
+		}
+	}
+
+	/** Display game day details for games being played.
+	 *  <li>Current score formatted: Home Team Name and Home Team Score - Visiting Team Name and Visiting Team Score (CHI 21 - TB 7)
+	 *  <li>Quarter details formatted: Time left on the clock in quarter (14:50 left in the 4th quarter)
+	 */
+	private void displayGameDetailsForInProgressGame() {
+		scoreTextView.setText ( CommonUtils.concatenate(
+								gameDay.getHomeTeam(), " " , gameDay.getHomeTeamScore().toString() , 
+								" - " ,
+								gameDay.getVisitingTeam() , " " , gameDay.getVisitingTeamScore().toString()));
+		if (HALF_TIME.equals(gameDay.getQuarter())){
+			timeTextView.setText( "Half-time");
+		}else if (FINAL_SCORE.equals(gameDay.getQuarter())){
+			timeTextView.setText( "Final Score");
+		}else{
+			String quarterText;
+			if (XMLConstants.GAME_DAY.ATTR_VAL_FIRST_QUARTER.equals(gameDay.getQuarter()))
+				quarterText = FIRST_QUARTER;
+			else if (XMLConstants.GAME_DAY.ATTR_VAL_SECOND_QUARTER.equals(gameDay.getQuarter()))
+				quarterText = SECOND_QUARTER;
+			else if (XMLConstants.GAME_DAY.ATTR_VAL_THIRD_QUARTER.equals(gameDay.getQuarter()))
+				quarterText = THIRD_QUARTER;
+			else if (XMLConstants.GAME_DAY.ATTR_VAL_FOURTH_QUARTER.equals(gameDay.getQuarter()))
+				quarterText = FOURTH_QUARTER;
+			else
+				quarterText = OVERTIME_QUARTER;
+			
+			timeTextView.setText(gameDay.getClock() + " left in the " + quarterText);
+		}
+	}
+
+	
+	/** Display game details for games to be played.
+	 * <li>Game details text formatted: Home Team Name and Visting Team Name play at game time E.T. (CHI and TB play at 1:00 PM ET)
+	 * 
+	 */
+	private void displayGameDetailsForUnplayedGame() {
+		scoreTextView.setText (gameDay.getHomeTeam() + " and " + gameDay.getVisitingTeam() + " play at "+ gameDay.getTime() + " pm E.T.");
+		timeTextView.setText("");
+	}
+
+	/** Display game details for games that are at half-time or are final.
+	 * <li>Current score formatted: Home Team Name and Home Team Score - Visiting Team Name and Visiting Team Score (CHI 21 - TB 7)
+	 * <li><li>Quarter details formatted: Time left on the clock in quarter (14:50 left in the 4th quarter)
+	 */
+//	private void displayGameDetailsForScoredGame() {
+//		scoreTextView.setText (CommonUtils.concatenate(
+//								   gameDay.getHomeTeam(), " ",gameDay.getHomeTeamScore().toString(), 
+//								   " - ",  
+//								   gameDay.getVisitingTeam() , " " , gameDay.getVisitingTeamScore().toString()));
+//		if (gameDay.getQuarter().contains(XMLConstants.GAME_DAY.ATTR_VAL_FINAL_SCORE))
+//			timeTextView.setText( "Final Score");
+//		else
+//			timeTextView.setText( "Half-time");
+//	}
+	
+	private void displayGameDayDetailsForUnavailableGame() {
+		scoreTextView.setText ( "No Game Data Available");
+		timeTextView.setText("");
+		dateTextView.setText("");
 	}
 }

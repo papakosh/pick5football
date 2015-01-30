@@ -17,4 +17,12 @@ public class CommonUtils {
 	public static boolean hasText (String value){
 		return value != null && value.trim().length() > 0;
 	}
+	
+	public static String concatenate (String... values){
+		StringBuffer joinedString = new StringBuffer("");
+		for (int i = 0; i<values.length; i++){
+			joinedString.append(values[i]);
+		}
+		return joinedString.toString();
+	}
 }

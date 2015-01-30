@@ -16,15 +16,14 @@ import com.bnavarro.pick5football.constants.XMLConstants;
 public class GameDayParser {
 
 	private XmlPullParser xmlParser;
-	private GameDay gameDay;
-	public GameDayParser (XmlPullParser xmlParser, GameDay gameDay){
+	public GameDayParser (XmlPullParser xmlParser){
 		this.xmlParser=xmlParser;
-		this.gameDay=gameDay;
 	}
 	
-	public GameDay parse () throws XmlPullParserException, IOException{
+	public GameDay parse (MatchGameParms matchGameParms) throws XmlPullParserException, IOException{
 		
         int eventType = xmlParser.getEventType();
+        GameDay gameDay = new GameDay ();
         while (eventType != XmlPullParser.END_DOCUMENT){
             String name = null;
             
@@ -35,19 +34,23 @@ public class GameDayParser {
                     name = xmlParser.getName();
                     if (name.equalsIgnoreCase(XMLConstants.GAME_DAY.ROOT)){
                     	if (xmlParser.getAttributeName(5).equalsIgnoreCase(XMLConstants.GAME_DAY.ATTR_NM_CLOCK)){//game currently playing
-                    		if (gameDay.getHomeTeam().equalsIgnoreCase(xmlParser.getAttributeValue(6)) &&
-                    		gameDay.getVisitingTeam().equalsIgnoreCase(xmlParser.getAttributeValue(9))	){
-                    		gameDay.setDate(xmlParser.getAttributeValue(0).substring(0, 8));
-                    		gameDay.setClock(xmlParser.getAttributeValue(5));
-	                    	gameDay.setQuarter(xmlParser.getAttributeValue(4));
-	                    	gameDay.setTime(xmlParser.getAttributeValue(3));
-	                    	gameDay.setHomeTeamScore(Integer.valueOf(xmlParser.getAttributeValue(8)));
-	                    	gameDay.setVisitingTeamScore(Integer.valueOf(xmlParser.getAttributeValue(11)));
+                    		if (matchGameParms.getHomeTeamSign().equalsIgnoreCase(xmlParser.getAttributeValue(6)) &&
+                    				matchGameParms.getVisitingTeamSign().equalsIgnoreCase(xmlParser.getAttributeValue(9))	){
+                    			gameDay.setHomeTeam(xmlParser.getAttributeValue(6));
+                    			gameDay.setVisitingTeam(xmlParser.getAttributeValue(9));
+                    			gameDay.setDate(xmlParser.getAttributeValue(0).substring(0, 8));
+                    			gameDay.setClock(xmlParser.getAttributeValue(5));
+                    			gameDay.setQuarter(xmlParser.getAttributeValue(4));
+	                    		gameDay.setTime(xmlParser.getAttributeValue(3));
+	                    		gameDay.setHomeTeamScore(Integer.valueOf(xmlParser.getAttributeValue(8)));
+	                    		gameDay.setVisitingTeamScore(Integer.valueOf(xmlParser.getAttributeValue(11)));
                     		}
                     	}  
                     	else{//game not started/finished
-	                    	if (gameDay.getHomeTeam().equalsIgnoreCase(xmlParser.getAttributeValue(5)) &&
-	                    		gameDay.getVisitingTeam().equalsIgnoreCase(xmlParser.getAttributeValue(8))	){
+	                    	if (matchGameParms.getHomeTeamSign().equalsIgnoreCase(xmlParser.getAttributeValue(5)) &&
+	                    			matchGameParms.getVisitingTeamSign().equalsIgnoreCase(xmlParser.getAttributeValue(8))	){
+	                    		gameDay.setHomeTeam(xmlParser.getAttributeValue(5));
+                    			gameDay.setVisitingTeam(xmlParser.getAttributeValue(8));
 	                    		gameDay.setDate(xmlParser.getAttributeValue(0).substring(0, 8));
 		                    	gameDay.setQuarter(xmlParser.getAttributeValue(4));
 		                    	gameDay.setTime(xmlParser.getAttributeValue(3));
@@ -61,6 +64,6 @@ public class GameDayParser {
             eventType = xmlParser.next();
         }
         
-        return null;
+        return gameDay;
 	}
 }

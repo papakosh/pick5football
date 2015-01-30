@@ -14,9 +14,9 @@ import org.xmlpull.v1.XmlPullParserException;
 
 import com.bnavarro.pick5football.GameDay;
 import com.bnavarro.pick5football.GameDayParser;
+import com.bnavarro.pick5football.MatchGameParms;
 
 import android.app.Activity;
-
 import android.os.AsyncTask;
 import android.os.Environment;
 import android.util.Xml;
@@ -29,11 +29,12 @@ import android.util.Xml;
  */
 public class GameDayAsync extends AsyncTask<Void, Long, GameDay> {
 
-	private GameDay gameDay;
+	//private GameDay gameDay;
+	private MatchGameParms matchGameParms;
 	private Activity mainActivity; //likely used later when showing progress of downloading data in toast message
-	public GameDayAsync (Activity mainActivity, GameDay gameDay){
+	public GameDayAsync (Activity mainActivity, MatchGameParms matchGameParms){
 		this.mainActivity=mainActivity;
-		this.gameDay=gameDay;
+		this.matchGameParms=matchGameParms;
 	}
 
 	@Override
@@ -45,6 +46,7 @@ public class GameDayAsync extends AsyncTask<Void, Long, GameDay> {
     	 File exst = Environment.getExternalStorageDirectory();
  		String exstPath = exst.getPath();
  		File dataDir = new File(exstPath+"/Pick5FootballData");
+ 		GameDay gameDay = null;
 		try {
 			URL url = new URL ("http://www.nfl.com/liveupdate/scorestrip/ss.xml");
 			File file = new File (dataDir.getAbsolutePath() + "/" +"ss.xml");
@@ -53,8 +55,8 @@ public class GameDayAsync extends AsyncTask<Void, Long, GameDay> {
 		    parser.setFeature(XmlPullParser.FEATURE_PROCESS_NAMESPACES, false);
 	        parser.setInput(in_s, null);
 	        
-	        GameDayParser gdParser = new GameDayParser (parser, gameDay);
-	        gdParser.parse();
+	        GameDayParser gdParser = new GameDayParser (parser);
+	        gameDay = gdParser.parse(matchGameParms);
 	        in_s.close();
 		} catch (FileNotFoundException e) {
 			e.printStackTrace();
@@ -62,7 +64,7 @@ public class GameDayAsync extends AsyncTask<Void, Long, GameDay> {
 			e.printStackTrace();
 		} catch (IOException e) {
 			e.printStackTrace();
-		} 
+		}
 		return gameDay;
 	}
 	
