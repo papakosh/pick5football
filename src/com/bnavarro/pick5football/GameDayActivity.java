@@ -47,7 +47,7 @@ public class GameDayActivity extends Activity {
 	private static String HALF_TIME = "H";
 	private static String FINAL_SCORE = "F";
 	
-	/** Display screen components with values populated. 
+	/** Display screen components with values populated.
 	 * 
 	 */
 	@Override
@@ -61,6 +61,7 @@ public class GameDayActivity extends Activity {
 	  	String homeTeamSign;
 	  	String visitingTeamSign;
 	
+	  	//Determine team signs (abbreviations) for home and visiting teams
   		if (team1Data.contains(homeTeamData)){
   			homeTeamSign = TeamSign.getSignFromTeamName(team1Data);
   			visitingTeamSign=TeamSign.getSignFromTeamName(team2Data);
@@ -68,10 +69,14 @@ public class GameDayActivity extends Activity {
   			homeTeamSign = TeamSign.getSignFromTeamName(team2Data);
   			visitingTeamSign=TeamSign.getSignFromTeamName(team1Data);
   		}
+  		
+  		//Set match criteria for finding a specific game. 
   		MatchGameParms parms = new MatchGameParms (homeTeamSign,visitingTeamSign);
   		try {
+  			//Initialize new game day object for specific game
 			gameDay = new GameDayAsync(GameDayActivity.this,parms).execute().get();
 			
+			//Display specific game details (time, score, quarter, etc.) when available.
 			if (gameDay.getQuarter()!= null){
 				displayGameDayDetailsForAvailableGame ();
     		}else {
@@ -116,7 +121,7 @@ public class GameDayActivity extends Activity {
   		homeTeamData = intent.getStringExtra(IntentDataConstants.HOME_TEAM);
 	}
 	
-	/** Display game day details for games to be played and being played. For both types,
+	/** Display game day details for games to be played and played. For both types,
 	 * the date of the game is always displayed. Refer to the individual methods called below for the additional details 
 	 * displayed for each type.
 	 * 
@@ -127,24 +132,19 @@ public class GameDayActivity extends Activity {
 			String date = CommonUtils.concatenate(gameDay.getDate().substring(4, 6), 
 												  "/", gameDay.getDate().substring(6, 8), 
 												  "/", gameDay.getDate().substring(0, 4));
-			dateTextView.setText(date);
-//			if ((gameDay.getQuarter().contains(XMLConstants.GAME_DAY.ATTR_VAL_FINAL_SCORE)) 
-//					|| (gameDay.getQuarter().contains(XMLConstants.GAME_DAY.ATTR_VAL_HALF_TIME))){
-//				displayGameDetailsForScoredGame();
-//			}else
-			
+			dateTextView.setText(date);			
 			if ((gameDay.getQuarter().contains(XMLConstants.GAME_DAY.ATTR_VAL_NOT_PLAYED))){
 				displayGameDetailsForUnplayedGame();
 			}else {
-				displayGameDetailsForInProgressGame();
+				displayGameDetailsForPlayedGame();
 		}
 	}
 
-	/** Display game day details for games being played.
+	/** Display game day details for games played (include in-progress and finished).
 	 *  <li>Current score formatted: Home Team Name and Home Team Score - Visiting Team Name and Visiting Team Score (CHI 21 - TB 7)
 	 *  <li>Quarter details formatted: Time left on the clock in quarter (14:50 left in the 4th quarter)
 	 */
-	private void displayGameDetailsForInProgressGame() {
+	private void displayGameDetailsForPlayedGame() {
 		scoreTextView.setText ( CommonUtils.concatenate(
 								gameDay.getHomeTeam(), " " , gameDay.getHomeTeamScore().toString() , 
 								" - " ,
@@ -179,22 +179,11 @@ public class GameDayActivity extends Activity {
 		scoreTextView.setText (gameDay.getHomeTeam() + " and " + gameDay.getVisitingTeam() + " play at "+ gameDay.getTime() + " pm E.T.");
 		timeTextView.setText("");
 	}
-
-	/** Display game details for games that are at half-time or are final.
-	 * <li>Current score formatted: Home Team Name and Home Team Score - Visiting Team Name and Visiting Team Score (CHI 21 - TB 7)
-	 * <li><li>Quarter details formatted: Time left on the clock in quarter (14:50 left in the 4th quarter)
-	 */
-//	private void displayGameDetailsForScoredGame() {
-//		scoreTextView.setText (CommonUtils.concatenate(
-//								   gameDay.getHomeTeam(), " ",gameDay.getHomeTeamScore().toString(), 
-//								   " - ",  
-//								   gameDay.getVisitingTeam() , " " , gameDay.getVisitingTeamScore().toString()));
-//		if (gameDay.getQuarter().contains(XMLConstants.GAME_DAY.ATTR_VAL_FINAL_SCORE))
-//			timeTextView.setText( "Final Score");
-//		else
-//			timeTextView.setText( "Half-time");
-//	}
 	
+	/** Display game details for games unavailable.
+	 * <li>Game details text formatted: No Game Data Available
+	 * 
+	 */
 	private void displayGameDayDetailsForUnavailableGame() {
 		scoreTextView.setText ( "No Game Data Available");
 		timeTextView.setText("");
