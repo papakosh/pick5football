@@ -60,37 +60,51 @@ public class Matchup {
 		this.pickSelection = pickSelection;
 	}
 	
+	/** Return match details text in the format of: 
+	 * <li>team 1 vs team 2 (Chicago Bears vs New England Patriots)
+	 * <li>newline and indent home team at home ( Chicago at home)
+	 * <li>if favorite exists, newline and indent favored team favored by spread points ( New England favored by 7.0 points)
+	 * <li>else no favorite, new line and indent No Favorite ( No Favorite)
+	 * 
+	 * @return formatted <code>String</code>
+	 */
 	public String displayMatchupDetails (){
 		if (pickSelection == null)
-			headlineDetails = team1.concat(" vs ").concat(team2);
+			headlineDetails = CommonUtils.concatenate(team1, "vs ", team2);
 		String favoredDetails = "";
-		String homeDetails = "\n\t".concat(homeTeam).concat(" at home ");
-		if (!favoredTeam.equalsIgnoreCase("none"))
-			favoredDetails = "\n\t".concat(favoredTeam).concat(" favored by ").concat(spread.toString()).concat(" points");
+		String homeDetails =  CommonUtils.concatenate("\n\t", homeTeam, " at home ");
+		if (!"none".equals(favoredTeam))
+			favoredDetails = CommonUtils.concatenate ("\n\t",favoredTeam," favored by ",spread.toString(), " points");
 		else{
-			favoredDetails = "\n\t".concat("No favorite");
+			favoredDetails = CommonUtils.concatenate("\n\t","No favorite");
 		}
-		return headlineDetails.concat(homeDetails).concat(favoredDetails);
+		return CommonUtils.concatenate(headlineDetails,homeDetails,favoredDetails);
 	}
 
+	/** Return modified match details to include pick selection (team 1 or team 2)
+	 * <li>If team 1, then '>' is appended to team 1 to indicate team 1 chosen
+	 * <li>If team 2, then '<' is appended to team 2 to indicate team 2 chosen
+	 * <li>If none, then pick selection removed ('<' and '>' replaced with '')
+	 * 
+	 * @param pickInformation
+	 */
 	public void makePick (String pickInformation){
-		System.out.println("your pick is " + pickInformation);
-		headlineDetails = team1.concat(" vs ").concat(team2);
+		headlineDetails = CommonUtils.concatenate(team1," vs ",team2);
 		if (pickInformation != null){
 			if (pickInformation.contains(team1)){
-				headlineDetails=headlineDetails.replace(">", "");
-				headlineDetails=headlineDetails.replace("<","");
+				headlineDetails=CommonUtils.replace(headlineDetails, ">", "");
+				headlineDetails=CommonUtils.replace(headlineDetails, "<","");
 				pickSelection = team1;
-				headlineDetails=">".concat(headlineDetails);
+				headlineDetails=CommonUtils.concatenate(">",headlineDetails);
 			}
 			else if (pickInformation.contains(team2)){
-				headlineDetails=headlineDetails.replace(">", "");
-				headlineDetails=headlineDetails.replace("<","");
+				headlineDetails=CommonUtils.replace(headlineDetails,">", "");
+				headlineDetails=CommonUtils.replace(headlineDetails,"<","");
 				pickSelection = team2;
-				headlineDetails=headlineDetails.concat("<");
+				headlineDetails=CommonUtils.concatenate(headlineDetails,"<");
 			}else{
-				headlineDetails=headlineDetails.replace(">", "");
-				headlineDetails=headlineDetails.replace("<","");
+				headlineDetails=CommonUtils.replace(headlineDetails,">", "");
+				headlineDetails=CommonUtils.replace(headlineDetails,"<","");
 				pickSelection = null;
 			}
 		}

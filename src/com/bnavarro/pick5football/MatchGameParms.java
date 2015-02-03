@@ -1,5 +1,12 @@
 package com.bnavarro.pick5football;
 
+/** Search parameters for matching on a game
+ * <li>Home team sign
+ * <li<Visiting team sign
+ * 
+ * @author brian navarro
+ *
+ */
 public class MatchGameParms {
 
 	private String homeTeamSign;

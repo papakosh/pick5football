@@ -18,11 +18,23 @@ public class CommonUtils {
 		return value != null && value.trim().length() > 0;
 	}
 	
+	/** Join together individual string values into a single string
+	 * 
+	 * @param values An array of <code>String</code>s to be joined together
+	 * @return <code>String</code>
+	 */
 	public static String concatenate (String... values){
 		StringBuffer joinedString = new StringBuffer("");
 		for (int i = 0; i<values.length; i++){
 			joinedString.append(values[i]);
 		}
 		return joinedString.toString();
+	}
+	
+	public static String replace (String original, String oldChar, String newChar){
+		if (original == null)
+			return "";
+			
+		return original.replace(oldChar, newChar);
 	}
 }

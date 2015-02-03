@@ -1,7 +1,7 @@
 package com.bnavarro.pick5football;
 
-/** Matches a team name to a two or three letter team sign (i.e. ARI for Arizona Cardinals, 
- * DET for Detroit Lions)
+/** Matches a team name to a two or three letter team sign 
+ * (i.e. ARI for Arizona Cardinals, DET for Detroit Lions)
  * 
  * @author brian navarro
  *
