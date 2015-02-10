@@ -30,11 +30,20 @@ public class SubmitPicksMenuItemClickListener implements OnMenuItemClickListener
 		this.activity= activity;
 	}
 	
+	/** Collects up the user's pick selections and stores them in a <code>StringBuffer</code>.
+	 *  Then the picks are validated to be exactly five. Error message displayed otherwise.
+	 *  <li>More than five Error: Too few picks entered. Please select five picks.
+	 *  <li>Less than five Error: Too many picks entered. Please, select five picks.
+	 *  
+	 *  If exactly five then the execute method from class <code>SubmitPicksAsync</code> is called.
+	 * 
+	 */
 	@Override
-	public boolean onMenuItemClick(MenuItem item) {
-				
+	public boolean onMenuItemClick(MenuItem item) {	
 		Integer count = 0;
 		StringBuffer yourPicks = new StringBuffer("");
+		
+		//Gather each pick selection and append it to StringBuffer. Also count them.
 		for (int i = 0; i < activity.getMatchups().length; i++){
 			if (activity.getMatchups()[i].getPickSelection() != null){
 				yourPicks.append(activity.getMatchups()[i].getPickSelection());
@@ -43,6 +52,7 @@ public class SubmitPicksMenuItemClickListener implements OnMenuItemClickListener
 			}
 		}
 		
+		//Validate the number of picks to be exactly five, else throw errors.
 		try {
 			if (count.intValue() == 5){
 				submitPicks (yourPicks.toString());
@@ -75,6 +85,12 @@ public class SubmitPicksMenuItemClickListener implements OnMenuItemClickListener
 		return false;
 	}
 	
+	/**
+	 * 
+	 * @param picks
+	 * @throws DropboxException
+	 * @throws IOException
+	 */
 	public void submitPicks (String picks) throws DropboxException, IOException{
 		File file = new File(activity.getDataDirectory().getAbsolutePath() + "/picks.txt");
 		file.createNewFile();
@@ -82,7 +98,6 @@ public class SubmitPicksMenuItemClickListener implements OnMenuItemClickListener
         BufferedWriter out = new BufferedWriter(filewriter);
         out.write(picks);
         out.close();
-        //new SubmitPicksAsync(activity.getApplicationContext(), activity.getDropboxAccess(), null, file).execute();
         new SubmitPicksAsync(this.activity, file, picks).execute();
 	}
 }

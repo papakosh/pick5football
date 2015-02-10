@@ -22,6 +22,10 @@ public class SaveMatchesMenuItemClickListener implements
 		this.activity= activity;
 	}
 	
+	/** Collects up the user's pick selections and stores them in a <code>StringBuffer</code>.
+	 *  Afterwards, the savePicks method from class <code>MainActivity</code> is called.
+	 * 
+	 */
 	@Override
 	public boolean onMenuItemClick(MenuItem item) {
 		StringBuffer yourPicks = new StringBuffer("");

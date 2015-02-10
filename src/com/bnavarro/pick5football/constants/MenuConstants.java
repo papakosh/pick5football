@@ -1,5 +1,12 @@
 package com.bnavarro.pick5football.constants;
 
+/** Menu item constants for the following menus: 
+ * <li>MATCH_MENU
+ * <li>FILE_MENU
+ *  
+ * @author brian navarro
+ *
+ */
 public class MenuConstants {
 
 	public static class MATCH_MENU{

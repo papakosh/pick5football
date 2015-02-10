@@ -15,17 +15,25 @@ public class SubmitPicksAsync extends AsyncTask<Void, Long, Boolean> {
 
 	private Activity mainActivity;
 	private String mPicks;
+	
+	private static String EMAIL_MESSAGE ="message/rfc822";
+	private static String EMAIL_SUBJECT = "NFL Picks";
+	
 	public SubmitPicksAsync(Activity mainActivity, File file, String picks) {
 		this.mainActivity=mainActivity;
 		mPicks=picks;
 	}
-	
+
+	/**
+	 * Background send mail task to submit picks using user's mail client. Picks are added
+	 * automatically, but the user will need to enter the recipient's email address.
+	 */
 	@Override
 	protected Boolean doInBackground(Void... params) {	
 		 Intent i = new Intent(Intent.ACTION_SEND);
-		 i.setType("message/rfc822");
+		 i.setType(EMAIL_MESSAGE);
 		 i.putExtra(Intent.EXTRA_EMAIL  , new String[]{"recipient@example.com"});
-		 i.putExtra(Intent.EXTRA_SUBJECT, "NFL Picks");
+		 i.putExtra(Intent.EXTRA_SUBJECT, EMAIL_SUBJECT);
 		 i.putExtra(Intent.EXTRA_TEXT   , mPicks);
 		 
 		 mainActivity.startActivity(Intent.createChooser(i, "Send mail..."));
