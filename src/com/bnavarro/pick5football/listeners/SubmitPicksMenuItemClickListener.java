@@ -14,12 +14,17 @@ import android.view.MenuItem;
 import android.view.MenuItem.OnMenuItemClickListener;
 import android.widget.Toast;
 
-/** Gathers each of the user's pick selections,  validates that exactly five have been made, 
- * saves them in a local file, and then pastes them into an email to be sent. 
- * The file is named <Current Week #> - picks.txt (i.e. Week 17 - picks.txt for Week 17). The 
- * user is prompted to choose the email provider (gmail or other) to be used to send the picks.
+/** <li>Gathers each of the user's pick selections
+ * <li>validates that exactly five have been made 
+ * <li>saves them in a local file
+ * <li>pastes them into an email to be sent. 
  * 
- * @author navman
+ * <br></br>
+ * 
+ * <p>*Note* The file is named <Current Week #> - picks.txt (i.e. Week 17 - picks.txt for Week 17). The 
+ * user is prompted to choose the email provider (gmail or other) to be used to send the picks.</p>
+ * 
+ * @author brian navarro
  *
  */
 public class SubmitPicksMenuItemClickListener implements OnMenuItemClickListener {
@@ -85,19 +90,27 @@ public class SubmitPicksMenuItemClickListener implements OnMenuItemClickListener
 		return false;
 	}
 	
-	/**
+	/** Creates a local text file with football picks and then calls 
+	 * method execute from class <code>SubmitPicksAsync</code> to handle 
+	 * submitting them in the background.
 	 * 
-	 * @param picks
+	 * @param picks <code>String</code> value holding football picks to be written to file then submitted
+	 * 
 	 * @throws DropboxException
 	 * @throws IOException
 	 */
-	public void submitPicks (String picks) throws DropboxException, IOException{
-		File file = new File(activity.getDataDirectory().getAbsolutePath() + "/picks.txt");
+	private void submitPicks (String picks) throws DropboxException, IOException{
+		//creates local file 
+		File file = new File(activity.getDataDirectory().getAbsolutePath() + "/" + activity.getCurrentWeek() + "-picks.txt");
 		file.createNewFile();
 	    FileWriter filewriter = new FileWriter(file);
+	    
+	    //writes to local file
         BufferedWriter out = new BufferedWriter(filewriter);
         out.write(picks);
         out.close();
-        new SubmitPicksAsync(this.activity, file, picks).execute();
+        
+        //background job to submit picks
+        new SubmitPicksAsync(this.activity, picks).execute();
 	}
 }

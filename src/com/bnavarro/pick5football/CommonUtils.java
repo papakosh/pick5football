@@ -37,4 +37,12 @@ public class CommonUtils {
 			
 		return original.replace(oldChar, newChar);
 	}
+	
+	public static  boolean isArrayEmpty (Matchup[] array){
+		if (array == null)
+			return true;
+		else if (array.length == 0)
+			return true;
+		return false;
+	}
 }

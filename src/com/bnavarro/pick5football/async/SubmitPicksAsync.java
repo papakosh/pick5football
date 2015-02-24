@@ -19,7 +19,7 @@ public class SubmitPicksAsync extends AsyncTask<Void, Long, Boolean> {
 	private static String EMAIL_MESSAGE ="message/rfc822";
 	private static String EMAIL_SUBJECT = "NFL Picks";
 	
-	public SubmitPicksAsync(Activity mainActivity, File file, String picks) {
+	public SubmitPicksAsync(Activity mainActivity, String picks) {
 		this.mainActivity=mainActivity;
 		mPicks=picks;
 	}

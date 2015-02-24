@@ -1,9 +1,13 @@
 package com.bnavarro.pick5football.listeners;
 
+import java.io.BufferedWriter;
+import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.FileWriter;
 import java.io.IOException;
 
 import com.bnavarro.pick5football.MainActivity;
+
 import android.view.MenuItem;
 import android.view.MenuItem.OnMenuItemClickListener;
 
@@ -36,7 +40,7 @@ public class SaveMatchesMenuItemClickListener implements
 					yourPicks.append("\n");
 				}
 			}
-			activity.savePicks(yourPicks.toString());
+			savePicks(yourPicks.toString());
 			
 		} catch (FileNotFoundException e) {
 			e.printStackTrace();
@@ -47,6 +51,24 @@ public class SaveMatchesMenuItemClickListener implements
 		return false;
 	}
 	
+	/** Creates a local text file with football picks
+	 * 
+	 * @param picks
+	 * @return
+	 * @throws IOException
+	 */
+	public File savePicks(String picks) throws IOException {
+		//creates local file 
+		File file = new File(activity.getDataDirectory().getAbsolutePath() + "/" + activity.getCurrentWeek() + "-picks.txt");
+		file.createNewFile();
+	    FileWriter filewriter = new FileWriter(file);
+	    
+	    //writes to local file
+	    BufferedWriter out = new BufferedWriter(filewriter);
+	    out.write(picks);
+	    out.close();
+	return file;
+}
 	
 
 }

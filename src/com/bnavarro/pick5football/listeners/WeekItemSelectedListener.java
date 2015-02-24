@@ -17,7 +17,7 @@ import android.widget.AdapterView.OnItemSelectedListener;
 /** When a week is selected from the dropdown, the current week is 
  * set and the matches are retrieved remotely and displayed to the user in a list format.
  *  
- * @author navman
+ * @author brian navarro
  *
  */
 public class WeekItemSelectedListener implements OnItemSelectedListener {
@@ -27,6 +27,10 @@ public class WeekItemSelectedListener implements OnItemSelectedListener {
 		this.activity = activity;
 	}
 	
+	/** On selecting an item from the dropdown, create the
+	 * matchup list for that week and display
+	 * 
+	 */
 	@Override
 	public void onItemSelected(AdapterView<?> parent, View arg1,
 			int pos, long id) {
@@ -38,6 +42,7 @@ public class WeekItemSelectedListener implements OnItemSelectedListener {
 			
 			ArrayAdapter<String> adapter1 = new ArrayAdapter<String>(parent.getContext(),
 			android.R.layout.simple_list_item_activated_1, activity.getMatchupList());
+			
 			activity.setListAdapter(adapter1);
 			
 		} catch (XmlPullParserException e) {

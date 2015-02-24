@@ -1,12 +1,8 @@
 package com.bnavarro.pick5football;
 
 import java.io.BufferedInputStream;
-import java.io.BufferedReader;
-import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileInputStream;
-import java.io.FileReader;
-import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.ArrayList;
@@ -19,7 +15,6 @@ import org.xmlpull.v1.XmlPullParserException;
 
 import com.bnavarro.pick5football.R;
 import com.bnavarro.pick5football.async.RetrieveMatchesAsync;
-import com.bnavarro.pick5football.async.SubmitPicksAsync;
 import com.bnavarro.pick5football.constants.MenuConstants;
 import com.bnavarro.pick5football.constants.XMLConstants;
 import com.bnavarro.pick5football.listeners.LoadMatchesMenuItemClickListener;
@@ -48,7 +43,6 @@ import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.Spinner;
-import android.widget.Toast;
 
 /** <P>Screen component for displaying the week selection which drives the list of matches displayed. </P>
  *  <P>The upper right hand corner menu displays four options. 
@@ -87,8 +81,7 @@ public class MainActivity extends Activity {
 	private ArrayAdapter<String> adapter1;
 	private String currentWeek;
 	private ArrayList<String> matchupList;
-	private ArrayList<String> currentPicks;
-	
+
 	//Aynschronous tasks
 	private RetrieveMatchesAsync retrieval;
 	
@@ -106,7 +99,11 @@ public class MainActivity extends Activity {
 		listview.setOnItemClickListener(new ViewMatchMenuItemClickListener(this));
     }
     
+    /** Initialize screen and data components
+     * 
+     */
     private void intializeComponents(){
+    	//Initialize data for current week selection dropdown
     	spnGameWeeks = (Spinner)findViewById(R.id.spnGameWeeks);
     	ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(
     										this.getBaseContext(), R.array.weeks_array, 
@@ -114,12 +111,17 @@ public class MainActivity extends Activity {
 		adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
 		spnGameWeeks.setAdapter(adapter);
 		
+		//Initialize dropbox connection
     	mDBApi = new DropboxAPI<AndroidAuthSession>(buildSession());
     	
+    	//Initalize listview component
     	listview = (ListView) findViewById(R.id.listview);
 		listview.setChoiceMode(ListView.CHOICE_MODE_MULTIPLE);
     }
     
+    /** Initialize local data directory for storing retrieved and user-saved files
+     * 
+     */
     private void initializeDataDirectory (){
     	File exst = Environment.getExternalStorageDirectory();
 		exstPath = exst.getPath();
@@ -132,10 +134,22 @@ public class MainActivity extends Activity {
 		}
     }
 
-    
+    /** Create a new array of matchups based on retrieved data, or if data exists and not an update, just
+     * refresh the list from the local directory.
+     * 
+     * @param isUpdate <code>Boolean</code> value to determine if new list needs to be retrieved
+     * @throws XmlPullParserException
+     * @throws IOException
+     * @throws DropboxException
+     * @throws InterruptedException
+     * @throws ExecutionException
+     * @throws TimeoutException
+     */
     public void createMatchups (boolean isUpdate) throws XmlPullParserException, IOException, DropboxException, InterruptedException, ExecutionException, TimeoutException{
     	String week = currentWeek.replace(" ", "").toLowerCase(Locale.ENGLISH);
     	File dropBoxFile = new File(dataDir.getAbsolutePath()+"/"+week+ ".xml");
+    	
+    	//Retrieve list of matches for current week if file does not exist or is an update
     	if (!dropBoxFile.exists() || isUpdate){
     		retrieval =  new RetrieveMatchesAsync(getApplicationContext(), mDBApi, null, dropBoxFile);
     		retrieval.execute();
@@ -146,10 +160,16 @@ public class MainActivity extends Activity {
     	InputStream in_s = new BufferedInputStream(new FileInputStream(dropBoxFile));
 	    parser.setFeature(XmlPullParser.FEATURE_PROCESS_NAMESPACES, false);
         parser.setInput(in_s, null);
+        
+    	//Parse matchup details from xml into Matchup objects
         matchups= parseXML(parser);
+        
         in_s.close();
     }
 
+    /** Main file menu options - submit picks, refresh matches, save picks, and load picks
+     * 
+     */
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
     	menu.add(MenuConstants.FILE_MENU.SUBMIT_PICKS);
@@ -177,6 +197,9 @@ public class MainActivity extends Activity {
     	doExit ();
     }
 
+    /** Prompt user when they try to exit app.  Yes or no option available.
+     * 
+     */
     private void doExit() {
 
         AlertDialog.Builder alertDialog = new AlertDialog.Builder(
@@ -199,7 +222,6 @@ public class MainActivity extends Activity {
 	
 	@Override
 	public void onDestroy (){
-		
 		super.onDestroy();
     	SharedPreferences myPrefs = getSharedPreferences("pref",0);	
     	myPrefs.edit().clear().commit();
@@ -228,68 +250,57 @@ public class MainActivity extends Activity {
 	        }
 	    }
 	}
+		
+//	public void loadPicks() throws IOException {
+//		File file = new File(dataDir.getAbsolutePath() + "/" + currentWeek + "-picks.txt");
+//		currentPicks = new ArrayList<String>();
+//		if (file.canRead()){
+//		    FileReader filereader = new FileReader(file);
+//	        BufferedReader in = new BufferedReader(filereader);
+//	        String line;
+//	        int num = 0;
+//	        while ((line=in.readLine()) != null){
+//	        	currentPicks.add(line.trim());
+//	        }
+//
+//	        in.close();
+//	        
+//	        while (num < currentPicks.size()){
+//	        	for (int i =0; i <matchups.length; i++){
+//	        		if (matchups[i].getTeam1().contains(currentPicks.get(num)) || matchups[i].getTeam2().contains(currentPicks.get(num))  ){
+//	        		   matchups[i].makePick(currentPicks.get(num));
+//	        		   matchupList.set(i, matchups[i].displayMatchupDetails());
+//	        		   listview.setItemChecked(i, true);
+//	        		   num++;
+//	        		   break;
+//	        		}
+//	        	}
+//	        }
+//	       	adapter1.notifyDataSetChanged();
+//	        
+//	        
+//		}else {
+//			Toast.makeText(getApplicationContext(), "No previous pick selections found", Toast.LENGTH_LONG).show();
+//		}
+//	}
 	
-	public void submitPicks (String picks) throws DropboxException, IOException{
-		File file = savePicks(picks);
-        new SubmitPicksAsync(this, file,picks).execute();
-	}
+//	public void refreshMatchups () throws DropboxException, IOException, XmlPullParserException, InterruptedException, ExecutionException, TimeoutException{
+//		 createMatchups(true);
+//		 if (matchups == null){
+//			 System.out.println ("matchups is null");
+//		 	return;
+//		 }else{
+//			 for (int i = 0; i < matchups.length; i++){
+//				 matchupList.set(i,  matchups[i].displayMatchupDetails());
+//			 }
+//		 }
+//		 adapter1.notifyDataSetChanged();
+//	}
 
-	public File savePicks(String picks) throws IOException {
-		File file = new File(dataDir.getAbsolutePath() + "/" + currentWeek + "-picks.txt");
-		file.createNewFile();
-	    FileWriter filewriter = new FileWriter(file);
-        BufferedWriter out = new BufferedWriter(filewriter);
-        out.write(picks);
-        out.close();
-		return file;
-	}
-	
-	public void loadPicks() throws IOException {
-		File file = new File(dataDir.getAbsolutePath() + "/" + currentWeek + "-picks.txt");
-		currentPicks = new ArrayList<String>();
-		if (file.canRead()){
-		    FileReader filereader = new FileReader(file);
-	        BufferedReader in = new BufferedReader(filereader);
-	        String line;
-	        int num = 0;
-	        while ((line=in.readLine()) != null){
-	        	currentPicks.add(line.trim());
-	        }
-
-	        in.close();
-	        
-	        while (num < currentPicks.size()){
-	        	for (int i =0; i <matchups.length; i++){
-	        		if (matchups[i].getTeam1().contains(currentPicks.get(num)) || matchups[i].getTeam2().contains(currentPicks.get(num))  ){
-	        		   matchups[i].makePick(currentPicks.get(num));
-	        		   matchupList.set(i, matchups[i].displayMatchupDetails());
-	        		   listview.setItemChecked(i, true);
-	        		   num++;
-	        		   break;
-	        		}
-	        	}
-	        }
-	       	adapter1.notifyDataSetChanged();
-	        
-	        
-		}else {
-			Toast.makeText(getApplicationContext(), "No previous pick selections found", Toast.LENGTH_LONG).show();
-		}
-	}
-	
-	public void refreshMatchups () throws DropboxException, IOException, XmlPullParserException, InterruptedException, ExecutionException, TimeoutException{
-		 createMatchups(true);
-		 if (matchups == null){
-			 System.out.println ("matchups is null");
-		 	return;
-		 }else{
-			 for (int i = 0; i < matchups.length; i++){
-				 matchupList.set(i,  matchups[i].displayMatchupDetails());
-			 }
-		 }
-		 adapter1.notifyDataSetChanged();
-	}
-
+	/** Create Dropbox authenticated session 
+	 * 
+	 * @return <code>AndroidAuthSession</code> object
+	 */
     private AndroidAuthSession buildSession() {
         AppKeyPair appKeyPair = new AppKeyPair(APP_KEY, APP_SECRET);
 
@@ -300,6 +311,13 @@ public class MainActivity extends Activity {
         return session;
     }
     
+    /**
+     * 
+     * @param parser
+     * @return
+     * @throws XmlPullParserException
+     * @throws IOException
+     */
     private Matchup[] parseXML(XmlPullParser parser) throws XmlPullParserException,IOException
 	{
 		ArrayList<Matchup> week = null;
