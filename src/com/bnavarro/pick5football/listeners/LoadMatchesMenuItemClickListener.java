@@ -27,7 +27,7 @@ public class LoadMatchesMenuItemClickListener implements
 		this.activity= activity;
 	}
 	
-	/** Calls loadPicks method from class <code>MainActivity</code>
+	/** Calls loadPicks method to read current week's picks
 	 * 
 	 */
 	@Override

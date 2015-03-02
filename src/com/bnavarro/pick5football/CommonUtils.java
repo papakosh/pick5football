@@ -38,6 +38,11 @@ public class CommonUtils {
 		return original.replace(oldChar, newChar);
 	}
 	
+	/** Determines if a <code>Matchup</code> array is empty
+	 * 
+	 * @param array of <code>Matchup</code> elements
+	 * @return <code>Boolean</code> true if null or length is zero, else false
+	 */
 	public static  boolean isArrayEmpty (Matchup[] array){
 		if (array == null)
 			return true;

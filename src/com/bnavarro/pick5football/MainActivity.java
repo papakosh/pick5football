@@ -311,10 +311,12 @@ public class MainActivity extends Activity {
         return session;
     }
     
-    /**
+    /** Parse through the xml file looking for matchup details - team 1, team 2, home team, 
+     *  spread value, and favored team - and then return in <code>Matchup</code> array
      * 
-     * @param parser
-     * @return
+     * @param parser <code>XmlPullParser</code> object configured to find and return xml nodes
+     * 
+     * @return <code>Matchup</code> array containing matchup details for a given week
      * @throws XmlPullParserException
      * @throws IOException
      */

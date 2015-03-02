@@ -1,6 +1,5 @@
 package com.bnavarro.pick5football.async;
 
-import java.io.File;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.AsyncTask;
@@ -25,7 +24,7 @@ public class SubmitPicksAsync extends AsyncTask<Void, Long, Boolean> {
 	}
 
 	/**
-	 * Background send mail task to submit picks using user's mail client. Picks are added
+	 * Background send mail task used to submit picks using user's mail client. Picks are added
 	 * automatically, but the user will need to enter the recipient's email address.
 	 */
 	@Override
@@ -37,7 +36,6 @@ public class SubmitPicksAsync extends AsyncTask<Void, Long, Boolean> {
 		 i.putExtra(Intent.EXTRA_TEXT   , mPicks);
 		 
 		 mainActivity.startActivity(Intent.createChooser(i, "Send mail..."));
-		
 
 		return true;
 	}

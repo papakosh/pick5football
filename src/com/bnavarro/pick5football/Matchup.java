@@ -70,7 +70,7 @@ public class Matchup {
 	 */
 	public String displayMatchupDetails (){
 		if (pickSelection == null)
-			headlineDetails = CommonUtils.concatenate(team1, "vs ", team2);
+			headlineDetails = CommonUtils.concatenate(team1, " vs ", team2);
 		String favoredDetails = "";
 		String homeDetails =  CommonUtils.concatenate("\n\t", homeTeam, " at home ");
 		if (!"none".equals(favoredTeam))

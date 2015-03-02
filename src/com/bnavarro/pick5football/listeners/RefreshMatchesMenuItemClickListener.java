@@ -70,12 +70,13 @@ public class RefreshMatchesMenuItemClickListener implements
 		 //Call create matchups with update true flag in order to retrieve fresh list
 		 activity.createMatchups(true);
 		 Matchup[] matchups = activity.getMatchups();
-		 
+
 		 //Check to see if matchups array is empty
 		 if (CommonUtils.isArrayEmpty(matchups)){
 			 System.out.println ("matchups is null"); //replace with Exception
 		 	return;
 		 }else{ //loop through matchups and set new details for each 
+//			 activity.setMatchupList(activity.createList(activity.getMatchups()));
 			 for (int i = 0; i < matchups.length; i++){
 				 activity.getMatchupList().set(i,  matchups[i].displayMatchupDetails());
 			 }

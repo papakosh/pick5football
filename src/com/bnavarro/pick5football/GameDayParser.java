@@ -29,13 +29,13 @@ public class GameDayParser {
 	 * <li>Loop through each game until home team and visiting team match. *Note* Since the xml format
 	 * for an in-progress game and finished/not-played game are different, we must determine the format 
 	 * by looking for the clock attribute  (inefficient and may change in future)
-	 * <li>In-Progress Game: We set in <code>GameDay</code> object the following values: 
+	 * <li>For In-Progress Game: We set in a <code>GameDay</code> object the following values: 
 	 * home team, visiting team, date, clock, quarter, play time, home team score, and visting team score
-	 * <li>Finished/Non-Played Game: We set in <code>GameDay</code> object the following values: 
+	 * <li>For Finished/Non-Played Game: We set in a <code>GameDay</code> object the following values: 
 	 * home team, visiting team, date, quarter, play time, home team score, and visiting team score.
 	 * 
 	 * @param matchGameParms <code>MatchGameParms</code> obj contains two parameters to match on when searching
-	 * xml for data.
+	 * through xml data.
 	 * 
 	 * @return  <code>GameDay</code> object.
 	 * @throws XmlPullParserException

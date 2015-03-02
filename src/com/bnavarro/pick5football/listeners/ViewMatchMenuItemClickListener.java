@@ -58,6 +58,7 @@ public class ViewMatchMenuItemClickListener implements AdapterView.OnItemClickLi
 				matchups[position].makePick(item.getTitle().toString());
 				matchupList.set(position, matchups[position].displayMatchupDetails());
 				listview.setItemChecked(position, false);
+				
 			//If "view game" item selection,  prepare intent data and then start Game Day activity
 			}else if (MenuConstants.MATCH_MENU.VIEW_GAME.equalsIgnoreCase(item.getTitle().toString())){
 				
@@ -78,8 +79,8 @@ public class ViewMatchMenuItemClickListener implements AdapterView.OnItemClickLi
 	        	//refresh data for listview and then start activity
 	        	adapter1.notifyDataSetChanged();
 	        	activity.startActivity(intent);
-			}else{
-				//If "team 1 or team 2" item selection, make pick selection
+	        	
+			}else{ //If "team 1 or team 2" item selection, make pick selection
 				matchups[position].makePick(item.getTitle().toString());
 				matchupList.set(position, matchups[position].displayMatchupDetails());
 			
