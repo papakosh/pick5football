@@ -14,25 +14,33 @@ import android.content.Context;
 import android.os.AsyncTask;
 import android.util.Log;
 
+/** Retrieve match selection details from private repository on dropbox
+ * and store the file locally.
+ * 
+ * @author brian navarro
+ *
+ */
 public class RetrieveMatchesAsync extends AsyncTask<Void, Long, Boolean> {
 
-	//private Context mContext;
 	private DropboxAPI<?> mDBApi;
-	//private String mPath;
 	private File mFile;
 	public RetrieveMatchesAsync(Context context, DropboxAPI<?> api, String dropboxPath,
 	        File file) {
-		//mContext = context.getApplicationContext();
 		mDBApi=api;
 		mFile=file;
 	}
 	
-	
+	/** Background download of weekly matchups xml file from dropbox into local directory (Pick5FootballData)
+	 * 
+	 */
 	@Override
 	protected Boolean doInBackground(Void... params) {
 		FileInputStream inputStream = null;
 		try {
+			//Create output stream to local file
 			FileOutputStream outputStream = new FileOutputStream(mFile);
+			
+			//Download file from dropbox and store contents in local file
     		DropboxFileInfo info = mDBApi.getFile("/"+mFile.getName(), null, outputStream, null);
 			 
     		Log.i("DbExampleLog", "The downloaded file's rev is: " + info.getMetadata().rev);
