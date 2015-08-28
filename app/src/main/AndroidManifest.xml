@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.bnavarro.pick5football"
+    android:versionCode="1"
+    android:versionName="1.0" >
+	<uses-permission android:name="android.permission.INTERNET" />
+	<uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+	<uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-sdk
+        android:minSdkVersion="15"
+        android:targetSdkVersion="19" />
+    <application
+        android:allowBackup="true"
+        android:icon="@drawable/ic_launcher"
+        android:label="@string/app_name"
+        android:theme="@style/AppTheme" >
+        <!-- Main Activity -->
+        <activity
+            android:name="com.bnavarro.pick5football.MainActivity"
+            android:label="@string/app_name"
+            android:screenOrientation="portrait" 
+            android:configChanges="orientation|keyboardHidden" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+				<category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        
+        <!-- Authentication activity for Dropbox -->
+        <activity
+  			android:name="com.dropbox.client2.android.AuthActivity"
+  			android:launchMode="singleTask"
+  			android:screenOrientation="portrait"
+  			android:configChanges="orientation|keyboard">
+  			<intent-filter>
+    		<!-- Change this to be db- followed by your app key -->
+    		<data android:scheme="db-1t3c5oggvr0hnhe" />
+    		<action android:name="android.intent.action.VIEW" />
+    		<category android:name="android.intent.category.BROWSABLE"/>
+    		<category android:name="android.intent.category.DEFAULT" />
+  			</intent-filter>
+		</activity>
+        
+        <!-- Game Day Activity -->
+        <activity
+            android:name="com.bnavarro.pick5football.GameDayActivity"
+            android:label="@string/app_name" 
+            android:screenOrientation="portrait"
+   			android:configChanges="orientation|keyboardHidden"
+            android:parentActivityName="com.bnavarro.pick5football.MainActivity" >
+  			<meta-data
+            	android:name="android.support.PARENT_ACTIVITY"
+           		android:value="com.bnavarro.pick5football.MainActivity" />
+            
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+            </intent-filter>
+        </activity>
+        
+    </application>
+
+</manifest>
+
