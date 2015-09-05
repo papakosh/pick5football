@@ -15,31 +15,38 @@ package com.bnavarro.pick5football;
  */
 public class Matchup {
 
-	private String team1;
-	private String team2;
+	private Team team1;
+	private Team team2;
 	private Double spread;
 	private String pickSelection;
 	private String homeTeam;
 	private String favoredTeam;
 	private String headlineDetails;
-	
+	private String matchDate;
+	private String matchTime;
+
 	public Matchup (){
 		
 	}
+
+	public Matchup (Team team1, Team team2){
+		this.team1=team1;
+		this.team2=team2;
+	}
 	
-	public String getTeam1() {
+	public Team getTeam1() {
 		return team1;
 	}
 
-	public void setTeam1(String team1) {
+	public void setTeam1(Team team1) {
 		this.team1 = team1;
 	}
 
-	public String getTeam2() {
+	public Team getTeam2() {
 		return team2;
 	}
 
-	public void setTeam2(String team2) {
+	public void setTeam2(Team team2) {
 		this.team2 = team2;
 	}
 
@@ -70,7 +77,7 @@ public class Matchup {
 	 */
 	public String displayMatchupDetails (){
 		if (pickSelection == null)
-			headlineDetails = CommonUtils.concatenate(team1, " vs ", team2);
+			headlineDetails = CommonUtils.concatenate(team1.getTeamName(), " vs ", team2.getTeamName());
 		String favoredDetails = "";
 		String homeDetails =  CommonUtils.concatenate("\n\t", homeTeam, " at home ");
 		if (!"none".equals(favoredTeam))
@@ -89,18 +96,18 @@ public class Matchup {
 	 * @param pickInformation
 	 */
 	public void makePick (String pickInformation){
-		headlineDetails = CommonUtils.concatenate(team1," vs ",team2);
+		headlineDetails = CommonUtils.concatenate(team1.getTeamName()," vs ",team2.getTeamName());
 		if (pickInformation != null){
-			if (pickInformation.contains(team1)){
+			if (pickInformation.contains(team1.getTeamName())){
 				headlineDetails=CommonUtils.replace(headlineDetails, ">", "");
 				headlineDetails=CommonUtils.replace(headlineDetails, "<","");
-				pickSelection = team1;
+				pickSelection = team1.getTeamName();
 				headlineDetails=CommonUtils.concatenate(">",headlineDetails);
 			}
-			else if (pickInformation.contains(team2)){
+			else if (pickInformation.contains(team2.getTeamName())){
 				headlineDetails=CommonUtils.replace(headlineDetails,">", "");
 				headlineDetails=CommonUtils.replace(headlineDetails,"<","");
-				pickSelection = team2;
+				pickSelection = team2.getTeamName();
 				headlineDetails=CommonUtils.concatenate(headlineDetails,"<");
 			}else{
 				headlineDetails=CommonUtils.replace(headlineDetails,">", "");
@@ -108,6 +115,40 @@ public class Matchup {
 				pickSelection = null;
 			}
 		}
+	}
+
+	public String getTeamOneHeaderDetails (){
+		String header = this.getTeam1().getTeamName();
+		if (this.getTeam1().getTeamName().contains(this.getHomeTeam()))
+			header = CommonUtils.concatenate(header, "\nAt Home ");
+		else
+			header = CommonUtils.concatenate(header, " ");
+
+		if (this.getTeam1().getTeamName().contains(this.getFavoredTeam())) {
+			header = CommonUtils.concatenate(header, "\nFavored by ", String.valueOf(this.getSpread()));
+		}else if ("None".equalsIgnoreCase(this.getFavoredTeam())) {
+			header = CommonUtils.concatenate(header, " ");
+		}else {
+			header = CommonUtils.concatenate(header, " ");
+		}
+		return header;
+	}
+
+	public String getTeamTwoHeaderDetails (){
+		String header = this.getTeam2().getTeamName();
+		if (this.getTeam2().getTeamName().contains(this.getHomeTeam()))
+			header = CommonUtils.concatenate(header, "\nAt Home ");
+		else
+			header = CommonUtils.concatenate(header, " ");
+
+		if (this.getTeam2().getTeamName().contains(this.getFavoredTeam())){
+			header = CommonUtils.concatenate(header, "\nFavored by ", String.valueOf(this.getSpread()));
+		}else if ("None".equalsIgnoreCase(this.getFavoredTeam())) {
+			header = CommonUtils.concatenate(header, " ");
+		}else {
+			header = CommonUtils.concatenate(header, " ");
+		}
+		return header;
 	}
 	
 	public String getHomeTeam() {
@@ -124,5 +165,21 @@ public class Matchup {
 
 	public void setFavoredTeam(String favoredTeam) {
 		this.favoredTeam = favoredTeam;
+	}
+
+	public String getMatchDate() {
+		return matchDate;
+	}
+
+	public void setMatchDate(String matchDate) {
+		this.matchDate = matchDate;
+	}
+
+	public String getMatchTime() {
+		return matchTime;
+	}
+
+	public void setMatchTime(String matchTime) {
+		this.matchTime = matchTime;
 	}
 }

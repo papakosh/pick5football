@@ -26,5 +26,7 @@ public class XMLConstants {
 		public static String TAG_HOME = "HOME";
 		public static String TAG_SPREAD = "SPREAD";
 		public static String TAG_FAVORED = "FAVORED";
+		public static String TAG_DATE = "DATE";
+		public static String TAG_TIME = "TIME";
 	}
 }

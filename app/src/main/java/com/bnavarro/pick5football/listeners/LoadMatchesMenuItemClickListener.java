@@ -63,7 +63,7 @@ public class LoadMatchesMenuItemClickListener implements
 	        //Loop through each pick and make selection by matching the pick to team 1 or team 2
 	        while (num < currentPicks.size()){
 	        	for (int i =0; i <activity.getMatchups().length; i++){
-	        		if (activity.getMatchups()[i].getTeam1().contains(currentPicks.get(num)) || activity.getMatchups()[i].getTeam2().contains(currentPicks.get(num))  ){
+	        		if (activity.getMatchups()[i].getTeam1().getTeamName().contains(currentPicks.get(num)) || activity.getMatchups()[i].getTeam2().getTeamName().contains(currentPicks.get(num))  ){
 	        			activity.getMatchups()[i].makePick(currentPicks.get(num));
 	        			activity.getMatchupList().set(i, activity.getMatchups()[i].displayMatchupDetails());
 	        			activity.getListView().setItemChecked(i, true);

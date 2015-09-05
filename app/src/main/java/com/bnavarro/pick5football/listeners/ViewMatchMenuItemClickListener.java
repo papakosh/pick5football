@@ -64,8 +64,8 @@ public class ViewMatchMenuItemClickListener implements AdapterView.OnItemClickLi
 				
 				//Pass through data - team 1 and team 2, home team name, and current week
 				Intent intent = new Intent(activity, GameDayActivity.class);
-	        	intent.putExtra(IntentDataConstants.FIRST_TEAM, matchups[position].getTeam1());
-	        	intent.putExtra(IntentDataConstants.SECOND_TEAM, matchups[position].getTeam2());
+	        	intent.putExtra(IntentDataConstants.FIRST_TEAM, matchups[position].getTeam1().getTeamName());
+	        	intent.putExtra(IntentDataConstants.SECOND_TEAM, matchups[position].getTeam2().getTeamName());
 	        	intent.putExtra(IntentDataConstants.HOME_TEAM, matchups[position].getHomeTeam());
 	        	intent.putExtra(IntentDataConstants.WEEK,  activity.getCurrentWeek());
 	        	

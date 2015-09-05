@@ -35,6 +35,8 @@ import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.DialogInterface.OnClickListener;
 import android.content.SharedPreferences;
+import android.support.v4.app.FragmentActivity;
+import android.support.v4.view.ViewPager;
 import android.util.Log;
 import android.util.Xml;
 import android.view.Menu;
@@ -62,7 +64,7 @@ import android.widget.Spinner;
  * @author brian navarro
  *
  */
-public class MainActivity extends Activity {
+public class MainActivity extends FragmentActivity {
 	
 	//Screen fields
 	private Spinner spnGameWeeks;	
@@ -84,19 +86,24 @@ public class MainActivity extends Activity {
 
 	//Aynschronous tasks
 	private RetrieveMatchesAsync retrieval;
-	
+	CustomPagerAdapter mCustomPagerAdapter;
+	ViewPager mViewPager;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+		super.onCreate(savedInstanceState);
+		setContentView(R.layout.activity_main);
         
-        intializeComponents ();
+        intializeComponents();
         
 		initializeDataDirectory();
-        
-		spnGameWeeks.setOnItemSelectedListener(new WeekItemSelectedListener(this));
-    
-		listview.setOnItemClickListener(new ViewMatchMenuItemClickListener(this));
+
+		//spnGameWeeks.setOnItemSelectedListener(new WeekItemSelectedListener(this));
+
+		mCustomPagerAdapter = new CustomPagerAdapter(getSupportFragmentManager(), this);
+		mViewPager = (ViewPager) findViewById(R.id.pager);
+		mViewPager.setAdapter(mCustomPagerAdapter);
+		//listview.setOnItemClickListener(new ViewMatchMenuItemClickListener(this));
     }
     
     /** Initialize screen and data components
@@ -104,19 +111,19 @@ public class MainActivity extends Activity {
      */
     private void intializeComponents(){
     	//Initialize data for current week selection dropdown
-    	spnGameWeeks = (Spinner)findViewById(R.id.spnGameWeeks);
-    	ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(
-    										this.getBaseContext(), R.array.weeks_array, 
-    										android.R.layout.simple_spinner_dropdown_item);
-		adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-		spnGameWeeks.setAdapter(adapter);
+//    	spnGameWeeks = (Spinner)findViewById(R.id.spnGameWeeks);
+//    	ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(
+//    										this.getBaseContext(), R.array.weeks_array,
+//    										android.R.layout.simple_spinner_dropdown_item);
+//		adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+//		spnGameWeeks.setAdapter(adapter);
 		
 		//Initialize dropbox connection
     	mDBApi = new DropboxAPI<AndroidAuthSession>(buildSession());
     	
     	//Initalize listview component
-    	listview = (ListView) findViewById(R.id.listview);
-		listview.setChoiceMode(ListView.CHOICE_MODE_MULTIPLE);
+    	//listview = (ListView) findViewById(R.id.listview);
+		//listview.setChoiceMode(ListView.CHOICE_MODE_MULTIPLE);
     }
     
     /** Initialize local data directory for storing retrieved and user-saved files
@@ -324,7 +331,12 @@ public class MainActivity extends Activity {
 	{
 		ArrayList<Matchup> week = null;
         int eventType = parser.getEventType();
-        Matchup currentMatchup = null;
+		boolean matchupFound = false;
+		Team team1 = null;
+		Team team2 = null;
+		String homeTeamName = null;
+		Double matchSpread = null;
+		String favoredTeamName = null;
         while (eventType != XmlPullParser.END_DOCUMENT){
             String name = null;
             
@@ -335,26 +347,39 @@ public class MainActivity extends Activity {
                 case XmlPullParser.START_TAG:
                     name = parser.getName();
                     if (name.equalsIgnoreCase(XMLConstants.MATCHES.TAG_MATCHUP)){
-                    	currentMatchup = new Matchup();
-                    } else if (currentMatchup != null){
+                    	//currentMatchup = new Matchup();
+						matchupFound = true;
+                    } else{
                         if (name.equalsIgnoreCase(XMLConstants.MATCHES.TAG_TEAM_1)){
-                        	currentMatchup.setTeam1(parser.nextText());
+							team1 = new Team (null, parser.nextText());
                         } else if (name.equalsIgnoreCase(XMLConstants.MATCHES.TAG_TEAM_2)){
-                        	currentMatchup.setTeam2(parser.nextText());
+							team2 = new Team (null, parser.nextText());
                         } else if (name.equalsIgnoreCase(XMLConstants.MATCHES.TAG_HOME)){
-                        	currentMatchup.setHomeTeam(parser.nextText());
+							homeTeamName = parser.nextText();
                         } else if (name.equalsIgnoreCase(XMLConstants.MATCHES.TAG_SPREAD)){
-                        	currentMatchup.setSpread(Double.valueOf(parser.nextText()));
+                        	matchSpread = Double.valueOf(parser.nextText());
                         } else if (name.equalsIgnoreCase(XMLConstants.MATCHES.TAG_FAVORED)){
-                        	currentMatchup.setFavoredTeam(parser.nextText());
+							favoredTeamName = parser.nextText();
                         } 
                     }
                     break;
                 case XmlPullParser.END_TAG:
-                    name = parser.getName();
-                    if (name.equalsIgnoreCase(XMLConstants.MATCHES.TAG_MATCHUP) && currentMatchup != null){
-                    	week.add(currentMatchup);
-                    } 
+					if (matchupFound) {
+						//Set xml data into current matchup
+						Matchup currentMatchup = new Matchup(team1,team2);
+						currentMatchup.setFavoredTeam(favoredTeamName);
+						currentMatchup.setHomeTeam(homeTeamName);
+						currentMatchup.setSpread(matchSpread);
+						week.add(currentMatchup);
+
+						//reset local variables before next matchup
+						matchupFound = false;
+						team1 = null;
+						team2 = null;
+						homeTeamName = null;
+						favoredTeamName=null;
+						matchSpread=null;
+					}
             }
             eventType = parser.next();
         }

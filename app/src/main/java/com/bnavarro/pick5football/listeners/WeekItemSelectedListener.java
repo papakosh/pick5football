@@ -35,29 +35,29 @@ public class WeekItemSelectedListener implements OnItemSelectedListener {
 	public void onItemSelected(AdapterView<?> parent, View arg1,
 			int pos, long id) {
 		String item = (String)parent.getItemAtPosition(pos);
-		 try {
-			activity.setCurrentMatchWeek(item);
-			activity.createMatchups(false);
-			activity.setMatchupList(activity.createList(activity.getMatchups()));
-			
-			ArrayAdapter<String> adapter1 = new ArrayAdapter<String>(parent.getContext(),
-			android.R.layout.simple_list_item_activated_1, activity.getMatchupList());
-			
-			activity.setListAdapter(adapter1);
-			
-		} catch (XmlPullParserException e) {
-			e.printStackTrace();
-		} catch (IOException e) {
-			e.printStackTrace();
-		}catch (DropboxException e) {
-			e.printStackTrace();
-		} catch (InterruptedException e) {
-			e.printStackTrace();
-		} catch (ExecutionException e) {
-			e.printStackTrace();
-		} catch (TimeoutException e) {
-			e.printStackTrace();
-		}
+//		 try {
+//			activity.setCurrentMatchWeek(item);
+//			activity.createMatchups(false);
+//			activity.setMatchupList(activity.createList(activity.getMatchups()));
+//
+//			ArrayAdapter<String> adapter1 = new ArrayAdapter<String>(parent.getContext(),
+//			android.R.layout.simple_list_item_activated_1, activity.getMatchupList());
+//
+//			activity.setListAdapter(adapter1);
+//
+//		} catch (XmlPullParserException e) {
+//			e.printStackTrace();
+//		} catch (IOException e) {
+//			e.printStackTrace();
+//		}catch (DropboxException e) {
+//			e.printStackTrace();
+//		} catch (InterruptedException e) {
+//			e.printStackTrace();
+//		} catch (ExecutionException e) {
+//			e.printStackTrace();
+//		} catch (TimeoutException e) {
+//			e.printStackTrace();
+//		}
 	}
 
 	@Override

@@ -2,18 +2,11 @@
 <items version="2" >
 
     <item
-        jar="C:\Users\navman\StudioProjects\pick5football\app\libs\bcprov-jdk16-146.jar"
+        jar="C:\Users\navman\StudioProjects\pick5football\app\libs\dropbox-android-sdk-1.6.1.jar"
         jumboMode="false"
         revision="23.0.0"
-        sha1="ce091790943599535cbb4de8ede84535b0c1260c">
-        <dex dex="C:\Users\navman\StudioProjects\pick5football\app\build\intermediates\pre-dexed\debug\bcprov-jdk16-146-e5903eb72ed4cd0fcb7a5a4aa574a1b0e6533fa4.jar" />
-    </item>
-    <item
-        jar="C:\Users\navman\StudioProjects\pick5football\app\libs\commons-io-2.4.jar"
-        jumboMode="false"
-        revision="23.0.0"
-        sha1="b1b6ea3b7e4aa4f492509a4952029cd8e48019ad">
-        <dex dex="C:\Users\navman\StudioProjects\pick5football\app\build\intermediates\pre-dexed\debug\commons-io-2.4-57076de29ced81fdf1df0b77499a2790747297c9.jar" />
+        sha1="4811e0fdb7909dc3c386acbb4594a53a26e84956">
+        <dex dex="C:\Users\navman\StudioProjects\pick5football\app\build\intermediates\pre-dexed\debug\dropbox-android-sdk-1.6.1-01569cb113cb059bcf8935b3bbfa0dceefa5d1c4.jar" />
     </item>
     <item
         jar="C:\Users\navman\AppData\Local\Android\sdk\extras\android\m2repository\com\android\support\support-v4\19.1.0\support-v4-19.1.0.jar"
@@ -23,20 +16,6 @@
         <dex dex="C:\Users\navman\StudioProjects\pick5football\app\build\intermediates\pre-dexed\debug\support-v4-19.1.0-b922fd96b377c832c5e4255b3bf8c95500e0ec95.jar" />
     </item>
     <item
-        jar="C:\Users\navman\StudioProjects\pick5football\app\libs\knicker-2.3.2.jar"
-        jumboMode="false"
-        revision="23.0.0"
-        sha1="fbe1eb61547c1a537eb8ffe285b143fa6bdaf52b">
-        <dex dex="C:\Users\navman\StudioProjects\pick5football\app\build\intermediates\pre-dexed\debug\knicker-2.3.2-3bc05e9f5eb072b5e300e40c8a726b83d96c167f.jar" />
-    </item>
-    <item
-        jar="C:\Users\navman\StudioProjects\pick5football\app\libs\dropbox-android-sdk-1.6.1.jar"
-        jumboMode="false"
-        revision="23.0.0"
-        sha1="4811e0fdb7909dc3c386acbb4594a53a26e84956">
-        <dex dex="C:\Users\navman\StudioProjects\pick5football\app\build\intermediates\pre-dexed\debug\dropbox-android-sdk-1.6.1-01569cb113cb059bcf8935b3bbfa0dceefa5d1c4.jar" />
-    </item>
-    <item
         jar="C:\Users\navman\StudioProjects\pick5football\app\libs\httpmime-4.0.3.jar"
         jumboMode="false"
         revision="23.0.0"
@@ -44,11 +23,39 @@
         <dex dex="C:\Users\navman\StudioProjects\pick5football\app\build\intermediates\pre-dexed\debug\httpmime-4.0.3-7ce0cd977e07500f02fa60201ac65325cfcd9414.jar" />
     </item>
     <item
+        jar="C:\Users\navman\StudioProjects\pick5football\app\libs\httpcore-4.0.1.jar"
+        jumboMode="false"
+        revision="23.0.0"
+        sha1="2cef8e735e306f6be94b609be815854f9cf36eb6">
+        <dex dex="C:\Users\navman\StudioProjects\pick5football\app\build\intermediates\pre-dexed\debug\httpcore-4.0.1-9d0f6e04fc9bf120d4a583a2fe62b2b548da1a6b.jar" />
+    </item>
+    <item
+        jar="C:\Users\navman\StudioProjects\pick5football\app\libs\bcprov-jdk16-146.jar"
+        jumboMode="false"
+        revision="23.0.0"
+        sha1="ce091790943599535cbb4de8ede84535b0c1260c">
+        <dex dex="C:\Users\navman\StudioProjects\pick5football\app\build\intermediates\pre-dexed\debug\bcprov-jdk16-146-e5903eb72ed4cd0fcb7a5a4aa574a1b0e6533fa4.jar" />
+    </item>
+    <item
         jar="C:\Users\navman\StudioProjects\pick5football\app\libs\json_simple-1.1.jar"
         jumboMode="false"
         revision="23.0.0"
         sha1="5e303a03d04e6788dddfa3655272580ae0fc13bb">
         <dex dex="C:\Users\navman\StudioProjects\pick5football\app\build\intermediates\pre-dexed\debug\json_simple-1.1-ab6020bd8a189743ec5761389678c61204c0d520.jar" />
+    </item>
+    <item
+        jar="C:\Users\navman\StudioProjects\pick5football\app\libs\knicker-2.3.2.jar"
+        jumboMode="false"
+        revision="23.0.0"
+        sha1="fbe1eb61547c1a537eb8ffe285b143fa6bdaf52b">
+        <dex dex="C:\Users\navman\StudioProjects\pick5football\app\build\intermediates\pre-dexed\debug\knicker-2.3.2-3bc05e9f5eb072b5e300e40c8a726b83d96c167f.jar" />
+    </item>
+    <item
+        jar="C:\Users\navman\StudioProjects\pick5football\app\libs\commons-io-2.4.jar"
+        jumboMode="false"
+        revision="23.0.0"
+        sha1="b1b6ea3b7e4aa4f492509a4952029cd8e48019ad">
+        <dex dex="C:\Users\navman\StudioProjects\pick5football\app\build\intermediates\pre-dexed\debug\commons-io-2.4-57076de29ced81fdf1df0b77499a2790747297c9.jar" />
     </item>
     <item
         jar="C:\Users\navman\StudioProjects\pick5football\app\libs\commons-logging-1.1.1.jar"
@@ -63,13 +70,6 @@
         revision="23.0.0"
         sha1="eebf00fc3417031e9fa34afd85ccf11365ca2304">
         <dex dex="C:\Users\navman\StudioProjects\pick5football\app\build\intermediates\pre-dexed\debug\httpclient-4.0.3-ba70354b952408f4f8b3f356b6907d75827b110c.jar" />
-    </item>
-    <item
-        jar="C:\Users\navman\StudioProjects\pick5football\app\libs\httpcore-4.0.1.jar"
-        jumboMode="false"
-        revision="23.0.0"
-        sha1="2cef8e735e306f6be94b609be815854f9cf36eb6">
-        <dex dex="C:\Users\navman\StudioProjects\pick5football\app\build\intermediates\pre-dexed\debug\httpcore-4.0.1-9d0f6e04fc9bf120d4a583a2fe62b2b548da1a6b.jar" />
     </item>
 
 </items>
