@@ -1,5 +1,7 @@
 package com.bnavarro.pick5football;
 
+import android.text.Html;
+
 /** Stores match selection details. This includes:
  * <li>team 1 name
  * <li>team 2 name
@@ -119,13 +121,20 @@ public class Matchup {
 
 	public String getTeamOneHeaderDetails (){
 		String header = this.getTeam1().getTeamName();
-		if (this.getTeam1().getTeamName().contains(this.getHomeTeam()))
-			header = CommonUtils.concatenate(header, "\nAt Home ");
+		boolean atHome = false;
+
+		if (this.getTeam1().getTeamName().contains(this.getHomeTeam())) {
+			atHome = true;
+			header = CommonUtils.concatenate(header, "\n\tAt Home");
+		}
 		else
 			header = CommonUtils.concatenate(header, " ");
 
 		if (this.getTeam1().getTeamName().contains(this.getFavoredTeam())) {
-			header = CommonUtils.concatenate(header, "\nFavored by ", String.valueOf(this.getSpread()));
+			if (atHome)
+				header = CommonUtils.concatenate(header, ", Favored by ", String.valueOf(this.getSpread()));
+			else
+				header = CommonUtils.concatenate(header, "\n\tFavored by ", String.valueOf(this.getSpread()));
 		}else if ("None".equalsIgnoreCase(this.getFavoredTeam())) {
 			header = CommonUtils.concatenate(header, " ");
 		}else {
@@ -136,13 +145,19 @@ public class Matchup {
 
 	public String getTeamTwoHeaderDetails (){
 		String header = this.getTeam2().getTeamName();
-		if (this.getTeam2().getTeamName().contains(this.getHomeTeam()))
-			header = CommonUtils.concatenate(header, "\nAt Home ");
+		boolean atHome = false;
+		if (this.getTeam2().getTeamName().contains(this.getHomeTeam())) {
+			atHome = true;
+			header = CommonUtils.concatenate(header, "\n\tAt Home");
+		}
 		else
 			header = CommonUtils.concatenate(header, " ");
 
 		if (this.getTeam2().getTeamName().contains(this.getFavoredTeam())){
-			header = CommonUtils.concatenate(header, "\nFavored by ", String.valueOf(this.getSpread()));
+			if (atHome)
+				header = CommonUtils.concatenate(header, ", Favored by ", String.valueOf(this.getSpread()));
+			else
+				header = CommonUtils.concatenate(header, "\n\tFavored by ", String.valueOf(this.getSpread()));
 		}else if ("None".equalsIgnoreCase(this.getFavoredTeam())) {
 			header = CommonUtils.concatenate(header, " ");
 		}else {

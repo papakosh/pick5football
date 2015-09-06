@@ -351,9 +351,9 @@ public class MainActivity extends FragmentActivity {
 						matchupFound = true;
                     } else{
                         if (name.equalsIgnoreCase(XMLConstants.MATCHES.TAG_TEAM_1)){
-							team1 = new Team (null, parser.nextText());
+							team1 = new Team ( parser.nextText());
                         } else if (name.equalsIgnoreCase(XMLConstants.MATCHES.TAG_TEAM_2)){
-							team2 = new Team (null, parser.nextText());
+							team2 = new Team (parser.nextText());
                         } else if (name.equalsIgnoreCase(XMLConstants.MATCHES.TAG_HOME)){
 							homeTeamName = parser.nextText();
                         } else if (name.equalsIgnoreCase(XMLConstants.MATCHES.TAG_SPREAD)){

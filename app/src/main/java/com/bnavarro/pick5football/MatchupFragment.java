@@ -40,6 +40,7 @@ public class MatchupFragment extends Fragment {
         // the fragment was instantiated in the
         // CustomPagerAdapter
         Bundle args = getArguments();
+        int page_position = args.getInt("page_position");
 
         mylist = (ListView) rootView.findViewById(R.id.listView);
         mylist2 = (ListView) rootView.findViewById(R.id.listView2);
@@ -67,18 +68,88 @@ public class MatchupFragment extends Fragment {
 
         }
         List<Item> items = new ArrayList<Item>();
-        matchups[0].setSpread(7.0);
-        matchups[0].setFavoredTeam("Pittsburgh");
-        items.add(new Header (CommonUtils.concatenate(matchups[0].getMatchDate(), " ", matchups[0].getMatchTime())));
-        items.add(new ListItem (matchups[0].getTeamOneHeaderDetails(), R.drawable.pittsburgh_steelers_logo));
-        items.add(new ListItem (matchups[0].getTeamTwoHeaderDetails(), R.drawable.newengland_patriots_logo));
-//CommonUtils.concatenate(matchups[0].getTeam2().getTeamName(), ";",matchups[0].getHomeTeam())
         List<Item> items2 = new ArrayList<Item>();
-        items2.add(new Header (CommonUtils.concatenate(matchups[1].getMatchDate(), " ", matchups[1].getMatchTime())));
-        matchups[1].setSpread(1.5);
-        matchups[1].setFavoredTeam("Indianapolis");
-        items2.add(new ListItem(matchups[1].getTeamOneHeaderDetails(), R.drawable.indianapolis_colts_logo));
-        items2.add(new ListItem(matchups[1].getTeamTwoHeaderDetails(), R.drawable.buffalo_bills_logo));
+        List<Item> items3 = new ArrayList<Item>();
+        switch (page_position) {
+            case 0: //page 1
+                items.add(new Header(CommonUtils.concatenate(matchups[0].getMatchDate(), " ", matchups[0].getMatchTime())));
+                items.add(new ListItem(matchups[0].getTeamOneHeaderDetails(), matchups[0].getTeam1().getTeamLogo()));
+                items.add(new ListItem(matchups[0].getTeamTwoHeaderDetails(), matchups[0].getTeam2().getTeamLogo()));
+
+                items2.add(new Header(CommonUtils.concatenate(matchups[1].getMatchDate(), " ", matchups[1].getMatchTime())));
+                items2.add(new ListItem(matchups[1].getTeamOneHeaderDetails(), matchups[1].getTeam1().getTeamLogo()));
+                items2.add(new ListItem(matchups[1].getTeamTwoHeaderDetails(), matchups[1].getTeam2().getTeamLogo()));
+
+                items3.add(new Header(CommonUtils.concatenate(matchups[2].getMatchDate(), " ", matchups[2].getMatchTime())));
+                items3.add(new ListItem(matchups[2].getTeamOneHeaderDetails(), matchups[2].getTeam1().getTeamLogo()));
+                items3.add(new ListItem(matchups[2].getTeamTwoHeaderDetails(), matchups[2].getTeam2().getTeamLogo()));
+                break;
+            case 1: //page 2
+                items.add(new Header(CommonUtils.concatenate(matchups[3].getMatchDate(), " ", matchups[3].getMatchTime())));
+                items.add(new ListItem(matchups[3].getTeamOneHeaderDetails(), matchups[3].getTeam1().getTeamLogo()));
+                items.add(new ListItem(matchups[3].getTeamTwoHeaderDetails(), matchups[3].getTeam2().getTeamLogo()));
+
+                items2.add(new Header(CommonUtils.concatenate(matchups[4].getMatchDate(), " ", matchups[4].getMatchTime())));
+                items2.add(new ListItem(matchups[4].getTeamOneHeaderDetails(), matchups[4].getTeam1().getTeamLogo()));
+                items2.add(new ListItem(matchups[4].getTeamTwoHeaderDetails(), matchups[4].getTeam2().getTeamLogo()));
+
+                items3.add(new Header(CommonUtils.concatenate(matchups[5].getMatchDate(), " ", matchups[5].getMatchTime())));
+                items3.add(new ListItem(matchups[5].getTeamOneHeaderDetails(), matchups[5].getTeam1().getTeamLogo()));
+                items3.add(new ListItem(matchups[5].getTeamTwoHeaderDetails(), matchups[5].getTeam2().getTeamLogo()));
+                break;
+            case 2: //page 3
+                items.add(new Header(CommonUtils.concatenate(matchups[6].getMatchDate(), " ", matchups[6].getMatchTime())));
+                items.add(new ListItem(matchups[6].getTeamOneHeaderDetails(), matchups[6].getTeam1().getTeamLogo()));
+                items.add(new ListItem(matchups[6].getTeamTwoHeaderDetails(), matchups[6].getTeam2().getTeamLogo()));
+
+                items2.add(new Header(CommonUtils.concatenate(matchups[7].getMatchDate(), " ", matchups[7].getMatchTime())));
+                items2.add(new ListItem(matchups[7].getTeamOneHeaderDetails(), matchups[7].getTeam1().getTeamLogo()));
+                items2.add(new ListItem(matchups[7].getTeamTwoHeaderDetails(), matchups[7].getTeam2().getTeamLogo()));
+
+                items3.add(new Header(CommonUtils.concatenate(matchups[8].getMatchDate(), " ", matchups[8].getMatchTime())));
+                items3.add(new ListItem(matchups[8].getTeamOneHeaderDetails(), matchups[8].getTeam1().getTeamLogo()));
+                items3.add(new ListItem(matchups[8].getTeamTwoHeaderDetails(), matchups[8].getTeam2().getTeamLogo()));
+                break;
+            case 3: //page 4
+                items.add(new Header(CommonUtils.concatenate(matchups[9].getMatchDate(), " ", matchups[9].getMatchTime())));
+                items.add(new ListItem(matchups[9].getTeamOneHeaderDetails(), matchups[9].getTeam1().getTeamLogo()));
+                items.add(new ListItem(matchups[9].getTeamTwoHeaderDetails(), matchups[9].getTeam2().getTeamLogo()));
+
+                items2.add(new Header(CommonUtils.concatenate(matchups[10].getMatchDate(), " ", matchups[10].getMatchTime())));
+                items2.add(new ListItem(matchups[10].getTeamOneHeaderDetails(), matchups[10].getTeam1().getTeamLogo()));
+                items2.add(new ListItem(matchups[10].getTeamTwoHeaderDetails(), matchups[10].getTeam2().getTeamLogo()));
+
+                items3.add(new Header(CommonUtils.concatenate(matchups[11].getMatchDate(), " ", matchups[11].getMatchTime())));
+                items3.add(new ListItem(matchups[11].getTeamOneHeaderDetails(), matchups[11].getTeam1().getTeamLogo()));
+                items3.add(new ListItem(matchups[11].getTeamTwoHeaderDetails(), matchups[11].getTeam2().getTeamLogo()));
+                break;
+            case 4: //page 5 (need null checks)
+                items.add(new Header(CommonUtils.concatenate(matchups[12].getMatchDate(), " ", matchups[12].getMatchTime())));
+                items.add(new ListItem(matchups[12].getTeamOneHeaderDetails(), matchups[12].getTeam1().getTeamLogo()));
+                items.add(new ListItem(matchups[12].getTeamTwoHeaderDetails(), matchups[12].getTeam2().getTeamLogo()));
+
+                //check length >=14
+                if (matchups.length >= 14) {
+                    items2.add(new Header(CommonUtils.concatenate(matchups[13].getMatchDate(), " ", matchups[13].getMatchTime())));
+                    items2.add(new ListItem(matchups[13].getTeamOneHeaderDetails(), matchups[13].getTeam1().getTeamLogo()));
+                    items2.add(new ListItem(matchups[13].getTeamTwoHeaderDetails(), matchups[13].getTeam2().getTeamLogo()));
+                }
+                //check length >=15
+                if (matchups.length >= 15) {
+                    items3.add(new Header(CommonUtils.concatenate(matchups[14].getMatchDate(), " ", matchups[14].getMatchTime())));
+                    items3.add(new ListItem(matchups[14].getTeamOneHeaderDetails(), matchups[14].getTeam1().getTeamLogo()));
+                    items3.add(new ListItem(matchups[14].getTeamTwoHeaderDetails(), matchups[14].getTeam2().getTeamLogo()));
+                }
+                break;
+            case 5: //page 6 (need null checks)
+                //check length >=16
+                if (matchups.length >= 16) {
+                    items.add(new Header(CommonUtils.concatenate(matchups[15].getMatchDate(), " ", matchups[15].getMatchTime())));
+                    items.add(new ListItem(matchups[15].getTeamOneHeaderDetails(), matchups[15].getTeam1().getTeamLogo()));
+                    items.add(new ListItem(matchups[15].getTeamTwoHeaderDetails(), matchups[15].getTeam2().getTeamLogo()));
+                }
+                break;
+        }
 
         final MatchupAdapter listadapter = new MatchupAdapter(this.getActivity().getBaseContext(), items);
         mylist.setChoiceMode(ListView.CHOICE_MODE_SINGLE);
@@ -87,6 +158,10 @@ public class MatchupFragment extends Fragment {
         final MatchupAdapter listadapter2 = new MatchupAdapter(this.getActivity().getBaseContext(), items2);
         mylist2.setChoiceMode(ListView.CHOICE_MODE_SINGLE);
         mylist2.setAdapter(listadapter2);
+
+        final MatchupAdapter listadapter3 = new MatchupAdapter(this.getActivity().getBaseContext(), items3);
+        mylist3.setChoiceMode(ListView.CHOICE_MODE_SINGLE);
+        mylist3.setAdapter(listadapter3);
         return rootView;
     }
 
@@ -116,9 +191,9 @@ public class MatchupFragment extends Fragment {
                         matchupFound = true;
                     } else{
                         if (name.equalsIgnoreCase(XMLConstants.MATCHES.TAG_TEAM_1)){
-                            team1 = new Team (null, parser.nextText());
+                            team1 = new Team (parser.nextText());
                         } else if (name.equalsIgnoreCase(XMLConstants.MATCHES.TAG_TEAM_2)){
-                            team2 = new Team (null, parser.nextText());
+                            team2 = new Team (parser.nextText());
                         } else if (name.equalsIgnoreCase(XMLConstants.MATCHES.TAG_HOME)){
                             homeTeamName = parser.nextText();
                         } else if (name.equalsIgnoreCase(XMLConstants.MATCHES.TAG_SPREAD)){
