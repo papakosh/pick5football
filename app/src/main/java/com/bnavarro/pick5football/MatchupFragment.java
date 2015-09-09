@@ -41,6 +41,7 @@ public class MatchupFragment extends Fragment {
         // CustomPagerAdapter
         Bundle args = getArguments();
         int page_position = args.getInt("page_position");
+        String matchWeek = args.getString("match_week");
 
         mylist = (ListView) rootView.findViewById(R.id.listView);
         mylist2 = (ListView) rootView.findViewById(R.id.listView2);
@@ -49,7 +50,7 @@ public class MatchupFragment extends Fragment {
         File exst = Environment.getExternalStorageDirectory();
         String exstPath = exst.getPath();
         File dataDir = new File(exstPath+"/Pick5FootballData");
-        File dropBoxFile = new File(dataDir.getAbsolutePath()+"/week1.xml");
+        File dropBoxFile = new File(dataDir.getAbsolutePath()+"/" + matchWeek + ".xml");
 
         XmlPullParser parser = Xml.newPullParser();
         Matchup[] matchups = null;

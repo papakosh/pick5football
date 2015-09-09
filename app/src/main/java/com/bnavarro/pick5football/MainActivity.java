@@ -98,9 +98,9 @@ public class MainActivity extends FragmentActivity {
         
 		initializeDataDirectory();
 
-		//spnGameWeeks.setOnItemSelectedListener(new WeekItemSelectedListener(this));
+		spnGameWeeks.setOnItemSelectedListener(new WeekItemSelectedListener(this));
 
-		mCustomPagerAdapter = new CustomPagerAdapter(getSupportFragmentManager(), this);
+		mCustomPagerAdapter = new CustomPagerAdapter(getSupportFragmentManager(), this, "week2");
 		mViewPager = (ViewPager) findViewById(R.id.pager);
 		mViewPager.setAdapter(mCustomPagerAdapter);
 		//listview.setOnItemClickListener(new ViewMatchMenuItemClickListener(this));
@@ -111,12 +111,12 @@ public class MainActivity extends FragmentActivity {
      */
     private void intializeComponents(){
     	//Initialize data for current week selection dropdown
-//    	spnGameWeeks = (Spinner)findViewById(R.id.spnGameWeeks);
-//    	ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(
-//    										this.getBaseContext(), R.array.weeks_array,
-//    										android.R.layout.simple_spinner_dropdown_item);
-//		adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-//		spnGameWeeks.setAdapter(adapter);
+    	spnGameWeeks = (Spinner)findViewById(R.id.spnGameWeeks);
+    	ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(
+    										this.getBaseContext(), R.array.weeks_array,
+    										android.R.layout.simple_spinner_dropdown_item);
+		adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+		spnGameWeeks.setAdapter(adapter);
 		
 		//Initialize dropbox connection
     	mDBApi = new DropboxAPI<AndroidAuthSession>(buildSession());

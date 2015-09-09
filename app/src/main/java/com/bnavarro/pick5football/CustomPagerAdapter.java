@@ -13,10 +13,12 @@ import android.support.v4.app.FragmentStatePagerAdapter;
 public class CustomPagerAdapter extends FragmentStatePagerAdapter {
 
     protected Context mContext;
+    private String matchWeek;
 
-    public CustomPagerAdapter(FragmentManager fm, Context context) {
+    public CustomPagerAdapter(FragmentManager fm, Context context, String matchWeek) {
         super(fm);
         mContext = context;
+        this.matchWeek=matchWeek;
     }
 
     @Override
@@ -34,6 +36,7 @@ public class CustomPagerAdapter extends FragmentStatePagerAdapter {
         // use to populate our fragment layouts
         Bundle args = new Bundle();
         args.putInt("page_position", position);
+        args.putString("match_week", matchWeek);
 
         // Set the arguments on the fragment
         // that will be fetched in MatchupFragment@onCreateView
