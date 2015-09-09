@@ -6,6 +6,7 @@ import java.util.concurrent.TimeoutException;
 
 import org.xmlpull.v1.XmlPullParserException;
 
+import com.bnavarro.pick5football.CustomPagerAdapter;
 import com.bnavarro.pick5football.MainActivity;
 import com.dropbox.client2.exception.DropboxException;
 
@@ -35,6 +36,16 @@ public class WeekItemSelectedListener implements OnItemSelectedListener {
 	public void onItemSelected(AdapterView<?> parent, View arg1,
 			int pos, long id) {
 		String item = (String)parent.getItemAtPosition(pos);
+		activity.setCurrentMatchWeek(item);
+		try {
+			activity.pullData(item, false);
+		}catch(InterruptedException ex){
+
+		}catch (ExecutionException ex2){
+
+		}
+		activity.setCustomPagerAdapterAdapter(new CustomPagerAdapter(activity.getSupportFragmentManager(), activity, item));
+
 //		 try {
 //			activity.setCurrentMatchWeek(item);
 //			activity.createMatchups(false);
@@ -43,7 +54,7 @@ public class WeekItemSelectedListener implements OnItemSelectedListener {
 //			ArrayAdapter<String> adapter1 = new ArrayAdapter<String>(parent.getContext(),
 //			android.R.layout.simple_list_item_activated_1, activity.getMatchupList());
 //
-//			activity.setListAdapter(adapter1);
+			//activity.setListAdapter(adapter1);
 //
 //		} catch (XmlPullParserException e) {
 //			e.printStackTrace();

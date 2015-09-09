@@ -86,8 +86,8 @@ public class MainActivity extends FragmentActivity {
 
 	//Aynschronous tasks
 	private RetrieveMatchesAsync retrieval;
-	CustomPagerAdapter mCustomPagerAdapter;
-	ViewPager mViewPager;
+	private CustomPagerAdapter mCustomPagerAdapter;
+	private ViewPager mViewPager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -98,13 +98,27 @@ public class MainActivity extends FragmentActivity {
         
 		initializeDataDirectory();
 
+		mViewPager = (ViewPager) findViewById(R.id.pager);
 		spnGameWeeks.setOnItemSelectedListener(new WeekItemSelectedListener(this));
 
-		mCustomPagerAdapter = new CustomPagerAdapter(getSupportFragmentManager(), this, "week2");
-		mViewPager = (ViewPager) findViewById(R.id.pager);
-		mViewPager.setAdapter(mCustomPagerAdapter);
+		//mCustomPagerAdapter = new CustomPagerAdapter(getSupportFragmentManager(), this, "week2");
+		//mViewPager.setAdapter(mCustomPagerAdapter);
 		//listview.setOnItemClickListener(new ViewMatchMenuItemClickListener(this));
     }
+
+	public CustomPagerAdapter getCustomPagerAdapter(){
+		return mCustomPagerAdapter;
+	}
+
+	public ViewPager getPager (){
+		return mViewPager;
+	}
+
+	public void setCustomPagerAdapterAdapter (CustomPagerAdapter mCustomPagerAdapter){
+		this.mCustomPagerAdapter=mCustomPagerAdapter;
+		mViewPager.setAdapter(mCustomPagerAdapter);
+		mViewPager.setVisibility(View.VISIBLE);
+	}
     
     /** Initialize screen and data components
      * 
@@ -140,6 +154,18 @@ public class MainActivity extends FragmentActivity {
 			System.out.println("No action taken. Pick5FootballData directory already exists " + " at"+ exstPath +"/Pick5FootballData");
 		}
     }
+
+	public void pullData(String week, boolean isUpdate) throws InterruptedException, ExecutionException{
+		String matchweek = week.replace(" ", "").toLowerCase(Locale.ENGLISH);
+
+		File dropBoxFile = new File(dataDir.getAbsolutePath()+"/"+matchweek+ ".xml");
+		//Retrieve list of matches for current week if file does not exist or is an update
+		if (!dropBoxFile.exists() || isUpdate){
+			retrieval =  new RetrieveMatchesAsync(getApplicationContext(), mDBApi, null, dropBoxFile);
+			retrieval.execute();
+			retrieval.get();
+		}
+	}
 
     /** Create a new array of matchups based on retrieved data, or if data exists and not an update, just
      * refresh the list from the local directory.

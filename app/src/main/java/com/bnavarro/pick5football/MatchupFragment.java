@@ -22,6 +22,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Locale;
 
 /**
  * Created by navman on 9/1/2015.
@@ -42,6 +43,7 @@ public class MatchupFragment extends Fragment {
         Bundle args = getArguments();
         int page_position = args.getInt("page_position");
         String matchWeek = args.getString("match_week");
+        matchWeek = matchWeek.replace(" ", "").toLowerCase(Locale.ENGLISH);
 
         mylist = (ListView) rootView.findViewById(R.id.listView);
         mylist2 = (ListView) rootView.findViewById(R.id.listView2);

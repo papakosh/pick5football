@@ -8,6 +8,7 @@ import java.util.concurrent.TimeoutException;
 import org.xmlpull.v1.XmlPullParserException;
 
 import com.bnavarro.pick5football.CommonUtils;
+import com.bnavarro.pick5football.CustomPagerAdapter;
 import com.bnavarro.pick5football.MainActivity;
 import com.bnavarro.pick5football.Matchup;
 import com.dropbox.client2.exception.DropboxException;
@@ -67,23 +68,26 @@ public class RefreshMatchesMenuItemClickListener implements
 	 * @throws TimeoutException
 	 */
 	private void refreshMatchups () throws DropboxException, IOException, XmlPullParserException, InterruptedException, ExecutionException, TimeoutException{
-		 //Call create matchups with update true flag in order to retrieve fresh list
-		 activity.createMatchups(true);
-		 Matchup[] matchups = activity.getMatchups();
+		 //Call create matchups with update true flag in order to retrieve fresh
+		activity.pullData(activity.getCurrentWeek(),true);
 
-		 //Check to see if matchups array is empty
-		 if (CommonUtils.isArrayEmpty(matchups)){
-			 System.out.println ("matchups is null"); //replace with Exception
-		 	return;
-		 }else{ //loop through matchups and set new details for each 
-//			 activity.setMatchupList(activity.createList(activity.getMatchups()));
-			 for (int i = 0; i < matchups.length; i++){
-				 activity.getMatchupList().set(i,  matchups[i].displayMatchupDetails());
-			 }
-		 }
-		 
-		 //refresh data for list
-		 activity.getMatchArrayAdapter().notifyDataSetChanged();
+		activity.setCustomPagerAdapterAdapter(new CustomPagerAdapter(activity.getSupportFragmentManager(), activity, activity.getCurrentWeek()));
+//		 activity.createMatchups(true);
+//		 Matchup[] matchups = activity.getMatchups();
+//
+//		 //Check to see if matchups array is empty
+//		 if (CommonUtils.isArrayEmpty(matchups)){
+//			 System.out.println ("matchups is null"); //replace with Exception
+//		 	return;
+//		 }else{ //loop through matchups and set new details for each
+////			 activity.setMatchupList(activity.createList(activity.getMatchups()));
+//			 for (int i = 0; i < matchups.length; i++){
+//				 activity.getMatchupList().set(i,  matchups[i].displayMatchupDetails());
+//			 }
+//		 }
+//
+//		 //refresh data for list
+//		 activity.getMatchArrayAdapter().notifyDataSetChanged();
 	}
 	
 }
