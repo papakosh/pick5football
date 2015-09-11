@@ -3,10 +3,12 @@ package com.bnavarro.pick5football;
 import android.os.Bundle;
 import android.os.Environment;
 import android.support.v4.app.Fragment;
+import android.util.Log;
 import android.util.Xml;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ListView;
 
 import com.bnavarro.pick5football.constants.XMLConstants;
@@ -32,6 +34,7 @@ public class MatchupFragment extends Fragment {
     private ListView mylist = null;
     private ListView mylist2 = null;
     private ListView mylist3 = null;
+    private Matchup[] matchups;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         // Inflate the layout resource that'll be returned
@@ -46,7 +49,8 @@ public class MatchupFragment extends Fragment {
         matchWeek = matchWeek.replace(" ", "").toLowerCase(Locale.ENGLISH);
 
         mylist = (ListView) rootView.findViewById(R.id.listView);
-        mylist2 = (ListView) rootView.findViewById(R.id.listView2);
+
+                mylist2 = (ListView) rootView.findViewById(R.id.listView2);
         mylist3 = (ListView) rootView.findViewById(R.id.listView3);
 
         File exst = Environment.getExternalStorageDirectory();
@@ -55,7 +59,7 @@ public class MatchupFragment extends Fragment {
         File dropBoxFile = new File(dataDir.getAbsolutePath()+"/" + matchWeek + ".xml");
 
         XmlPullParser parser = Xml.newPullParser();
-        Matchup[] matchups = null;
+
         try {
             InputStream in_s = new BufferedInputStream(new FileInputStream(dropBoxFile));
             parser.setFeature(XmlPullParser.FEATURE_PROCESS_NAMESPACES, false);
@@ -70,22 +74,95 @@ public class MatchupFragment extends Fragment {
         }catch (IOException ex3){
 
         }
+
+
+
+
+        mylist.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                String itemSelected = ((ListItem) mylist.getItemAtPosition(position)).getSelectedValue();
+
+                if (matchups[0].getPickSelection() == null){
+                    mylist.setItemChecked(position, true);
+                    matchups[0].setPickSelection(itemSelected);
+                }else if (itemSelected.equalsIgnoreCase(matchups[0].getPickSelection())){
+                    mylist.setItemChecked(position, false);
+                    matchups[0].setPickSelection(null);
+                }else {
+                    mylist.setItemChecked(position, true);
+                    matchups[0].setPickSelection(itemSelected);
+                    if (position == 1)
+                        mylist.setItemChecked(position+1, false);
+                    else
+                        mylist.setItemChecked(position-1, false);
+                }
+
+                Log.w("Pick 5 Football","selection = "+ itemSelected);
+            }
+        });
+
+        mylist2.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                String itemSelected = ((ListItem) mylist2.getItemAtPosition(position)).getSelectedValue();
+                if (matchups[1].getPickSelection() == null){
+                    mylist2.setItemChecked(position, true);
+                    matchups[1].setPickSelection(itemSelected);
+                }else if (itemSelected.equalsIgnoreCase(matchups[1].getPickSelection())){
+                    mylist2.setItemChecked(position, false);
+                    matchups[1].setPickSelection(null);
+                }else {
+                    mylist2.setItemChecked(position, true);
+                    matchups[1].setPickSelection(itemSelected);
+                    if (position == 1)
+                        mylist2.setItemChecked(position+1, false);
+                    else
+                        mylist2.setItemChecked(position-1, false);
+                }
+
+                Log.w("Pick 5 Football","selection = "+ itemSelected);
+            }
+        });
+
+        mylist3.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                String itemSelected = ((ListItem) mylist3.getItemAtPosition(position)).getSelectedValue();
+                if (matchups[2].getPickSelection() == null){
+                    mylist3.setItemChecked(position, true);
+                    matchups[2].setPickSelection(itemSelected);
+                }else if (itemSelected.equalsIgnoreCase(matchups[2].getPickSelection())){
+                    mylist3.setItemChecked(position, false);
+                    matchups[2].setPickSelection(null);
+                }else {
+                    mylist3.setItemChecked(position, true);
+                    matchups[2].setPickSelection(itemSelected);
+                    if (position == 1)
+                        mylist3.setItemChecked(position+1, false);
+                    else
+                        mylist3.setItemChecked(position-1, false);
+                }
+
+                Log.w("Pick 5 Football","selection = "+ itemSelected);
+            }
+        });
         List<Item> items = new ArrayList<Item>();
         List<Item> items2 = new ArrayList<Item>();
         List<Item> items3 = new ArrayList<Item>();
         switch (page_position) {
             case 0: //page 1
                 items.add(new Header(CommonUtils.concatenate(matchups[0].getMatchDate(), " ", matchups[0].getMatchTime())));
-                items.add(new ListItem(matchups[0].getTeamOneHeaderDetails(), matchups[0].getTeam1().getTeamLogo()));
-                items.add(new ListItem(matchups[0].getTeamTwoHeaderDetails(), matchups[0].getTeam2().getTeamLogo()));
+                items.add(new ListItem(matchups[0].getTeam1().getTeamName(),matchups[0].getTeamOneHeaderDetails(), matchups[0].getTeam1().getTeamLogo()));
+                items.add(new ListItem(matchups[0].getTeam2().getTeamName(),matchups[0].getTeamTwoHeaderDetails(), matchups[0].getTeam2().getTeamLogo()));
 
                 items2.add(new Header(CommonUtils.concatenate(matchups[1].getMatchDate(), " ", matchups[1].getMatchTime())));
-                items2.add(new ListItem(matchups[1].getTeamOneHeaderDetails(), matchups[1].getTeam1().getTeamLogo()));
-                items2.add(new ListItem(matchups[1].getTeamTwoHeaderDetails(), matchups[1].getTeam2().getTeamLogo()));
+                items2.add(new ListItem(matchups[1].getTeam1().getTeamName(),matchups[1].getTeamOneHeaderDetails(), matchups[1].getTeam1().getTeamLogo()));
+                items2.add(new ListItem(matchups[1].getTeam2().getTeamName(),matchups[1].getTeamTwoHeaderDetails(), matchups[1].getTeam2().getTeamLogo()));
 
                 items3.add(new Header(CommonUtils.concatenate(matchups[2].getMatchDate(), " ", matchups[2].getMatchTime())));
-                items3.add(new ListItem(matchups[2].getTeamOneHeaderDetails(), matchups[2].getTeam1().getTeamLogo()));
-                items3.add(new ListItem(matchups[2].getTeamTwoHeaderDetails(), matchups[2].getTeam2().getTeamLogo()));
+                items3.add(new ListItem(matchups[2].getTeam1().getTeamName(),matchups[2].getTeamOneHeaderDetails(), matchups[2].getTeam1().getTeamLogo()));
+                items3.add(new ListItem(matchups[2].getTeam2().getTeamName(),matchups[2].getTeamTwoHeaderDetails(), matchups[2].getTeam2().getTeamLogo()));
                 break;
             case 1: //page 2
                 items.add(new Header(CommonUtils.concatenate(matchups[3].getMatchDate(), " ", matchups[3].getMatchTime())));
@@ -235,5 +312,11 @@ public class MatchupFragment extends Fragment {
             eventType = parser.next();
         }
         return week.toArray(new Matchup[week.size()]);
+    }
+
+    public boolean isTeamAlreadySelected (String selectedItem){
+        if (matchups[0].getPickSelection() == null)
+            return false;
+        return selectedItem.contains(matchups[0].getPickSelection());
     }
 }

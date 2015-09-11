@@ -18,10 +18,16 @@ import android.widget.TextView;
 public class ListItem implements Item {
     private final String str1;
     private final Integer imageId;
+    private String teamName = "";
 
     public ListItem(String text1, Integer imageId) {
         this.str1 = text1;
         this.imageId = imageId;
+    }
+    public ListItem(String teamName, String text1, Integer imageId) {
+        this.str1 = text1;
+        this.imageId = imageId;
+        this.teamName=teamName;
     }
 
     @Override
@@ -83,6 +89,10 @@ public class ListItem implements Item {
             delimiterPos = evalText.indexOf(";", startPos);
         }
         return teamItemsSorted;
+    }
+
+    public String getSelectedValue (){
+        return teamName;
     }
 
 }
