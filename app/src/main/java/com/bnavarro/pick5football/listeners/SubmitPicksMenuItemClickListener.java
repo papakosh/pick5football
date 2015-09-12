@@ -5,6 +5,7 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileWriter;
 import java.io.IOException;
+import android.util.Log;
 
 import com.bnavarro.pick5football.MainActivity;
 import com.bnavarro.pick5football.async.SubmitPicksAsync;
@@ -50,7 +51,12 @@ public class SubmitPicksMenuItemClickListener implements OnMenuItemClickListener
 		
 		//Gather each pick selection and append it to StringBuffer. Also count them.
 		for (int i = 0; i < activity.getMatchups().length; i++){
+			String itemSelected = activity.getMatchups()[i].getPickSelection();
+		
+			Log.w("Pick 5 Football","submitted pick selection "+ itemSelected);
+			//Log.w("Pick 5 Football","custompageradapter text = "+ activity.getCustomPagerAdapter().getData());
 			if (activity.getMatchups()[i].getPickSelection() != null){
+				
 				yourPicks.append(activity.getMatchups()[i].getPickSelection());
 				yourPicks.append("\n");
 				count++;

@@ -9,6 +9,10 @@ import android.os.Parcelable;
 public class MatchParcelable implements Parcelable {
     private Matchup[] matchups;
 
+	
+	public MatchParcelable (Matchup[] matchups){
+		this.matchups=matchups;
+	}
     public int describeContents() {
         return 0;
     }

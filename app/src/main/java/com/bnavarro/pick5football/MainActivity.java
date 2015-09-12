@@ -9,6 +9,7 @@ import java.util.ArrayList;
 import java.util.Locale;
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.TimeoutException;
+import java.io.FileNotFoundException;
 
 import org.xmlpull.v1.XmlPullParser;
 import org.xmlpull.v1.XmlPullParserException;
@@ -88,6 +89,7 @@ public class MainActivity extends FragmentActivity {
 	private RetrieveMatchesAsync retrieval;
 	private CustomPagerAdapter mCustomPagerAdapter;
 	private ViewPager mViewPager;
+	//private MatchParcelable matchParceable;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -100,12 +102,12 @@ public class MainActivity extends FragmentActivity {
 
 		mViewPager = (ViewPager) findViewById(R.id.pager);
 		spnGameWeeks.setOnItemSelectedListener(new WeekItemSelectedListener(this));
-
+		//matchParceable = new MatchParcelable (matchups);
 		//mCustomPagerAdapter = new CustomPagerAdapter(getSupportFragmentManager(), this, "week2");
 		//mViewPager.setAdapter(mCustomPagerAdapter);
 		//listview.setOnItemClickListener(new ViewMatchMenuItemClickListener(this));
     }
-
+	
 	public CustomPagerAdapter getCustomPagerAdapter(){
 		return mCustomPagerAdapter;
 	}
@@ -119,7 +121,15 @@ public class MainActivity extends FragmentActivity {
 		mViewPager.setAdapter(mCustomPagerAdapter);
 		mViewPager.setVisibility(View.VISIBLE);
 	}
+	
+	public void setMatchups (Matchup[] matchups){
+		this.matchups = matchups;
+	}
     
+	public void updateMatchups (Matchup[] matchups, int index){
+		this.matchups[index] = matchups[index];
+	}
+	
     /** Initialize screen and data components
      * 
      */
@@ -157,7 +167,10 @@ public class MainActivity extends FragmentActivity {
 
 	public void pullData(String week, boolean isUpdate) throws InterruptedException, ExecutionException{
 		String matchweek = week.replace(" ", "").toLowerCase(Locale.ENGLISH);
-
+		File exst = Environment.getExternalStorageDirectory();
+        String exstPath = exst.getPath();
+        File dataDir = new File(exstPath+"/Pick5FootballData");
+		
 		File dropBoxFile = new File(dataDir.getAbsolutePath()+"/"+matchweek+ ".xml");
 		//Retrieve list of matches for current week if file does not exist or is an update
 		if (!dropBoxFile.exists() || isUpdate){
@@ -165,6 +178,26 @@ public class MainActivity extends FragmentActivity {
 			retrieval.execute();
 			retrieval.get();
 		}
+		
+     //   File dropBoxFile = new File(dataDir.getAbsolutePath()+"/" + matchWeek + ".xml");
+
+        XmlPullParser parser = Xml.newPullParser();
+
+        try {
+            InputStream in_s = new BufferedInputStream(new FileInputStream(dropBoxFile));
+            parser.setFeature(XmlPullParser.FEATURE_PROCESS_NAMESPACES, false);
+            parser.setInput(in_s, null);
+            matchups= parseXML(parser);
+
+            in_s.close();
+        }catch(FileNotFoundException ex) {
+
+        }catch (XmlPullParserException ex2){
+
+        }catch (IOException ex3){
+
+        }
+	
 	}
 
     /** Create a new array of matchups based on retrieved data, or if data exists and not an update, just
@@ -353,64 +386,75 @@ public class MainActivity extends FragmentActivity {
      * @throws XmlPullParserException
      * @throws IOException
      */
+
     private Matchup[] parseXML(XmlPullParser parser) throws XmlPullParserException,IOException
-	{
-		ArrayList<Matchup> week = null;
+    {
+        ArrayList<Matchup> week = null;
         int eventType = parser.getEventType();
-		boolean matchupFound = false;
-		Team team1 = null;
-		Team team2 = null;
-		String homeTeamName = null;
-		Double matchSpread = null;
-		String favoredTeamName = null;
+        boolean matchupFound = false;
+        Team team1 = null;
+        Team team2 = null;
+        String homeTeamName = null;
+        Double matchSpread = null;
+        String favoredTeamName = null;
+        String matchDate = null;
+        String matchTime = null;
         while (eventType != XmlPullParser.END_DOCUMENT){
             String name = null;
-            
+
             switch (eventType){
                 case XmlPullParser.START_DOCUMENT:
-                	week = new ArrayList<Matchup>();
+                    week = new ArrayList<Matchup>();
                     break;
                 case XmlPullParser.START_TAG:
                     name = parser.getName();
                     if (name.equalsIgnoreCase(XMLConstants.MATCHES.TAG_MATCHUP)){
-                    	//currentMatchup = new Matchup();
-						matchupFound = true;
+                        //currentMatchup = new Matchup();
+                        matchupFound = true;
                     } else{
                         if (name.equalsIgnoreCase(XMLConstants.MATCHES.TAG_TEAM_1)){
-							team1 = new Team ( parser.nextText());
+                            team1 = new Team (parser.nextText());
                         } else if (name.equalsIgnoreCase(XMLConstants.MATCHES.TAG_TEAM_2)){
-							team2 = new Team (parser.nextText());
+                            team2 = new Team (parser.nextText());
                         } else if (name.equalsIgnoreCase(XMLConstants.MATCHES.TAG_HOME)){
-							homeTeamName = parser.nextText();
+                            homeTeamName = parser.nextText();
                         } else if (name.equalsIgnoreCase(XMLConstants.MATCHES.TAG_SPREAD)){
-                        	matchSpread = Double.valueOf(parser.nextText());
+                            matchSpread = Double.valueOf(parser.nextText());
                         } else if (name.equalsIgnoreCase(XMLConstants.MATCHES.TAG_FAVORED)){
-							favoredTeamName = parser.nextText();
-                        } 
+                            favoredTeamName = parser.nextText();
+                        } else if (name.equalsIgnoreCase(XMLConstants.MATCHES.TAG_DATE)){
+                            matchDate = parser.nextText();
+                        }else if (name.equalsIgnoreCase(XMLConstants.MATCHES.TAG_TIME)){
+                            matchTime = parser.nextText();
+                        }
                     }
                     break;
                 case XmlPullParser.END_TAG:
-					if (matchupFound) {
-						//Set xml data into current matchup
-						Matchup currentMatchup = new Matchup(team1,team2);
-						currentMatchup.setFavoredTeam(favoredTeamName);
-						currentMatchup.setHomeTeam(homeTeamName);
-						currentMatchup.setSpread(matchSpread);
-						week.add(currentMatchup);
+                    if (matchupFound) {
+                        //Set xml data into current matchup
+                        Matchup currentMatchup = new Matchup(team1,team2);
+                        currentMatchup.setFavoredTeam(favoredTeamName);
+                        currentMatchup.setHomeTeam(homeTeamName);
+                        currentMatchup.setSpread(matchSpread);
+                        currentMatchup.setMatchDate(matchDate);
+                        currentMatchup.setMatchTime(matchTime);
+                        week.add(currentMatchup);
 
-						//reset local variables before next matchup
-						matchupFound = false;
-						team1 = null;
-						team2 = null;
-						homeTeamName = null;
-						favoredTeamName=null;
-						matchSpread=null;
-					}
+                        //reset local variables before next matchup
+                        matchupFound = false;
+                        team1 = null;
+                        team2 = null;
+                        homeTeamName = null;
+                        favoredTeamName=null;
+                        matchSpread=null;
+                        matchDate=null;
+                        matchTime=null;
+                    }
             }
             eventType = parser.next();
         }
         return week.toArray(new Matchup[week.size()]);
-	}
+    }
 	
     public Matchup[] getMatchups (){
     	return matchups;

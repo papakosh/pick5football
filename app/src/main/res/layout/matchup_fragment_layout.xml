@@ -10,14 +10,16 @@
         android:id="@+id/listView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="5dp"
+        android:layout_marginTop="0dp"
+		android:layout_marginBottom="0dp"
         android:background="#ffffff">
     </ListView>
     <ListView
         android:id="@+id/listView2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="5dp"
+        android:layout_marginTop="0dp"
+		android:layout_marginBottom="0dp"
         android:background="#ffffff"
         android:layout_below ="@+id/listView">
     </ListView>
@@ -25,7 +27,8 @@
         android:id="@+id/listView3"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="5dp"
+        android:layout_marginTop="0dp"
+		android:layout_marginBottom="0dp"
         android:background="#ffffff"
         android:layout_below ="@+id/listView2">
     </ListView>

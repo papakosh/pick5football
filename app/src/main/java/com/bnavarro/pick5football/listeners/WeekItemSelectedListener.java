@@ -39,6 +39,7 @@ public class WeekItemSelectedListener implements OnItemSelectedListener {
 		activity.setCurrentMatchWeek(item);
 		try {
 			activity.pullData(item, false);
+			
 		}catch(InterruptedException ex){
 
 		}catch (ExecutionException ex2){
