@@ -70,7 +70,7 @@ public class MainActivity extends FragmentActivity {
 	//Screen fields
 	private Spinner spnGameWeeks;	
 	private ListView listview;
-	
+
 	//Data Access fields
 	private DropboxAPI<AndroidAuthSession> mDBApi;
 	final static private String APP_KEY = "1t3c5oggvr0hnhe";
@@ -84,6 +84,7 @@ public class MainActivity extends FragmentActivity {
 	private ArrayAdapter<String> adapter1;
 	private String currentWeek;
 	private ArrayList<String> matchupList;
+    private ArrayList<Integer> savedPicks;
 
 	//Aynschronous tasks
 	private RetrieveMatchesAsync retrieval;
@@ -149,7 +150,11 @@ public class MainActivity extends FragmentActivity {
     	//listview = (ListView) findViewById(R.id.listview);
 		//listview.setChoiceMode(ListView.CHOICE_MODE_MULTIPLE);
     }
-    
+
+    public void loadSavedPicks (ArrayList<Integer> savedPicks){
+        this.savedPicks=savedPicks;
+    }
+
     /** Initialize local data directory for storing retrieved and user-saved files
      * 
      */

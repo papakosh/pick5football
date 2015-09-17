@@ -87,6 +87,7 @@ public class MatchupFragment extends Fragment {
         // CustomPagerAdapter
         Bundle args = getArguments();
         int page_position = args.getInt("page_position");
+        Log.w("Pick 5 Football", "On page " + page_position);
         //String matchWeek = args.getString("match_week");
 		
 		int indexModifier = 3;
@@ -111,23 +112,24 @@ public class MatchupFragment extends Fragment {
         mylist.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                String itemSelected = ((ListItem) mylist.getItemAtPosition(position)).getSelectedValue();
-                if (matchups[firstIndex].getPickSelection() == null){
-                    mylist.setItemChecked(position, true);
-                    matchups[firstIndex].setPickSelection(itemSelected);
-                }else if (itemSelected.equalsIgnoreCase(matchups[firstIndex].getPickSelection())){
-                    mylist.setItemChecked(position, false);
-                    matchups[firstIndex].setPickSelection(null);
-                }else {
-                    mylist.setItemChecked(position, true);
-                    matchups[firstIndex].setPickSelection(itemSelected);
-                    if (position == 1)
-                        mylist.setItemChecked(position+1, false);
-                    else
-                        mylist.setItemChecked(position-1, false);
+                if (mylist.getItemAtPosition(position) instanceof ListItem) {
+                    String itemSelected = ((ListItem) mylist.getItemAtPosition(position)).getSelectedValue();
+                    if (matchups[firstIndex].getPickSelection() == null) {
+                        mylist.setItemChecked(position, true);
+                        matchups[firstIndex].setPickSelection(itemSelected);
+                    } else if (itemSelected.equalsIgnoreCase(matchups[firstIndex].getPickSelection())) {
+                        mylist.setItemChecked(position, false);
+                        matchups[firstIndex].setPickSelection(null);
+                    } else {
+                        mylist.setItemChecked(position, true);
+                        matchups[firstIndex].setPickSelection(itemSelected);
+                        if (position == 1)
+                            mylist.setItemChecked(position + 1, false);
+                        else
+                            mylist.setItemChecked(position - 1, false);
+                    }
+                    mainActivity.updateMatchups(matchups, firstIndex);
                 }
-				mainActivity.updateMatchups(matchups, firstIndex);
-
                 //Log.w("Pick 5 Football","selection = "+ itemSelected);
             }
         });
@@ -135,22 +137,24 @@ public class MatchupFragment extends Fragment {
         mylist2.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                String itemSelected = ((ListItem) mylist2.getItemAtPosition(position)).getSelectedValue();
-                if (matchups[secondIndex].getPickSelection() == null){
-                    mylist2.setItemChecked(position, true);
-                    matchups[secondIndex].setPickSelection(itemSelected);
-                }else if (itemSelected.equalsIgnoreCase(matchups[secondIndex].getPickSelection())){
-                    mylist2.setItemChecked(position, false);
-                    matchups[secondIndex].setPickSelection(null);
-                }else {
-                    mylist2.setItemChecked(position, true);
-                    matchups[secondIndex].setPickSelection(itemSelected);
-                    if (position == 1)
-                        mylist2.setItemChecked(position+1, false);
-                    else
-                        mylist2.setItemChecked(position-1, false);
+                if (mylist2.getItemAtPosition(position) instanceof ListItem) {
+                    String itemSelected = ((ListItem) mylist2.getItemAtPosition(position)).getSelectedValue();
+                    if (matchups[secondIndex].getPickSelection() == null) {
+                        mylist2.setItemChecked(position, true);
+                        matchups[secondIndex].setPickSelection(itemSelected);
+                    } else if (itemSelected.equalsIgnoreCase(matchups[secondIndex].getPickSelection())) {
+                        mylist2.setItemChecked(position, false);
+                        matchups[secondIndex].setPickSelection(null);
+                    } else {
+                        mylist2.setItemChecked(position, true);
+                        matchups[secondIndex].setPickSelection(itemSelected);
+                        if (position == 1)
+                            mylist2.setItemChecked(position + 1, false);
+                        else
+                            mylist2.setItemChecked(position - 1, false);
+                    }
+                    mainActivity.updateMatchups(matchups, secondIndex);
                 }
-				mainActivity.updateMatchups(matchups, secondIndex);
                 //Log.w("Pick 5 Football","selection = "+ itemSelected);
             }
         });
@@ -158,22 +162,24 @@ public class MatchupFragment extends Fragment {
         mylist3.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                String itemSelected = ((ListItem) mylist3.getItemAtPosition(position)).getSelectedValue();
-                if (matchups[thirdIndex].getPickSelection() == null){
-                    mylist3.setItemChecked(position, true);
-                    matchups[thirdIndex].setPickSelection(itemSelected);
-                }else if (itemSelected.equalsIgnoreCase(matchups[thirdIndex].getPickSelection())){
-                    mylist3.setItemChecked(position, false);
-                    matchups[thirdIndex].setPickSelection(null);
-                }else {
-                    mylist3.setItemChecked(position, true);
-                    matchups[thirdIndex].setPickSelection(itemSelected);
-                    if (position == 1)
-                        mylist3.setItemChecked(position+1, false);
-                    else
-                        mylist3.setItemChecked(position-1, false);
+                if (mylist3.getItemAtPosition(position) instanceof ListItem) {
+                    String itemSelected = ((ListItem) mylist3.getItemAtPosition(position)).getSelectedValue();
+                    if (matchups[thirdIndex].getPickSelection() == null) {
+                        mylist3.setItemChecked(position, true);
+                        matchups[thirdIndex].setPickSelection(itemSelected);
+                    } else if (itemSelected.equalsIgnoreCase(matchups[thirdIndex].getPickSelection())) {
+                        mylist3.setItemChecked(position, false);
+                        matchups[thirdIndex].setPickSelection(null);
+                    } else {
+                        mylist3.setItemChecked(position, true);
+                        matchups[thirdIndex].setPickSelection(itemSelected);
+                        if (position == 1)
+                            mylist3.setItemChecked(position + 1, false);
+                        else
+                            mylist3.setItemChecked(position - 1, false);
+                    }
+                    mainActivity.updateMatchups(matchups, thirdIndex);
                 }
-				mainActivity.updateMatchups(matchups, thirdIndex);
               //  Log.w("Pick 5 Football","selection = "+ itemSelected);
             }
         });

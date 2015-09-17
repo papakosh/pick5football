@@ -36,7 +36,7 @@ public class SaveMatchesMenuItemClickListener implements
 		try {
 			for (int i = 0; i < activity.getMatchups().length; i++){
 				if (activity.getMatchups()[i].getPickSelection() != null){
-					yourPicks.append(activity.getMatchups()[i].getPickSelection());
+					yourPicks.append(i + "," + activity.getMatchups()[i].getPickSelection());
 					yourPicks.append("\n");
 				}
 			}
@@ -59,7 +59,7 @@ public class SaveMatchesMenuItemClickListener implements
 	 */
 	public File savePicks(String picks) throws IOException {
 		//creates local file 
-		File file = new File(activity.getDataDirectory().getAbsolutePath() + "/" + activity.getCurrentWeek() + "-picks.txt");
+		File file = new File(activity.getDataDirectory().getAbsolutePath() + "/" + activity.getCurrentWeek() + "-saved-picks.txt");
 		file.createNewFile();
 	    FileWriter filewriter = new FileWriter(file);
 	    

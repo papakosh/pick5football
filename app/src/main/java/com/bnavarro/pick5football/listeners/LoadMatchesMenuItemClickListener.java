@@ -8,6 +8,7 @@ import java.util.ArrayList;
 
 import com.bnavarro.pick5football.MainActivity;
 
+import android.util.Log;
 import android.view.MenuItem;
 import android.view.MenuItem.OnMenuItemClickListener;
 import android.widget.Toast;
@@ -47,7 +48,7 @@ public class LoadMatchesMenuItemClickListener implements
 	private void loadPicks() throws IOException {
 		
 		//Access local file (if exist) and buffer read its contents
-		File file = new File(activity.getDataDirectory().getAbsolutePath() + "/" + activity.getCurrentWeek() + "-picks.txt");
+		File file = new File(activity.getDataDirectory().getAbsolutePath() + "/" + activity.getCurrentWeek() + "-saved-picks.txt");
 		ArrayList<String> currentPicks = new ArrayList<String>();
 		if (file.canRead()){
 		    FileReader filereader = new FileReader(file);
@@ -59,20 +60,23 @@ public class LoadMatchesMenuItemClickListener implements
 	        }
 
 	        in.close();
-	        
+	        int index = 0;
 	        //Loop through each pick and make selection by matching the pick to team 1 or team 2
-	        while (num < currentPicks.size()){
-	        	for (int i =0; i <activity.getMatchups().length; i++){
-	        		if (activity.getMatchups()[i].getTeam1().getTeamName().contains(currentPicks.get(num)) || activity.getMatchups()[i].getTeam2().getTeamName().contains(currentPicks.get(num))  ){
-	        			activity.getMatchups()[i].makePick(currentPicks.get(num));
-	        			activity.getMatchupList().set(i, activity.getMatchups()[i].displayMatchupDetails());
-	        			activity.getListView().setItemChecked(i, true);
-	        		   num++;
-	        		   break;
-	        		}
-	        	}
+	        while (index < currentPicks.size()){
+				Log.w("Pick 5 Football", currentPicks.get(index));
+				index++;
+//	        	for (int i =0; i <activity.getMatchups().length; i++){
+//	        		if (activity.getMatchups()[i].getTeam1().getTeamName().contains(currentPicks.get(num)) || activity.getMatchups()[i].getTeam2().getTeamName().contains(currentPicks.get(num))  ){
+//	        			activity.getMatchups()[i].makePick(currentPicks.get(num));
+//	        			activity.getMatchupList().set(i, activity.getMatchups()[i].displayMatchupDetails());
+//	        			activity.getListView().setItemChecked(i, true);
+//	        		   num++;
+//	        		   break;
+//	        		}
+//	        	}
 	        }
-	        activity.getMatchArrayAdapter().notifyDataSetChanged();
+			activity.getCustomPagerAdapter().notifyDataSetChanged();
+	        //activity.getMatchArrayAdapter().notifyDataSetChanged();
 	        
 	        
 		}else {
