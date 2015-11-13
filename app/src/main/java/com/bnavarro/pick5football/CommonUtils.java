@@ -30,7 +30,15 @@ public class CommonUtils {
 		}
 		return joinedString.toString();
 	}
-	
+
+    public static String concat (String... values){
+        StringBuffer joinedString = new StringBuffer("");
+        for (int i = 0; i<values.length; i++){
+            joinedString.append(values[i]);
+        }
+        return joinedString.toString();
+    }
+
 	public static String replace (String original, String oldChar, String newChar){
 		if (original == null)
 			return "";
@@ -43,11 +51,21 @@ public class CommonUtils {
 	 * @param array of <code>Matchup</code> elements
 	 * @return <code>Boolean</code> true if null or length is zero, else false
 	 */
-	public static  boolean isArrayEmpty (Matchup[] array){
+	public static  boolean isArrayEmpty (Match[] array){
 		if (array == null)
 			return true;
 		else if (array.length == 0)
 			return true;
 		return false;
 	}
+
+	public static void validateNotNull(Object object, String msg){
+		if (object == null)
+            if (msg == null || msg.isEmpty())
+               throw new IllegalArgumentException(Object.class.getName() + " cannot be null");
+            else
+                throw new IllegalArgumentException(msg);
+	}
+
+
 }

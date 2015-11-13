@@ -1,240 +1,174 @@
 package com.bnavarro.pick5football;
 
-/**
- * Created by navman on 8/28/2015.
- */
 public class Team {
-    private int teamLogo;
-    private String nflTeamCode;
-    private String teamName;
+    private String name;
 
-    public Team (String teamName){
-        this.nflTeamCode=convertNameToNFLCode(teamName);
-        this.teamName = teamName;
-        setTeamLogo();
+    public String getName(){
+        return name;
+    }
+    public Team (String name){
+        this.name = name;
     }
 
-    private void setTeamLogo (){
-        switch (teamName) {
+
+    /** Returns a team's logo when the name matches below. If a name is invalid or null, an
+     * exception is thrown
+     *
+     * @return resource id for image
+     */
+    public int getLogo (){
+        CommonUtils.validateNotNull(name, "Missing team name");
+        switch (name) {
             case "Arizona Cardinals":
-                teamLogo = R.drawable.arizona_cardinals_logo;
-                break;
+                return R.drawable.arizona_cardinals_logo;
             case "Detroit Lions":
-                teamLogo = R.drawable.detroit_lions_logo;
-                break;
+                return R.drawable.detroit_lions_logo;
             case "Chicago Bears":
-                teamLogo = R.drawable.chicago_bears_logo;
-                break;
+                return R.drawable.chicago_bears_logo;
             case "Dallas Cowboys":
-                teamLogo = R.drawable.dallas_cowboys_logo;
-                break;
+                return R.drawable.dallas_cowboys_logo;
             case "Philadelphia Eagles":
-                teamLogo = R.drawable.philadelphia_eagles_logo;
-                break;
+                return R.drawable.philadelphia_eagles_logo;
             case "San Francisco 49ers":
-                teamLogo = R.drawable.sanfrancisco_49ers_logo;
-                break;
+                return R.drawable.sanfrancisco_49ers_logo;
             case "Seattle Seahawks":
-                teamLogo = R.drawable.seattle_seahawks_logo;
-                break;
+                return R.drawable.seattle_seahawks_logo;
             case "Baltimore Ravens":
-                teamLogo = R.drawable.baltimore_ravens_logo;
-                break;
+                return R.drawable.baltimore_ravens_logo;
             case "San Diego Chargers":
-                teamLogo = R.drawable.sandiego_chargers_logo;
-                break;
+                return R.drawable.sandiego_chargers_logo;
             case "Buffalo Bills":
-                teamLogo = R.drawable.buffalo_bills_logo;
-                break;
+                return R.drawable.buffalo_bills_logo;
             case "Cleveland Browns":
-                teamLogo = R.drawable.cleveland_browns_logo;
-                break;
+                return R.drawable.cleveland_browns_logo;
             case "Houston Texans":
-                teamLogo = R.drawable.houston_texans_logo;
-                break;
+                return R.drawable.houston_texans_logo;
             case "Tennessee Titans":
-                teamLogo = R.drawable.tennessee_titans_logo;
-                break;
+                return R.drawable.tennessee_titans_logo;
             case "Indianapolis Colts":
-                teamLogo = R.drawable.indianapolis_colts_logo;
-                break;
+                return R.drawable.indianapolis_colts_logo;
             case "Washington Redskins":
-                teamLogo = R.drawable.washington_redskins_logo;
-                break;
+                return R.drawable.washington_redskins_logo;
             case "Jacksonville Jaguars":
-                teamLogo = R.drawable.jacksonville_jaguars_logo;
-                break;
+                return R.drawable.jacksonville_jaguars_logo;
             case "NY Giants":
-                teamLogo = R.drawable.newyork_giants_logo;
-                break;
+                return R.drawable.newyork_giants_logo;
             case "Minnesota Vikings":
-                teamLogo = R.drawable.minnesota_vikings_logo;
-                break;
+                return R.drawable.minnesota_vikings_logo;
             case "Carolina Panthers":
-                teamLogo = R.drawable.carolina_panthers_logo;
-                break;
+                return  R.drawable.carolina_panthers_logo;
             case "Pittsburgh Steelers":
-                teamLogo = R.drawable.pittsburgh_steelers_logo;
-                break;
+                return  R.drawable.pittsburgh_steelers_logo;
             case "New Orleans Saints":
-                teamLogo = R.drawable.neworleans_saints_logo;
-                break;
+                return  R.drawable.neworleans_saints_logo;
             case "St. Louis Rams":
-                teamLogo = R.drawable.stlouis_rams_logo;
-                break;
+                return  R.drawable.stlouis_rams_logo;
             case "Oakland Raiders":
-                teamLogo = R.drawable.oakland_raiders_logo;
-                break;
+                return  R.drawable.oakland_raiders_logo;
             case "Tampa Bay Buccaneers":
-                teamLogo = R.drawable.tampabay_buccaneers_logo;
-                break;
+                return  R.drawable.tampabay_buccaneers_logo;
             case "Cincinnati Bengals":
-                teamLogo = R.drawable.cincinnati_bengals_logo;
-                break;
+                return  R.drawable.cincinnati_bengals_logo;
             case "Atlanta Falcons":
-                teamLogo = R.drawable.atlanta_falcons_logo;
-                break;
+                return  R.drawable.atlanta_falcons_logo;
+                
             case "Green Bay Packers":
-                teamLogo = R.drawable.greenbay_packers_logo;
-                break;
+                return  R.drawable.greenbay_packers_logo;
+                
             case "New England Patriots":
-                teamLogo = R.drawable.newengland_patriots_logo;
-                break;
+                return  R.drawable.newengland_patriots_logo;
+                
             case "Kansas City Chiefs":
-                teamLogo = R.drawable.kansascity_chiefs_logo;
-                break;
+                return  R.drawable.kansascity_chiefs_logo;
+                
             case "Denver Broncos":
-                teamLogo = R.drawable.denver_broncos_logo;
-                break;
+                return  R.drawable.denver_broncos_logo;
+                
             case "NY Jets":
-                teamLogo = R.drawable.newyork_jets_logo;
-                break;
+                return  R.drawable.newyork_jets_logo;
+                
             case "Miami Dolphins":
-                teamLogo = R.drawable.miami_dolphins_logo;
-                break;
+                return  R.drawable.miami_dolphins_logo;
+
             default:
-                throw new IllegalArgumentException("Invalid team name: " + teamName);
+                throw new IllegalArgumentException("Invalid team name: " + name);
         }
     }
-    public int getTeamLogo(){
-        return teamLogo;
-    }
 
-    public String getNFLTeamCode ()
-    {
-        return nflTeamCode;
-    }
-
-    public String getTeamName(){
-        return teamName;
-    }
-
-    public static String convertNameToNFLCode (String teamName){
-
-        String sign;
-        switch (teamName){
+    /** Returns the nfl code for a team when the name matches below. If a name is invalid or null,
+     * an exception is thrown
+     *
+     * @return a two or three letter code identifying a team
+     */
+    public String getNFLCode (){
+        CommonUtils.validateNotNull(name, "Missing team name");
+        switch (name){
             case "Arizona Cardinals":
-                sign = "ARI";
-                break;
+                return "ARI";
             case "Detroit Lions":
-                sign = "DET";
-                break;
+                return "DET";
             case "Chicago Bears":
-                sign = "CHI";
-                break;
+                return "CHI";
             case "Dallas Cowboys":
-                sign = "DAL";
-                break;
+                return "DAL";
             case "Philadelphia Eagles":
-                sign = "PHI";
-                break;
+                return "PHI";
             case "San Francisco 49ers":
-                sign = "SF";
-                break;
+                return "SF";
             case "Seattle Seahawks":
-                sign = "SEA";
-                break;
+                return "SEA";
             case "Baltimore Ravens":
-                sign = "BAL";
-                break;
+                return "BAL";
             case "San Diego Chargers":
-                sign = "SD";
-                break;
+                return "SD";
             case "Buffalo Bills":
-                sign = "BUF";
-                break;
+                return "BUF";
             case "Cleveland Browns":
-                sign = "CLE";
-                break;
+                return "CLE";
             case "Houston Texans":
-                sign = "HOU";
-                break;
+                return "HOU";
             case "Tennessee Titans":
-                sign = "TEN";
-                break;
+                return "TEN";
             case "Indianapolis Colts":
-                sign = "IND";
-                break;
+                return "IND";
             case "Washington Redskins":
-                sign = "WAS";
-                break;
+                return "WAS";
             case "Jacksonville Jaguars":
-                sign = "JAC";
-                break;
+                return "JAC";
             case "NY Giants":
-                sign = "NYG";
-                break;
+                return "NYG";
             case "Minnesota Vikings":
-                sign = "MIN";
-                break;
+                return "MIN";
             case "Carolina Panthers":
-                sign="CAR";
-                break;
+                return "CAR";
             case "Pittsburgh Steelers":
-                sign="PIT";
-                break;
+                return "PIT";
             case "New Orleans Saints":
-                sign="NO";
-                break;
+                return "NO";
             case "St. Louis Rams":
-                sign="STL";
-                break;
+                return "STL";
             case "Oakland Raiders":
-                sign="OAK";
-                break;
+                return "OAK";
             case "Tampa Bay Buccaneers":
-                sign="TB";
-                break;
+                return "TB";
             case "Cincinnati Bengals":
-                sign="CIN";
-                break;
+                return "CIN";
             case "Atlanta Falcons":
-                sign="ATL";
-                break;
+                return "ATL";
             case "Green Bay Packers":
-                sign = "GB";
-                break;
+                return "GB";
             case "New England Patriots":
-                sign="NE";
-                break;
+                return "NE";
             case "Kansas City Chiefs":
-                sign="KC";
-                break;
+                return "KC";
             case "Denver Broncos":
-                sign="DEN";
-                break;
+                return "DEN";
             case "NY Jets":
-                sign="NYJ";
-                break;
+                return "NYJ";
             case "Miami Dolphins":
-                sign="MIA";
-                break;
+                return "MIA";
             default:
-                throw new IllegalArgumentException("Invalid team name: " + teamName);
-
-
+                throw new IllegalArgumentException("Invalid team name: " + name);
         }
-        return sign;
     }
-
 }

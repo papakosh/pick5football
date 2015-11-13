@@ -19,7 +19,7 @@
     android:textColor="#D4D4D4" >
 
     <Spinner
-        android:id="@+id/spnGameWeeks"
+        android:id="@+id/spnMatchWeek"
         android:layout_width="wrap_content"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
@@ -32,22 +32,8 @@
         android:id="@+id/pager"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_below ="@+id/spnGameWeeks"
+        android:layout_below ="@+id/spnMatchWeek"
         android:padding="0dip"/>
-
-
-<!--<View android:id="@+id/divider"
-    android:layout_width="fill_parent"
-    android:layout_height="1dp"
-    android:background="@color/divider_line_color"
-    android:layout_below="@+id/spnGameWeeks"/>
-    
-    <ListView
-    android:id="@+id/listview"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:layout_below="@+id/divider"/> -->
-    
 
 </RelativeLayout>
 <!-- From: file:/C:/Users/navman/StudioProjects/pick5football/app/src/main/res/layout/activity_main.xml -->

@@ -1,4 +1,4 @@
-package com.bnavarro.pick5football;
+package com.bnavarro.pick5football.gameday;
 
 /** Search parameters for matching on a game
  * <li>Home team sign

@@ -13,9 +13,9 @@ import org.xmlpull.v1.XmlPullParser;
 import org.xmlpull.v1.XmlPullParserException;
 
 import com.bnavarro.pick5football.CommonUtils;
-import com.bnavarro.pick5football.GameDay;
-import com.bnavarro.pick5football.GameDayParser;
-import com.bnavarro.pick5football.MatchGameParms;
+import com.bnavarro.pick5football.gameday.GameDay;
+import com.bnavarro.pick5football.gameday.GameDayParser;
+import com.bnavarro.pick5football.gameday.MatchGameParms;
 import com.bnavarro.pick5football.constants.AsyncDataConstants;
 
 import android.app.Activity;

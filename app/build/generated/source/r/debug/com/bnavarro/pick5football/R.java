@@ -65,24 +65,24 @@ public final class R {
     public static final class id {
         public static final int action_settings=0x7f0a000c;
         public static final int dateText=0x7f0a0000;
-        public static final int img=0x7f0a0007;
         public static final int label=0x7f0a0001;
-        public static final int label1=0x7f0a0008;
         public static final int listView=0x7f0a0009;
         public static final int listView2=0x7f0a000a;
         public static final int listView3=0x7f0a000b;
         public static final int pager=0x7f0a0005;
         public static final int scoreText=0x7f0a0002;
         public static final int separator=0x7f0a0006;
-        public static final int spnGameWeeks=0x7f0a0004;
+        public static final int spnMatchWeek=0x7f0a0004;
+        public static final int teamDetails=0x7f0a0008;
+        public static final int teamLogo=0x7f0a0007;
         public static final int timeText=0x7f0a0003;
     }
     public static final class layout {
         public static final int activity_gameday=0x7f030000;
         public static final int activity_main=0x7f030001;
-        public static final int header_item=0x7f030002;
-        public static final int list=0x7f030003;
-        public static final int list_item=0x7f030004;
+        public static final int list=0x7f030002;
+        public static final int match_header_item=0x7f030003;
+        public static final int match_list_item=0x7f030004;
         public static final int matchup_fragment_layout=0x7f030005;
     }
     public static final class menu {

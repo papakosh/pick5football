@@ -1,13 +1,11 @@
 package com.bnavarro.pick5football.listeners;
 
-import java.io.BufferedWriter;
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.FileWriter;
 import java.io.IOException;
 
 import com.bnavarro.pick5football.MainActivity;
+import com.bnavarro.pick5football.MatchDataManagementService;
 
+import android.util.Log;
 import android.view.MenuItem;
 import android.view.MenuItem.OnMenuItemClickListener;
 
@@ -20,10 +18,10 @@ import android.view.MenuItem.OnMenuItemClickListener;
 public class SaveMatchesMenuItemClickListener implements
 		OnMenuItemClickListener {
 
-	private MainActivity activity;
+	private MainActivity mainActivity;
 
-	public SaveMatchesMenuItemClickListener (MainActivity activity){
-		this.activity= activity;
+	public SaveMatchesMenuItemClickListener (MainActivity mainActivity){
+		this.mainActivity= mainActivity;
 	}
 	
 	/** Collects up the user's pick selections and stores them in a <code>StringBuffer</code>.
@@ -32,43 +30,17 @@ public class SaveMatchesMenuItemClickListener implements
 	 */
 	@Override
 	public boolean onMenuItemClick(MenuItem item) {
-		StringBuffer yourPicks = new StringBuffer("");
+		String week = mainActivity.getCurrentWeek();
 		try {
-			for (int i = 0; i < activity.getMatchups().length; i++){
-				if (activity.getMatchups()[i].getPickSelection() != null){
-					yourPicks.append(i + "," + activity.getMatchups()[i].getPickSelection());
-					yourPicks.append("\n");
-				}
-			}
-			savePicks(yourPicks.toString());
-			
-		} catch (FileNotFoundException e) {
-			e.printStackTrace();
+			MatchDataManagementService.savePicks(week, mainActivity);
 		}
 		catch (IOException e) {
-			e.printStackTrace();
-		} 
+			Log.e("Saving Picks", e.getMessage(), e);
+		}
 		return false;
 	}
 	
-	/** Creates a local text file with football picks
-	 * 
-	 * @param picks
-	 * @return
-	 * @throws IOException
-	 */
-	public File savePicks(String picks) throws IOException {
-		//creates local file 
-		File file = new File(activity.getDataDirectory().getAbsolutePath() + "/" + activity.getCurrentWeek() + "-saved-picks.txt");
-		file.createNewFile();
-	    FileWriter filewriter = new FileWriter(file);
-	    
-	    //writes to local file
-	    BufferedWriter out = new BufferedWriter(filewriter);
-	    out.write(picks);
-	    out.close();
-	return file;
-}
+
 	
 
 }

@@ -1,8 +1,7 @@
-package com.bnavarro.pick5football;
+package com.bnavarro.pick5football.gameday;
 
-import java.util.concurrent.ExecutionException;
-
-import com.bnavarro.pick5football.async.GameDayAsync;
+import com.bnavarro.pick5football.CommonUtils;
+import com.bnavarro.pick5football.R;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -63,18 +62,17 @@ public class GameDayActivity extends Activity {
 	
 	  	//Determine team signs (abbreviations) for home and visiting teams
   		if (team1Data.contains(homeTeamData)){
-  			homeTeamSign = TeamSign.getSignFromTeamName(team1Data);
-  			visitingTeamSign=TeamSign.getSignFromTeamName(team2Data);
+  			//homeTeamSign = TeamSign.getSignFromTeamName(team1Data);
+  			//visitingTeamSign=TeamSign.getSignFromTeamName(team2Data);
   		}else{
-  			homeTeamSign = TeamSign.getSignFromTeamName(team2Data);
-  			visitingTeamSign=TeamSign.getSignFromTeamName(team1Data);
+  			//homeTeamSign = TeamSign.getSignFromTeamName(team2Data);
+  			//visitingTeamSign=TeamSign.getSignFromTeamName(team1Data);
   		}
   		
   		//Set match criteria for finding a specific game. 
-  		MatchGameParms parms = new MatchGameParms (homeTeamSign,visitingTeamSign);
-  		try {
+  		//MatchGameParms parms = new MatchGameParms (homeTeamSign,visitingTeamSign);
   			//Initialize new game day object for specific game
-			gameDay = new GameDayAsync(GameDayActivity.this,parms).execute().get();
+			//gameDay = new GameDayAsync(GameDayActivity.this,parms).execute().get();
 			
 			//Display specific game details (time, score, quarter, etc.) when available.
 			if (gameDay.getQuarter()!= null){
@@ -82,9 +80,7 @@ public class GameDayActivity extends Activity {
     		}else {
     			displayGameDayDetailsForUnavailableGame();
     		}
-		} catch (InterruptedException | ExecutionException e) {
-			e.printStackTrace();
-		}
+
 	}
 	
 	@Override
@@ -129,9 +125,9 @@ public class GameDayActivity extends Activity {
 	 * 
 	 */
 	private void displayGameDayDetailsForAvailableGame(){
-			String date = CommonUtils.concatenate(gameDay.getDate().substring(4, 6), 
-												  "/", gameDay.getDate().substring(6, 8), 
-												  "/", gameDay.getDate().substring(0, 4));
+			String date = CommonUtils.concatenate(gameDay.getDate().substring(4, 6),
+					"/", gameDay.getDate().substring(6, 8),
+					"/", gameDay.getDate().substring(0, 4));
 			dateTextView.setText(date);			
 			if ((gameDay.getQuarter().contains(XMLConstants.GAME_DAY.ATTR_VAL_NOT_PLAYED))){
 				displayGameDetailsForUnplayedGame();

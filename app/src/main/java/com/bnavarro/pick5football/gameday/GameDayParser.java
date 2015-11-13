@@ -1,11 +1,10 @@
-package com.bnavarro.pick5football;
+package com.bnavarro.pick5football.gameday;
 
 import java.io.IOException;
 
 import org.xmlpull.v1.XmlPullParser;
 import org.xmlpull.v1.XmlPullParserException;
 
-import com.bnavarro.pick5football.GameDay;
 import com.bnavarro.pick5football.constants.XMLConstants;
 
 /** XML parser to extract game day fields from nfl score xml file.

@@ -1,4 +1,4 @@
-package com.bnavarro.pick5football;
+package com.bnavarro.pick5football.gameday;
 
 /**
  * Stores game day information for a selected match. This includes home team, visiting team, 
