@@ -8,6 +8,7 @@ import android.widget.TextView;
 
 import com.bnavarro.pick5football.R;
 
+//TODO put header comments
 public class MatchListItem implements MatchItem {
     private final String teamDetails;
     private final Integer imageId;
@@ -64,5 +65,4 @@ public class MatchListItem implements MatchItem {
     public String getSelectedValue (){
         return teamName;
     }
-
 }

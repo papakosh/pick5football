@@ -16,10 +16,11 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.util.Locale;
 
-/**
- * Created by navman on 11/10/2015.
- */
 public class SelectedPicksAsyncService extends AsyncTask<Void, Integer, String> {
+
+    public static final String SAVE_PICKS = "Save Picks";
+    public static final String LOAD_PICKS = "Load Picks";
+    public static final String SUBMIT_PICKS = "Submit Picks";
 
     private String actionType;
     private String savedSelections;
@@ -28,15 +29,16 @@ public class SelectedPicksAsyncService extends AsyncTask<Void, Integer, String> 
     private AlertDialog alertDialog;
     private Context context;
 
-    public SelectedPicksAsyncService(Context context, String actionType, String savedSelections, String submitSelections, String matchWeek) {
-        this.actionType = actionType;
+    public SelectedPicksAsyncService(Context context, String actionType, String savedSelections,
+                                     String submitSelections, String matchWeek) {
+        this.actionType = actionType;        
         this.savedSelections = savedSelections;
         this.submitSelections = submitSelections;
         this.matchWeek = matchWeek;
         this.context = context;
+
         AlertDialog.Builder builder = new AlertDialog.Builder(context);
         builder.setMessage("Done");
-        builder.setTitle("Picks Action Status");
         builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
@@ -48,28 +50,17 @@ public class SelectedPicksAsyncService extends AsyncTask<Void, Integer, String> 
 
     @Override
     protected String doInBackground(Void... params) {
-        if (actionType.equals("Save Picks")) {
-            // Prepare file details - for the value of week strip out spaces and make lower
-            // case, then create the file
-            String tempWeek = matchWeek.replace(" ", "").toLowerCase(Locale.ENGLISH);
-            File exstDir = Environment.getExternalStorageDirectory();
-            File matchFile = new File(exstDir.getPath() + "/Pick5FootballData/" + tempWeek + "-saved-picks.txt");
+        File matchFile = createMatchFile();
+        if (SAVE_PICKS.equals(actionType)) {
+            alertDialog.setTitle("Saving Picks...");
             try {
-                FileWriter filewriter = new FileWriter(matchFile);
-
-                //writes to local file
-                BufferedWriter out = new BufferedWriter(filewriter);
-                out.write(savedSelections);
-                out.close();
-                alertDialog.setMessage("Picks Saved");
+                savePicksToFile(matchFile);
             } catch (IOException e) {
                 Log.e("Saving Picks", e.getMessage(), e);
             }
-        }else if (actionType.equals("Load Picks")) {
-            String tempWeek = matchWeek.replace(" ", "").toLowerCase(Locale.ENGLISH);
-            File exstDir = Environment.getExternalStorageDirectory();
-            File matchFile = new File(exstDir.getPath() + "/Pick5FootballData/" + tempWeek + "-saved-picks.txt");
+        }else if (LOAD_PICKS.equals(actionType)) {
             StringBuffer tempSelections = new StringBuffer();
+            alertDialog.setTitle("Loading Picks...");
            try {
                if (matchFile.canRead()) {
                    FileReader filereader = new FileReader(matchFile);
@@ -79,32 +70,19 @@ public class SelectedPicksAsyncService extends AsyncTask<Void, Integer, String> 
                        tempSelections.append(line.trim());
                        tempSelections.append(";");
                    }
-                   alertDialog.setMessage("Picks Loaded");
                }else
                    alertDialog.setMessage("Can't Find Picks");
-
            }catch (Exception e){
                Log.e("Loading Picks", e.getMessage(),e);
            }
-                    savedSelections = tempSelections.toString();
+            savedSelections = tempSelections.toString();
         }
-        else if (actionType.equals("Submit Picks")) {
-
-            String tempWeek = matchWeek.replace(" ", "").toLowerCase(Locale.ENGLISH);
-            File exstDir = Environment.getExternalStorageDirectory();
-            File matchFile = new File(exstDir.getPath() + "/Pick5FootballData/" + tempWeek + "-saved-picks.txt");
-
+        else if (SUBMIT_PICKS.equals(actionType)) {
+            alertDialog.setTitle("Submitting  Picks...");
             try {
-                // Save picks
-                FileWriter filewriter = new FileWriter(matchFile);
+                savePicksToFile(matchFile);
 
-                //writes to local file
-                BufferedWriter out = new BufferedWriter(filewriter);
-                out.write(savedSelections);
-                out.close();
-
-                // Submit picks
-                String emailSubject = tempWeek +"NFL Picks";
+                String emailSubject = matchWeek +" NFL Picks";
                 Intent i = new Intent(Intent.ACTION_SEND);
                 i.setType("message / rfc822");
                 i.putExtra(Intent.EXTRA_EMAIL,
@@ -121,8 +99,20 @@ public class SelectedPicksAsyncService extends AsyncTask<Void, Integer, String> 
         return savedSelections;
     }
 
-    protected void onPostExecute(String result) {
+    private void savePicksToFile(File matchFile) throws IOException {
+        FileWriter filewriter = new FileWriter(matchFile);
+        BufferedWriter out = new BufferedWriter(filewriter);
+        out.write(savedSelections);
+        out.close();
+    }
 
+    protected void onPostExecute(String result) {
         alertDialog.show();
+    }
+
+    private File createMatchFile(){
+        String tempWeek = matchWeek.replace(" ", "").toLowerCase(Locale.ENGLISH);
+        File exstDir = Environment.getExternalStorageDirectory();
+        return new File(exstDir.getPath() + "/Pick5FootballData/" + tempWeek + "-saved-picks.txt");
     }
 }

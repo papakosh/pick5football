@@ -15,24 +15,26 @@ import android.content.DialogInterface;
 import android.os.AsyncTask;
 import android.util.Log;
 
-/** Retrieve match selection details from private repository on dropbox
- * and store the file locally.
- * 
- * @author brian navarro
- *
- */
 public class RetrieveMatchDataAsyncService extends AsyncTask<Void, Integer, Boolean> {
 
 	private File matchFile;
 	private String urlString;
 	private AlertDialog alertDialog;
 	private Exception exceptionCaught;
+
+    /**
+     *
+     * @param matchFile
+     * @param urlString
+     * @param context
+     */
 	public RetrieveMatchDataAsyncService (File matchFile, String urlString, Context context) {
 		this.urlString = urlString;
-		AlertDialog.Builder builder = new AlertDialog.Builder(context);
 		this.matchFile=matchFile;
-		builder.setTitle("Download Status");
-		builder.setMessage("Downloading Complete");
+
+		AlertDialog.Builder builder = new AlertDialog.Builder(context);
+		builder.setTitle("Downloading");
+		builder.setMessage("Download Complete");
 		builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
 			@Override
 			public void onClick(DialogInterface dialog, int which) {
@@ -42,14 +44,11 @@ public class RetrieveMatchDataAsyncService extends AsyncTask<Void, Integer, Bool
 		alertDialog = builder.create();
 	}
 
-	@Override
-	protected void onPreExecute() {
-		super.onPreExecute();
-	}
-	
-	/** Background download of weekly matchups xml file from dropbox into local directory (Pick5FootballData)
-	 * 
-	 */
+    /**
+     *
+     * @param params
+     * @return
+     */
 	@Override
 	protected Boolean doInBackground(Void... params){
 		InputStream inputStream = null;
@@ -59,12 +58,6 @@ public class RetrieveMatchDataAsyncService extends AsyncTask<Void, Integer, Bool
 			URL url = new URL(urlString);
 			connection = (HttpURLConnection) url.openConnection();
 			connection.connect();
-
-			// expect HTTP 200 OK
-			if (connection.getResponseCode() != HttpURLConnection.HTTP_OK) {
-				Log.e("Download File", "Server returned HTTP " + connection.getResponseCode()
-						+ " " + connection.getResponseMessage());
-			}
 
 			// download the file
 			inputStream = connection.getInputStream();
@@ -91,19 +84,25 @@ public class RetrieveMatchDataAsyncService extends AsyncTask<Void, Integer, Bool
 				try {
 					inputStream.close();
 				} catch (IOException e) {
-					Log.e("Closing Inputstream", e.getMessage(), e);
+					Log.e("Closing Input Stream", e.getMessage(), e);
 					exceptionCaught =  e;
 				}
-			
 		}
 		return true;
 	}
 
+    /**
+     *
+     * @param progress
+     */
 	protected void onProgressUpdate (Integer... progress){
 		Log.i("DOWNLOAD PROGRESS", "PROGRESS => " + progress[0]);
-
 	}
 
+    /**
+     *
+     * @param result
+     */
 	protected void onPostExecute(Boolean result){
 		String week = matchFile.getName().split(".xml")[0];
 		if (exceptionCaught != null)
@@ -116,9 +115,5 @@ public class RetrieveMatchDataAsyncService extends AsyncTask<Void, Integer, Bool
 				alertDialog.show();
 			}
 		}
-
-
 	}
-
-
 }

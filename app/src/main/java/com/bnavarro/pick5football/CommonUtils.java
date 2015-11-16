@@ -23,13 +23,13 @@ public class CommonUtils {
 	 * @param values An array of <code>String</code>s to be joined together
 	 * @return <code>String</code>
 	 */
-	public static String concatenate (String... values){
-		StringBuffer joinedString = new StringBuffer("");
-		for (int i = 0; i<values.length; i++){
-			joinedString.append(values[i]);
-		}
-		return joinedString.toString();
-	}
+//	public static String concatenate (String... values){
+//		StringBuffer joinedString = new StringBuffer("");
+//		for (int i = 0; i<values.length; i++){
+//			joinedString.append(values[i]);
+//		}
+//		return joinedString.toString();
+//	}
 
     public static String concat (String... values){
         StringBuffer joinedString = new StringBuffer("");
@@ -65,6 +65,10 @@ public class CommonUtils {
                throw new IllegalArgumentException(Object.class.getName() + " cannot be null");
             else
                 throw new IllegalArgumentException(msg);
+	}
+
+	public static boolean isStringNotEmpty (String sVal){
+		return sVal != null && sVal.trim().length() > 0;
 	}
 
 

@@ -9,24 +9,23 @@ import android.util.Log;
 import android.view.MenuItem;
 import android.view.MenuItem.OnMenuItemClickListener;
 
-/** Gathers each of the user's pick selections and saves them to a file. 
- * The file is named <Current Week #> - picks.txt (i.e. Week 17 - picks.txt for Week 17)
- * 
- * @author brian navarro
- *
- */
-public class SaveMatchesMenuItemClickListener implements
-		OnMenuItemClickListener {
-
+//TODO - put comments in header
+//TODO - put error handling in
+public class SaveMatchesMenuItemClickListener implements OnMenuItemClickListener {
 	private MainActivity mainActivity;
 
+	/**
+	 *
+	 * @param mainActivity
+	 */
 	public SaveMatchesMenuItemClickListener (MainActivity mainActivity){
 		this.mainActivity= mainActivity;
 	}
-	
-	/** Collects up the user's pick selections and stores them in a <code>StringBuffer</code>.
-	 *  Afterwards, the savePicks method from class <code>MainActivity</code> is called.
-	 * 
+
+	/**
+	 *
+	 * @param item
+	 * @return
 	 */
 	@Override
 	public boolean onMenuItemClick(MenuItem item) {
@@ -37,10 +36,6 @@ public class SaveMatchesMenuItemClickListener implements
 		catch (IOException e) {
 			Log.e("Saving Picks", e.getMessage(), e);
 		}
-		return false;
+		return true;
 	}
-	
-
-	
-
 }

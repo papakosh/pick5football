@@ -10,6 +10,7 @@ import com.bnavarro.pick5football.R;
 
 import java.util.List;
 
+//TODO put header comments
 public class MatchItemAdapter extends ArrayAdapter<MatchItem> {
     private LayoutInflater mInflater;
     public static final int MATCH_HEADER_ITEM = 0;
@@ -17,7 +18,7 @@ public class MatchItemAdapter extends ArrayAdapter<MatchItem> {
 
     /** Initializes the adapter class with a list of MatchItem objects
      *
-     * @param context TBD
+     * @param context Calling location in the app
      * @param items a list of <code>MatchItem</code> objects
      */
     public MatchItemAdapter(Context context, List<MatchItem> items) {
@@ -76,6 +77,4 @@ public class MatchItemAdapter extends ArrayAdapter<MatchItem> {
         public  View View; {
         }
     }
-
-
 }

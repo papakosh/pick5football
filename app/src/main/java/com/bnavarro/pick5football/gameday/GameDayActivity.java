@@ -125,7 +125,7 @@ public class GameDayActivity extends Activity {
 	 * 
 	 */
 	private void displayGameDayDetailsForAvailableGame(){
-			String date = CommonUtils.concatenate(gameDay.getDate().substring(4, 6),
+			String date = CommonUtils.concat(gameDay.getDate().substring(4, 6),
 					"/", gameDay.getDate().substring(6, 8),
 					"/", gameDay.getDate().substring(0, 4));
 			dateTextView.setText(date);			
@@ -141,7 +141,7 @@ public class GameDayActivity extends Activity {
 	 *  <li>Quarter details formatted: Time left on the clock in quarter (14:50 left in the 4th quarter)
 	 */
 	private void displayGameDetailsForPlayedGame() {
-		scoreTextView.setText ( CommonUtils.concatenate(
+		scoreTextView.setText ( CommonUtils.concat(
 								gameDay.getHomeTeam(), " " , gameDay.getHomeTeamScore().toString() , 
 								" - " ,
 								gameDay.getVisitingTeam() , " " , gameDay.getVisitingTeamScore().toString()));

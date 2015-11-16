@@ -75,6 +75,14 @@ public class Match {
 		this.matchTime = matchTime;
 	}
 
+	public String getTeamOneHeaderDetails (){
+		return getTeamHeaderDetails(team1);
+	}
+
+	public String getTeamTwoHeaderDetails (){
+		return getTeamHeaderDetails(team2);
+	}
+
 	public String getTeamHeaderDetails (Team team){
 		CommonUtils.validateNotNull(team, null);
 		String teamName = team.getName();

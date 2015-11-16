@@ -7,31 +7,29 @@ import com.bnavarro.pick5football.pager.ViewMatchesFragmentPagerAdapter;
 import android.view.MenuItem;
 import android.view.MenuItem.OnMenuItemClickListener;
 
-/** Refreshes the matches list by pulling the latest xml from a private repository,
- * and then updates the current list with new match details. This is typically the spread and who is favored.
- * 
- * @author brian navarro
- *
- */
-public class RefreshMatchesMenuItemClickListener implements
-		OnMenuItemClickListener {
-
+//TODO - put header comments
+//TODO - put error handling in
+public class RefreshMatchesMenuItemClickListener implements	OnMenuItemClickListener {
 	private MainActivity mainActivity;
 
+	/**
+	 *
+	 * @param mainActivity
+	 */
 	public RefreshMatchesMenuItemClickListener (MainActivity mainActivity){
 		this.mainActivity= mainActivity;
 	}
-	
-	/** Calls refreshMatchups method
-	 * 
+
+	/**
+	 *
+	 * @param item
+	 * @return
 	 */
 	@Override
 	public boolean onMenuItemClick(MenuItem item) {
 		String currentWeek = mainActivity.getCurrentWeek();
 		MatchDataManagementService.populateMatchMap(currentWeek, mainActivity, true);
-		mainActivity.setViewMatchesFragmentPagerAdapter(new ViewMatchesFragmentPagerAdapter(mainActivity.getSupportFragmentManager()));
-
-		return false;
+		mainActivity.refreshPagerAdapter();
+		return true;
 	}
-
 }

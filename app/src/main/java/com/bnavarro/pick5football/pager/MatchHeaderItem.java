@@ -11,9 +11,14 @@ import com.bnavarro.pick5football.CommonUtils;
 import com.bnavarro.pick5football.Match;
 import com.bnavarro.pick5football.R;
 
+//TODO - put header comments
 public class MatchHeaderItem implements MatchItem {
     private final String matchHeaderDetails;
 
+    /**
+     *
+     * @param match A container for details on a football match, including match date and time
+     */
     public MatchHeaderItem(Match match) {
         CommonUtils.validateNotNull(match, null);
 
@@ -22,11 +27,21 @@ public class MatchHeaderItem implements MatchItem {
         matchHeaderDetails = CommonUtils.concat(date," ",time);
     }
 
+    /**
+     *
+     * @return
+     */
     @Override
     public int getViewType() {
         return MatchItemAdapter.MATCH_HEADER_ITEM;
     }
 
+    /**
+     *
+     * @param inflater
+     * @param convertView
+     * @return
+     */
     @Override
     public View getView(LayoutInflater inflater, View convertView) {
         View view;
@@ -35,7 +50,7 @@ public class MatchHeaderItem implements MatchItem {
          else
             view = convertView;
 
-        TextView text = (TextView) view.findViewById(R.id.separator);
+        TextView text = (TextView) view.findViewById(R.id.headerDetails);
         text.setText(matchHeaderDetails);
 
         return view;

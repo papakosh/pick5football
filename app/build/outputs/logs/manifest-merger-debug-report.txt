@@ -93,7 +93,7 @@ category#android.intent.category.DEFAULT
 ADDED from C:\Users\navman\StudioProjects\pick5football\app\src\main\AndroidManifest.xml:40:7-66
 	android:name
 		ADDED from C:\Users\navman\StudioProjects\pick5football\app\src\main\AndroidManifest.xml:40:17-63
-activity#com.bnavarro.pick5football.GameDayActivity
+activity#com.bnavarro.pick5football.gameday.GameDayActivity
 ADDED from C:\Users\navman\StudioProjects\pick5football\app\src\main\AndroidManifest.xml:45:9-58:20
 	android:screenOrientation
 		ADDED from C:\Users\navman\StudioProjects\pick5football\app\src\main\AndroidManifest.xml:48:13-49
@@ -104,7 +104,7 @@ ADDED from C:\Users\navman\StudioProjects\pick5football\app\src\main\AndroidMani
 	android:configChanges
 		ADDED from C:\Users\navman\StudioProjects\pick5football\app\src\main\AndroidManifest.xml:49:7-57
 	android:name
-		ADDED from C:\Users\navman\StudioProjects\pick5football\app\src\main\AndroidManifest.xml:46:13-70
+		ADDED from C:\Users\navman\StudioProjects\pick5football\app\src\main\AndroidManifest.xml:46:13-52
 meta-data#android.support.PARENT_ACTIVITY
 ADDED from C:\Users\navman\StudioProjects\pick5football\app\src\main\AndroidManifest.xml:51:6-53:72
 	android:value

@@ -6,7 +6,7 @@
 
     <TextView
         style="?android:attr/listSeparatorTextViewStyle"
-        android:id="@+id/separator"
+        android:id="@+id/headerDetails"
         android:text="Header"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"

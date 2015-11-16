@@ -16,7 +16,6 @@
 		<item>Week 14</item>
 		<item>Week 15</item>
 		<item>Week 16</item>
-		<item>Week 17</item>	
     </string-array><string name="action_settings">Submit Picks</string><string name="title_activity_gameday">GameDayActivity</string><string name="app_name">Pick 5 Football</string><string name="name_message">Name</string><string name="title_activity_main">MainActivity</string></file><file path="C:\Users\navman\StudioProjects\pick5football\app\src\main\res\values\styles.xml" qualifiers=""><style name="AppTheme" parent="AppBaseTheme">
         <!-- All customizations that are NOT specific to a particular API-level can go here. -->
     </style><style name="AppBaseTheme" parent="android:Theme.Light">

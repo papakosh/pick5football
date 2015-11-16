@@ -84,6 +84,12 @@ public class MainActivity extends FragmentActivity {
 		return mViewPager;
 	}
 
+	public void refreshPagerAdapter (){
+		this.viewMatchesFragmentPagerAdapter=new ViewMatchesFragmentPagerAdapter(getSupportFragmentManager());
+		mViewPager.setAdapter(viewMatchesFragmentPagerAdapter);
+		mViewPager.setVisibility(View.VISIBLE);
+	}
+
 	public void setViewMatchesFragmentPagerAdapter (ViewMatchesFragmentPagerAdapter viewMatchesFragmentPagerAdapter){
 		this.viewMatchesFragmentPagerAdapter=viewMatchesFragmentPagerAdapter;
 		mViewPager.setAdapter(viewMatchesFragmentPagerAdapter);

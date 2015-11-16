@@ -35,7 +35,7 @@ public class MatchHeaderItemTest {
 
         RoboLayoutInflater inflater = new RoboLayoutInflater(mainActivity);
         View view = matchHeaderItem.getView(inflater, null);
-        TextView tv = (TextView)view.findViewById(R.id.separator);
+        TextView tv = (TextView)view.findViewById(R.id.headerDetails);
 
         assertEquals("GetViewType", MatchItemAdapter.MATCH_HEADER_ITEM, matchHeaderItem.getViewType());
         assertEquals("GetView", "09/10/2015 1:00 PM ET", tv.getText());

@@ -51,7 +51,7 @@
 
         <!-- Game Day Activity -->
         <activity
-            android:name="com.bnavarro.pick5football.GameDayActivity"
+            android:name="com.bnavarro.pick5football.gameday.GameDayActivity"
             android:configChanges="orientation|keyboardHidden"
             android:label="@string/app_name"
             android:parentActivityName="com.bnavarro.pick5football.MainActivity"

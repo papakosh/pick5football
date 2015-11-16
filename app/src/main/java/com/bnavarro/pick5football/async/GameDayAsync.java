@@ -49,7 +49,7 @@ public class GameDayAsync extends AsyncTask<Void, Long, GameDay> {
 		//Setup data reference variables
     	File exst = Environment.getExternalStorageDirectory();
  		String exstPath = exst.getPath();
- 		File dataDir = new File(CommonUtils.concatenate(exstPath, "/", AsyncDataConstants.DATA_DIR));
+ 		File dataDir = new File(CommonUtils.concat(exstPath, "/", AsyncDataConstants.DATA_DIR));
 		
  		//Setup data extraction variables
 		XmlPullParser parser = Xml.newPullParser();
