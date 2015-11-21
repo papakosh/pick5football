@@ -167,7 +167,7 @@ public class ViewMatchesFragment extends Fragment {
     }
 
     private Match getMatch (Match[] matches, int index){
-        if (index > matches.length)
+        if (index >= matches.length)
             return null;
         return matches[index];
 
