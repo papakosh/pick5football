@@ -19,13 +19,13 @@ public class XMLConstants {
 		public static String START_TAG_GAME = "g";
 	}
 	
-		public static final String MATCH_TAG = "MATCHUP";
-		public static final String TEAM1_TAG = "TEAM1";
-		public static final String TEAM2_TAG = "TEAM2";
-		public static final String HOME_TEAM_TAG = "HOME";
-		public static final String MATCH_SPREAD_TAG = "SPREAD";
-		public static final String FAVORED_TEAM_TAG = "FAVORED";
-		public static final String MATCH_DATE_TAG = "DATE";
-		public static final String MATCH_TIME_TAG = "TIME";
+		public static final String MATCH_TAG = "match";
+		public static final String TEAM1_TAG = "team1";
+		public static final String TEAM2_TAG = "team2";
+		public static final String HOME_TEAM_TAG = "home";
+		public static final String MATCH_SPREAD_TAG = "spread";
+		public static final String FAVORED_TEAM_TAG = "favored";
+		public static final String MATCH_DATE_TAG = "date";
+		public static final String MATCH_TIME_TAG = "time";
 
 }

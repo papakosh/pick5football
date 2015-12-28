@@ -86,22 +86,22 @@ public class MatchDataManagementService {
                         break;
                     case XmlPullParser.START_TAG:
                         name = parser.getName();
-                        if (XMLConstants.MATCH_TAG.equalsIgnoreCase(name)) {
+                        if (XMLConstants.MATCH_TAG.equals(name)) {
                             matchFound = true;
                         } else {
-                            if (XMLConstants.TEAM1_TAG.equalsIgnoreCase(name))
+                            if (XMLConstants.TEAM1_TAG.equals(name))
                                 team1 = new Team(parser.nextText());
-                             else if (XMLConstants.TEAM2_TAG.equalsIgnoreCase(name))
+                             else if (XMLConstants.TEAM2_TAG.equals(name))
                                 team2 = new Team(parser.nextText());
-                             else if (XMLConstants.HOME_TEAM_TAG.equalsIgnoreCase(name))
+                             else if (XMLConstants.HOME_TEAM_TAG.equals(name))
                                 homeTeam = parser.nextText();
-                             else if (XMLConstants.MATCH_SPREAD_TAG.equalsIgnoreCase(name))
+                             else if (XMLConstants.MATCH_SPREAD_TAG.equals(name))
                                 matchSpread = Double.valueOf(parser.nextText());
-                            else if (XMLConstants.FAVORED_TEAM_TAG.equalsIgnoreCase(name))
+                            else if (XMLConstants.FAVORED_TEAM_TAG.equals(name))
                                 favoredTeam = parser.nextText();
-                             else if (XMLConstants.MATCH_DATE_TAG.equalsIgnoreCase(name))
+                             else if (XMLConstants.MATCH_DATE_TAG.equals(name))
                                 matchDate = parser.nextText();
-                             else if (XMLConstants.MATCH_TIME_TAG.equalsIgnoreCase(name))
+                             else if (XMLConstants.MATCH_TIME_TAG.equals(name))
                                matchTime = parser.nextText();
                         }
                         break;
@@ -190,6 +190,9 @@ public class MatchDataManagementService {
                 break;
             case "week16":
                 urlString=FileConstants.WEEK_16;
+                break;
+            case "week17":
+                urlString=FileConstants.WEEK_17;
                 break;
             default:
                 throw new IllegalArgumentException("Invalid Week");

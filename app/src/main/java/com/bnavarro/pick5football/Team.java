@@ -51,7 +51,7 @@ public class Team {
                 return R.drawable.washington_redskins_logo;
             case "Jacksonville Jaguars":
                 return R.drawable.jacksonville_jaguars_logo;
-            case "NY Giants":
+            case "New York Giants":
                 return R.drawable.newyork_giants_logo;
             case "Minnesota Vikings":
                 return R.drawable.minnesota_vikings_logo;
@@ -84,7 +84,7 @@ public class Team {
             case "Denver Broncos":
                 return  R.drawable.denver_broncos_logo;
                 
-            case "NY Jets":
+            case "New York Jets":
                 return  R.drawable.newyork_jets_logo;
                 
             case "Miami Dolphins":
@@ -135,7 +135,7 @@ public class Team {
                 return "WAS";
             case "Jacksonville Jaguars":
                 return "JAC";
-            case "NY Giants":
+            case "New York Giants":
                 return "NYG";
             case "Minnesota Vikings":
                 return "MIN";
@@ -163,7 +163,7 @@ public class Team {
                 return "KC";
             case "Denver Broncos":
                 return "DEN";
-            case "NY Jets":
+            case "New York Jets":
                 return "NYJ";
             case "Miami Dolphins":
                 return "MIA";

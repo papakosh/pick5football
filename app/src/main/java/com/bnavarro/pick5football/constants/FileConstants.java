@@ -20,4 +20,6 @@ public class FileConstants {
     public static String WEEK_14 = "https://www.dropbox.com/s/r12n5lvttocs4k9/week14.xml?dl=1";
     public static String WEEK_15 = "https://www.dropbox.com/s/5379363ouvuq27u/week15.xml?dl=1";
     public static String WEEK_16 = "https://www.dropbox.com/s/3r77ewjjnxduz8q/week16.xml?dl=1";
+    public static String WEEK_17 = "https://www.dropbox.com/s/fmxpv5rq27s13vk/week17.xml?dl=1";
+
 }
