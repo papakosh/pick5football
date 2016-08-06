@@ -4,7 +4,7 @@ package com.bnavarro.pick5football.constants;
  * Created by navman on 11/12/2015.
  */
 public class FileConstants {
-    public static String WEEK_1 = "https://www.dropbox.com/s/jboogvn9o1bneoa/week1.xml?dl=1";
+    public static String WEEK_1 = "https://www.dropbox.com/s/h4x18xo5d59bkwz/week1.xml?dl=1";
     public static String WEEK_2 = "https://www.dropbox.com/s/4hiliohrmog6b03/week2.xml?dl=1";
     public static String WEEK_3 = "https://www.dropbox.com/s/6nk68uwysp99mop/week3.xml?dl=1";
     public static String WEEK_4 = "https://www.dropbox.com/s/7pd1jk6hgrd1fr2/week4.xml?dl=1";
