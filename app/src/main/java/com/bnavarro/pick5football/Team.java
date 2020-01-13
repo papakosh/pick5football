@@ -35,8 +35,8 @@ public class Team {
                 return R.drawable.seattle_seahawks_logo;
             case "Baltimore Ravens":
                 return R.drawable.baltimore_ravens_logo;
-            case "San Diego Chargers":
-                return R.drawable.sandiego_chargers_logo;
+            case "Los Angeles Chargers":
+                return R.drawable.losangeles_chargers_logo;
             case "Buffalo Bills":
                 return R.drawable.buffalo_bills_logo;
             case "Cleveland Browns":
@@ -61,8 +61,8 @@ public class Team {
                 return  R.drawable.pittsburgh_steelers_logo;
             case "New Orleans Saints":
                 return  R.drawable.neworleans_saints_logo;
-            case "St. Louis Rams":
-                return  R.drawable.stlouis_rams_logo;
+            case "Los Angeles Rams":
+                return  R.drawable.losangeles_rams_logo;
             case "Oakland Raiders":
                 return  R.drawable.oakland_raiders_logo;
             case "Tampa Bay Buccaneers":
@@ -119,8 +119,8 @@ public class Team {
                 return "SEA";
             case "Baltimore Ravens":
                 return "BAL";
-            case "San Diego Chargers":
-                return "SD";
+            case "Los Angeles Chargers":
+                return "LAC";
             case "Buffalo Bills":
                 return "BUF";
             case "Cleveland Browns":
@@ -145,8 +145,8 @@ public class Team {
                 return "PIT";
             case "New Orleans Saints":
                 return "NO";
-            case "St. Louis Rams":
-                return "STL";
+            case "Los Angeles Rams":
+                return "LAR";
             case "Oakland Raiders":
                 return "OAK";
             case "Tampa Bay Buccaneers":

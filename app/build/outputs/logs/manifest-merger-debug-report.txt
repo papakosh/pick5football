@@ -1,115 +1,212 @@
 -- Merging decision tree log ---
 manifest
-ADDED from C:\Users\navman\StudioProjects\pick5football\app\src\main\AndroidManifest.xml:2:1-62:12
+ADDED from C:\Users\koshman\AndroidStudioProjects\pick5football\app\src\main\AndroidManifest.xml:2:1-60:12
+INJECTED from C:\Users\koshman\AndroidStudioProjects\pick5football\app\src\main\AndroidManifest.xml:2:1-60:12
+INJECTED from C:\Users\koshman\AndroidStudioProjects\pick5football\app\src\main\AndroidManifest.xml:2:1-60:12
+INJECTED from C:\Users\koshman\AndroidStudioProjects\pick5football\app\src\main\AndroidManifest.xml:2:1-60:12
+MERGED from [com.android.support:support-v4:28.0.0] C:\Users\koshman\.gradle\caches\transforms-2\files-2.1\69ee415b12564ec70670df83c9fdfa6f\support-v4-28.0.0\AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:support-media-compat:28.0.0] C:\Users\koshman\.gradle\caches\transforms-2\files-2.1\d1a6c7ee41fbe72753318d9586f1a513\support-media-compat-28.0.0\AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:support-fragment:28.0.0] C:\Users\koshman\.gradle\caches\transforms-2\files-2.1\59df75d251431efe4d450d41cc6b083b\support-fragment-28.0.0\AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:support-core-ui:28.0.0] C:\Users\koshman\.gradle\caches\transforms-2\files-2.1\ee7de4c472f1da0a0213606950b8c4e7\support-core-ui-28.0.0\AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:support-core-utils:28.0.0] C:\Users\koshman\.gradle\caches\transforms-2\files-2.1\e6827550b79bb297911c95f109ecf5ac\support-core-utils-28.0.0\AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:loader:28.0.0] C:\Users\koshman\.gradle\caches\transforms-2\files-2.1\e8e201b21520ad3812ed914e69a9b405\loader-28.0.0\AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:viewpager:28.0.0] C:\Users\koshman\.gradle\caches\transforms-2\files-2.1\00866cffd6a67b64ccbc8d2d951560dc\viewpager-28.0.0\AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:coordinatorlayout:28.0.0] C:\Users\koshman\.gradle\caches\transforms-2\files-2.1\5d3c4801a740528a85d2e670b2dd23b7\coordinatorlayout-28.0.0\AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:drawerlayout:28.0.0] C:\Users\koshman\.gradle\caches\transforms-2\files-2.1\109e2debe5d47fa4d8f7fe1f15c611f3\drawerlayout-28.0.0\AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:slidingpanelayout:28.0.0] C:\Users\koshman\.gradle\caches\transforms-2\files-2.1\640954c0bd14789761b1de9b02daedae\slidingpanelayout-28.0.0\AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:customview:28.0.0] C:\Users\koshman\.gradle\caches\transforms-2\files-2.1\8c3534d87178de95eb9cb75f77214055\customview-28.0.0\AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:swiperefreshlayout:28.0.0] C:\Users\koshman\.gradle\caches\transforms-2\files-2.1\49f9e7bd74012c3341e4a938529d56fe\swiperefreshlayout-28.0.0\AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:asynclayoutinflater:28.0.0] C:\Users\koshman\.gradle\caches\transforms-2\files-2.1\699e03d2cbc668da0d189768d4447a8b\asynclayoutinflater-28.0.0\AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:support-compat:28.0.0] C:\Users\koshman\.gradle\caches\transforms-2\files-2.1\dd1cf78f22bdd94f550130b281f27c97\support-compat-28.0.0\AndroidManifest.xml:17:1-24:12
+MERGED from [com.android.support:versionedparcelable:28.0.0] C:\Users\koshman\.gradle\caches\transforms-2\files-2.1\8bb2478d12c0baf5b421024800cd7dbb\versionedparcelable-28.0.0\AndroidManifest.xml:17:1-25:12
+MERGED from [android.arch.lifecycle:runtime:1.1.1] C:\Users\koshman\.gradle\caches\transforms-2\files-2.1\2a54fb7d4a09e43fd13a659c38a9bf2a\runtime-1.1.1\AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:documentfile:28.0.0] C:\Users\koshman\.gradle\caches\transforms-2\files-2.1\d86ffcf39ba8aec22a7ebfd4c1172e3f\documentfile-28.0.0\AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:localbroadcastmanager:28.0.0] C:\Users\koshman\.gradle\caches\transforms-2\files-2.1\7f3ed6ce49569e0dbf9accf24b63a15b\localbroadcastmanager-28.0.0\AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:print:28.0.0] C:\Users\koshman\.gradle\caches\transforms-2\files-2.1\707c6356496c3791d321c055fe777af8\print-28.0.0\AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:interpolator:28.0.0] C:\Users\koshman\.gradle\caches\transforms-2\files-2.1\525bf97e52a2b96ba94f7509a71e8a56\interpolator-28.0.0\AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:cursoradapter:28.0.0] C:\Users\koshman\.gradle\caches\transforms-2\files-2.1\406adf1b047a0fb17968819a70f96dd9\cursoradapter-28.0.0\AndroidManifest.xml:17:1-22:12
+MERGED from [android.arch.lifecycle:viewmodel:1.1.1] C:\Users\koshman\.gradle\caches\transforms-2\files-2.1\426821499609b124edd91485548e30d0\viewmodel-1.1.1\AndroidManifest.xml:17:1-22:12
+MERGED from [android.arch.lifecycle:livedata:1.1.1] C:\Users\koshman\.gradle\caches\transforms-2\files-2.1\b5f1a18436322a4d6243b4d563cfece4\livedata-1.1.1\AndroidManifest.xml:17:1-22:12
+MERGED from [android.arch.lifecycle:livedata-core:1.1.1] C:\Users\koshman\.gradle\caches\transforms-2\files-2.1\6104c576404b17797d5f42ae60105d1d\livedata-core-1.1.1\AndroidManifest.xml:17:1-22:12
+MERGED from [android.arch.core:runtime:1.1.1] C:\Users\koshman\.gradle\caches\transforms-2\files-2.1\7c5e711cb7599bc18a19cc1df98bc8d6\runtime-1.1.1\AndroidManifest.xml:17:1-22:12
+INJECTED from C:\Users\koshman\AndroidStudioProjects\pick5football\app\src\main\AndroidManifest.xml:2:1-60:12
+INJECTED from C:\Users\koshman\AndroidStudioProjects\pick5football\app\src\main\AndroidManifest.xml:2:1-60:12
+INJECTED from C:\Users\koshman\AndroidStudioProjects\pick5football\app\src\main\AndroidManifest.xml:2:1-60:12
 	package
-		ADDED from C:\Users\navman\StudioProjects\pick5football\app\src\main\AndroidManifest.xml:3:5-41
-		INJECTED from C:\Users\navman\StudioProjects\pick5football\app\src\main\AndroidManifest.xml
-		INJECTED from C:\Users\navman\StudioProjects\pick5football\app\src\main\AndroidManifest.xml
+		ADDED from C:\Users\koshman\AndroidStudioProjects\pick5football\app\src\main\AndroidManifest.xml:3:5-41
+		INJECTED from C:\Users\koshman\AndroidStudioProjects\pick5football\app\src\main\AndroidManifest.xml
+		INJECTED from C:\Users\koshman\AndroidStudioProjects\pick5football\app\src\main\AndroidManifest.xml
 	android:versionName
-		ADDED from C:\Users\navman\StudioProjects\pick5football\app\src\main\AndroidManifest.xml:5:5-30
-	android:versionCode
-		ADDED from C:\Users\navman\StudioProjects\pick5football\app\src\main\AndroidManifest.xml:4:5-28
-		INJECTED from C:\Users\navman\StudioProjects\pick5football\app\src\main\AndroidManifest.xml
-		INJECTED from C:\Users\navman\StudioProjects\pick5football\app\src\main\AndroidManifest.xml
+		ADDED from C:\Users\koshman\AndroidStudioProjects\pick5football\app\src\main\AndroidManifest.xml:5:5-30
+		INJECTED from C:\Users\koshman\AndroidStudioProjects\pick5football\app\src\main\AndroidManifest.xml
+		INJECTED from C:\Users\koshman\AndroidStudioProjects\pick5football\app\src\main\AndroidManifest.xml
 	xmlns:android
-		ADDED from C:\Users\navman\StudioProjects\pick5football\app\src\main\AndroidManifest.xml:2:11-69
+		ADDED from C:\Users\koshman\AndroidStudioProjects\pick5football\app\src\main\AndroidManifest.xml:2:11-69
+	android:versionCode
+		ADDED from C:\Users\koshman\AndroidStudioProjects\pick5football\app\src\main\AndroidManifest.xml:4:5-28
+		INJECTED from C:\Users\koshman\AndroidStudioProjects\pick5football\app\src\main\AndroidManifest.xml
+		INJECTED from C:\Users\koshman\AndroidStudioProjects\pick5football\app\src\main\AndroidManifest.xml
 uses-permission#android.permission.INTERNET
-ADDED from C:\Users\navman\StudioProjects\pick5football\app\src\main\AndroidManifest.xml:6:2-64
+ADDED from C:\Users\koshman\AndroidStudioProjects\pick5football\app\src\main\AndroidManifest.xml:6:2-64
 	android:name
-		ADDED from C:\Users\navman\StudioProjects\pick5football\app\src\main\AndroidManifest.xml:6:19-61
+		ADDED from C:\Users\koshman\AndroidStudioProjects\pick5football\app\src\main\AndroidManifest.xml:6:19-61
 uses-permission#android.permission.ACCESS_NETWORK_STATE
-ADDED from C:\Users\navman\StudioProjects\pick5football\app\src\main\AndroidManifest.xml:7:2-76
+ADDED from C:\Users\koshman\AndroidStudioProjects\pick5football\app\src\main\AndroidManifest.xml:7:2-76
 	android:name
-		ADDED from C:\Users\navman\StudioProjects\pick5football\app\src\main\AndroidManifest.xml:7:19-73
+		ADDED from C:\Users\koshman\AndroidStudioProjects\pick5football\app\src\main\AndroidManifest.xml:7:19-73
 uses-permission#android.permission.WRITE_EXTERNAL_STORAGE
-ADDED from C:\Users\navman\StudioProjects\pick5football\app\src\main\AndroidManifest.xml:8:2-77
+ADDED from C:\Users\koshman\AndroidStudioProjects\pick5football\app\src\main\AndroidManifest.xml:8:2-77
 	android:name
-		ADDED from C:\Users\navman\StudioProjects\pick5football\app\src\main\AndroidManifest.xml:8:19-75
-uses-sdk
-ADDED from C:\Users\navman\StudioProjects\pick5football\app\src\main\AndroidManifest.xml:9:5-11:41
-	android:targetSdkVersion
-		ADDED from C:\Users\navman\StudioProjects\pick5football\app\src\main\AndroidManifest.xml:11:9-38
-		INJECTED from C:\Users\navman\StudioProjects\pick5football\app\src\main\AndroidManifest.xml
-		INJECTED from C:\Users\navman\StudioProjects\pick5football\app\src\main\AndroidManifest.xml
-	android:minSdkVersion
-		ADDED from C:\Users\navman\StudioProjects\pick5football\app\src\main\AndroidManifest.xml:10:9-35
-		INJECTED from C:\Users\navman\StudioProjects\pick5football\app\src\main\AndroidManifest.xml
-		INJECTED from C:\Users\navman\StudioProjects\pick5football\app\src\main\AndroidManifest.xml
+		ADDED from C:\Users\koshman\AndroidStudioProjects\pick5football\app\src\main\AndroidManifest.xml:8:19-75
+uses-permission#android.permission.READ_EXTERNAL_STORAGE
+ADDED from C:\Users\koshman\AndroidStudioProjects\pick5football\app\src\main\AndroidManifest.xml:9:2-76
+	android:name
+		ADDED from C:\Users\koshman\AndroidStudioProjects\pick5football\app\src\main\AndroidManifest.xml:9:19-74
 application
-ADDED from C:\Users\navman\StudioProjects\pick5football\app\src\main\AndroidManifest.xml:12:5-60:19
+ADDED from C:\Users\koshman\AndroidStudioProjects\pick5football\app\src\main\AndroidManifest.xml:10:2-58:19
+MERGED from [com.android.support:support-compat:28.0.0] C:\Users\koshman\.gradle\caches\transforms-2\files-2.1\dd1cf78f22bdd94f550130b281f27c97\support-compat-28.0.0\AndroidManifest.xml:22:5-94
+MERGED from [com.android.support:support-compat:28.0.0] C:\Users\koshman\.gradle\caches\transforms-2\files-2.1\dd1cf78f22bdd94f550130b281f27c97\support-compat-28.0.0\AndroidManifest.xml:22:5-94
+MERGED from [com.android.support:versionedparcelable:28.0.0] C:\Users\koshman\.gradle\caches\transforms-2\files-2.1\8bb2478d12c0baf5b421024800cd7dbb\versionedparcelable-28.0.0\AndroidManifest.xml:22:5-23:19
+MERGED from [com.android.support:versionedparcelable:28.0.0] C:\Users\koshman\.gradle\caches\transforms-2\files-2.1\8bb2478d12c0baf5b421024800cd7dbb\versionedparcelable-28.0.0\AndroidManifest.xml:22:5-23:19
+	android:appComponentFactory
+		ADDED from [com.android.support:support-compat:28.0.0] C:\Users\koshman\.gradle\caches\transforms-2\files-2.1\dd1cf78f22bdd94f550130b281f27c97\support-compat-28.0.0\AndroidManifest.xml:22:18-91
 	android:label
-		ADDED from C:\Users\navman\StudioProjects\pick5football\app\src\main\AndroidManifest.xml:15:9-41
-	android:allowBackup
-		ADDED from C:\Users\navman\StudioProjects\pick5football\app\src\main\AndroidManifest.xml:13:9-35
+		ADDED from C:\Users\koshman\AndroidStudioProjects\pick5football\app\src\main\AndroidManifest.xml:13:9-41
 	android:icon
-		ADDED from C:\Users\navman\StudioProjects\pick5football\app\src\main\AndroidManifest.xml:14:9-45
+		ADDED from C:\Users\koshman\AndroidStudioProjects\pick5football\app\src\main\AndroidManifest.xml:12:9-45
+	android:allowBackup
+		ADDED from C:\Users\koshman\AndroidStudioProjects\pick5football\app\src\main\AndroidManifest.xml:11:9-35
 	android:theme
-		ADDED from C:\Users\navman\StudioProjects\pick5football\app\src\main\AndroidManifest.xml:16:9-40
+		ADDED from C:\Users\koshman\AndroidStudioProjects\pick5football\app\src\main\AndroidManifest.xml:14:9-40
 activity#com.bnavarro.pick5football.MainActivity
-ADDED from C:\Users\navman\StudioProjects\pick5football\app\src\main\AndroidManifest.xml:18:9-27:20
+ADDED from C:\Users\koshman\AndroidStudioProjects\pick5football\app\src\main\AndroidManifest.xml:16:9-25:20
 	android:screenOrientation
-		ADDED from C:\Users\navman\StudioProjects\pick5football\app\src\main\AndroidManifest.xml:21:13-49
+		ADDED from C:\Users\koshman\AndroidStudioProjects\pick5football\app\src\main\AndroidManifest.xml:19:13-49
 	android:label
-		ADDED from C:\Users\navman\StudioProjects\pick5football\app\src\main\AndroidManifest.xml:20:13-45
+		ADDED from C:\Users\koshman\AndroidStudioProjects\pick5football\app\src\main\AndroidManifest.xml:18:13-45
 	android:configChanges
-		ADDED from C:\Users\navman\StudioProjects\pick5football\app\src\main\AndroidManifest.xml:22:13-63
+		ADDED from C:\Users\koshman\AndroidStudioProjects\pick5football\app\src\main\AndroidManifest.xml:20:13-63
 	android:name
-		ADDED from C:\Users\navman\StudioProjects\pick5football\app\src\main\AndroidManifest.xml:19:13-67
-intent-filter#android.intent.action.MAIN+android.intent.category.LAUNCHER
-ADDED from C:\Users\navman\StudioProjects\pick5football\app\src\main\AndroidManifest.xml:23:13-26:29
+		ADDED from C:\Users\koshman\AndroidStudioProjects\pick5football\app\src\main\AndroidManifest.xml:17:13-67
+intent-filter#action:name:android.intent.action.MAIN+category:name:android.intent.category.LAUNCHER
+ADDED from C:\Users\koshman\AndroidStudioProjects\pick5football\app\src\main\AndroidManifest.xml:21:13-24:29
 action#android.intent.action.MAIN
-ADDED from C:\Users\navman\StudioProjects\pick5football\app\src\main\AndroidManifest.xml:24:17-69
+ADDED from C:\Users\koshman\AndroidStudioProjects\pick5football\app\src\main\AndroidManifest.xml:22:17-69
 	android:name
-		ADDED from C:\Users\navman\StudioProjects\pick5football\app\src\main\AndroidManifest.xml:24:25-66
+		ADDED from C:\Users\koshman\AndroidStudioProjects\pick5football\app\src\main\AndroidManifest.xml:22:25-66
 category#android.intent.category.LAUNCHER
-ADDED from C:\Users\navman\StudioProjects\pick5football\app\src\main\AndroidManifest.xml:25:5-65
+ADDED from C:\Users\koshman\AndroidStudioProjects\pick5football\app\src\main\AndroidManifest.xml:23:5-65
 	android:name
-		ADDED from C:\Users\navman\StudioProjects\pick5football\app\src\main\AndroidManifest.xml:25:15-62
+		ADDED from C:\Users\koshman\AndroidStudioProjects\pick5football\app\src\main\AndroidManifest.xml:23:15-62
 activity#com.dropbox.client2.android.AuthActivity
-ADDED from C:\Users\navman\StudioProjects\pick5football\app\src\main\AndroidManifest.xml:30:9-42:14
+ADDED from C:\Users\koshman\AndroidStudioProjects\pick5football\app\src\main\AndroidManifest.xml:28:9-40:14
 	android:screenOrientation
-		ADDED from C:\Users\navman\StudioProjects\pick5football\app\src\main\AndroidManifest.xml:33:6-42
+		ADDED from C:\Users\koshman\AndroidStudioProjects\pick5football\app\src\main\AndroidManifest.xml:31:6-42
 	android:launchMode
-		ADDED from C:\Users\navman\StudioProjects\pick5football\app\src\main\AndroidManifest.xml:32:6-37
+		ADDED from C:\Users\koshman\AndroidStudioProjects\pick5football\app\src\main\AndroidManifest.xml:30:6-37
 	android:configChanges
-		ADDED from C:\Users\navman\StudioProjects\pick5football\app\src\main\AndroidManifest.xml:34:6-50
+		ADDED from C:\Users\koshman\AndroidStudioProjects\pick5football\app\src\main\AndroidManifest.xml:32:6-50
 	android:name
-		ADDED from C:\Users\navman\StudioProjects\pick5football\app\src\main\AndroidManifest.xml:31:6-61
-intent-filter#android.intent.action.VIEW+android.intent.category.BROWSABLE+android.intent.category.DEFAULT
-ADDED from C:\Users\navman\StudioProjects\pick5football\app\src\main\AndroidManifest.xml:35:6-41:22
+		ADDED from C:\Users\koshman\AndroidStudioProjects\pick5football\app\src\main\AndroidManifest.xml:29:6-61
+intent-filter#action:name:android.intent.action.VIEW+category:name:android.intent.category.BROWSABLE+category:name:android.intent.category.DEFAULT+data:scheme:db-1t3c5oggvr0hnhe
+ADDED from C:\Users\koshman\AndroidStudioProjects\pick5football\app\src\main\AndroidManifest.xml:33:6-39:22
 data
-ADDED from C:\Users\navman\StudioProjects\pick5football\app\src\main\AndroidManifest.xml:37:7-51
+ADDED from C:\Users\koshman\AndroidStudioProjects\pick5football\app\src\main\AndroidManifest.xml:35:7-51
 	android:scheme
-		ADDED from C:\Users\navman\StudioProjects\pick5football\app\src\main\AndroidManifest.xml:37:13-48
+		ADDED from C:\Users\koshman\AndroidStudioProjects\pick5football\app\src\main\AndroidManifest.xml:35:13-48
 action#android.intent.action.VIEW
-ADDED from C:\Users\navman\StudioProjects\pick5football\app\src\main\AndroidManifest.xml:38:7-59
+ADDED from C:\Users\koshman\AndroidStudioProjects\pick5football\app\src\main\AndroidManifest.xml:36:7-59
 	android:name
-		ADDED from C:\Users\navman\StudioProjects\pick5football\app\src\main\AndroidManifest.xml:38:15-56
+		ADDED from C:\Users\koshman\AndroidStudioProjects\pick5football\app\src\main\AndroidManifest.xml:36:15-56
 category#android.intent.category.BROWSABLE
-ADDED from C:\Users\navman\StudioProjects\pick5football\app\src\main\AndroidManifest.xml:39:7-67
+ADDED from C:\Users\koshman\AndroidStudioProjects\pick5football\app\src\main\AndroidManifest.xml:37:7-67
 	android:name
-		ADDED from C:\Users\navman\StudioProjects\pick5football\app\src\main\AndroidManifest.xml:39:17-65
+		ADDED from C:\Users\koshman\AndroidStudioProjects\pick5football\app\src\main\AndroidManifest.xml:37:17-65
 category#android.intent.category.DEFAULT
-ADDED from C:\Users\navman\StudioProjects\pick5football\app\src\main\AndroidManifest.xml:40:7-66
+ADDED from C:\Users\koshman\AndroidStudioProjects\pick5football\app\src\main\AndroidManifest.xml:38:7-66
 	android:name
-		ADDED from C:\Users\navman\StudioProjects\pick5football\app\src\main\AndroidManifest.xml:40:17-63
+		ADDED from C:\Users\koshman\AndroidStudioProjects\pick5football\app\src\main\AndroidManifest.xml:38:17-63
 activity#com.bnavarro.pick5football.gameday.GameDayActivity
-ADDED from C:\Users\navman\StudioProjects\pick5football\app\src\main\AndroidManifest.xml:45:9-58:20
+ADDED from C:\Users\koshman\AndroidStudioProjects\pick5football\app\src\main\AndroidManifest.xml:43:9-56:20
 	android:screenOrientation
-		ADDED from C:\Users\navman\StudioProjects\pick5football\app\src\main\AndroidManifest.xml:48:13-49
-	android:label
-		ADDED from C:\Users\navman\StudioProjects\pick5football\app\src\main\AndroidManifest.xml:47:13-45
+		ADDED from C:\Users\koshman\AndroidStudioProjects\pick5football\app\src\main\AndroidManifest.xml:46:13-49
 	android:parentActivityName
-		ADDED from C:\Users\navman\StudioProjects\pick5football\app\src\main\AndroidManifest.xml:50:13-81
+		ADDED from C:\Users\koshman\AndroidStudioProjects\pick5football\app\src\main\AndroidManifest.xml:48:13-81
+	android:label
+		ADDED from C:\Users\koshman\AndroidStudioProjects\pick5football\app\src\main\AndroidManifest.xml:45:13-45
 	android:configChanges
-		ADDED from C:\Users\navman\StudioProjects\pick5football\app\src\main\AndroidManifest.xml:49:7-57
+		ADDED from C:\Users\koshman\AndroidStudioProjects\pick5football\app\src\main\AndroidManifest.xml:47:7-57
 	android:name
-		ADDED from C:\Users\navman\StudioProjects\pick5football\app\src\main\AndroidManifest.xml:46:13-52
+		ADDED from C:\Users\koshman\AndroidStudioProjects\pick5football\app\src\main\AndroidManifest.xml:44:13-52
 meta-data#android.support.PARENT_ACTIVITY
-ADDED from C:\Users\navman\StudioProjects\pick5football\app\src\main\AndroidManifest.xml:51:6-53:72
+ADDED from C:\Users\koshman\AndroidStudioProjects\pick5football\app\src\main\AndroidManifest.xml:49:6-51:72
 	android:value
-		ADDED from C:\Users\navman\StudioProjects\pick5football\app\src\main\AndroidManifest.xml:53:14-69
+		ADDED from C:\Users\koshman\AndroidStudioProjects\pick5football\app\src\main\AndroidManifest.xml:51:14-69
 	android:name
-		ADDED from C:\Users\navman\StudioProjects\pick5football\app\src\main\AndroidManifest.xml:52:14-60
-intent-filter#android.intent.action.MAIN
-ADDED from C:\Users\navman\StudioProjects\pick5football\app\src\main\AndroidManifest.xml:55:13-57:29
+		ADDED from C:\Users\koshman\AndroidStudioProjects\pick5football\app\src\main\AndroidManifest.xml:50:14-60
+intent-filter#action:name:android.intent.action.MAIN
+ADDED from C:\Users\koshman\AndroidStudioProjects\pick5football\app\src\main\AndroidManifest.xml:53:13-55:29
+uses-sdk
+INJECTED from C:\Users\koshman\AndroidStudioProjects\pick5football\app\src\main\AndroidManifest.xml reason: use-sdk injection requested
+INJECTED from C:\Users\koshman\AndroidStudioProjects\pick5football\app\src\main\AndroidManifest.xml
+INJECTED from C:\Users\koshman\AndroidStudioProjects\pick5football\app\src\main\AndroidManifest.xml
+MERGED from [com.android.support:support-v4:28.0.0] C:\Users\koshman\.gradle\caches\transforms-2\files-2.1\69ee415b12564ec70670df83c9fdfa6f\support-v4-28.0.0\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-v4:28.0.0] C:\Users\koshman\.gradle\caches\transforms-2\files-2.1\69ee415b12564ec70670df83c9fdfa6f\support-v4-28.0.0\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-media-compat:28.0.0] C:\Users\koshman\.gradle\caches\transforms-2\files-2.1\d1a6c7ee41fbe72753318d9586f1a513\support-media-compat-28.0.0\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-media-compat:28.0.0] C:\Users\koshman\.gradle\caches\transforms-2\files-2.1\d1a6c7ee41fbe72753318d9586f1a513\support-media-compat-28.0.0\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-fragment:28.0.0] C:\Users\koshman\.gradle\caches\transforms-2\files-2.1\59df75d251431efe4d450d41cc6b083b\support-fragment-28.0.0\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-fragment:28.0.0] C:\Users\koshman\.gradle\caches\transforms-2\files-2.1\59df75d251431efe4d450d41cc6b083b\support-fragment-28.0.0\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-core-ui:28.0.0] C:\Users\koshman\.gradle\caches\transforms-2\files-2.1\ee7de4c472f1da0a0213606950b8c4e7\support-core-ui-28.0.0\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-core-ui:28.0.0] C:\Users\koshman\.gradle\caches\transforms-2\files-2.1\ee7de4c472f1da0a0213606950b8c4e7\support-core-ui-28.0.0\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-core-utils:28.0.0] C:\Users\koshman\.gradle\caches\transforms-2\files-2.1\e6827550b79bb297911c95f109ecf5ac\support-core-utils-28.0.0\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-core-utils:28.0.0] C:\Users\koshman\.gradle\caches\transforms-2\files-2.1\e6827550b79bb297911c95f109ecf5ac\support-core-utils-28.0.0\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:loader:28.0.0] C:\Users\koshman\.gradle\caches\transforms-2\files-2.1\e8e201b21520ad3812ed914e69a9b405\loader-28.0.0\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:loader:28.0.0] C:\Users\koshman\.gradle\caches\transforms-2\files-2.1\e8e201b21520ad3812ed914e69a9b405\loader-28.0.0\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:viewpager:28.0.0] C:\Users\koshman\.gradle\caches\transforms-2\files-2.1\00866cffd6a67b64ccbc8d2d951560dc\viewpager-28.0.0\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:viewpager:28.0.0] C:\Users\koshman\.gradle\caches\transforms-2\files-2.1\00866cffd6a67b64ccbc8d2d951560dc\viewpager-28.0.0\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:coordinatorlayout:28.0.0] C:\Users\koshman\.gradle\caches\transforms-2\files-2.1\5d3c4801a740528a85d2e670b2dd23b7\coordinatorlayout-28.0.0\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:coordinatorlayout:28.0.0] C:\Users\koshman\.gradle\caches\transforms-2\files-2.1\5d3c4801a740528a85d2e670b2dd23b7\coordinatorlayout-28.0.0\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:drawerlayout:28.0.0] C:\Users\koshman\.gradle\caches\transforms-2\files-2.1\109e2debe5d47fa4d8f7fe1f15c611f3\drawerlayout-28.0.0\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:drawerlayout:28.0.0] C:\Users\koshman\.gradle\caches\transforms-2\files-2.1\109e2debe5d47fa4d8f7fe1f15c611f3\drawerlayout-28.0.0\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:slidingpanelayout:28.0.0] C:\Users\koshman\.gradle\caches\transforms-2\files-2.1\640954c0bd14789761b1de9b02daedae\slidingpanelayout-28.0.0\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:slidingpanelayout:28.0.0] C:\Users\koshman\.gradle\caches\transforms-2\files-2.1\640954c0bd14789761b1de9b02daedae\slidingpanelayout-28.0.0\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:customview:28.0.0] C:\Users\koshman\.gradle\caches\transforms-2\files-2.1\8c3534d87178de95eb9cb75f77214055\customview-28.0.0\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:customview:28.0.0] C:\Users\koshman\.gradle\caches\transforms-2\files-2.1\8c3534d87178de95eb9cb75f77214055\customview-28.0.0\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:swiperefreshlayout:28.0.0] C:\Users\koshman\.gradle\caches\transforms-2\files-2.1\49f9e7bd74012c3341e4a938529d56fe\swiperefreshlayout-28.0.0\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:swiperefreshlayout:28.0.0] C:\Users\koshman\.gradle\caches\transforms-2\files-2.1\49f9e7bd74012c3341e4a938529d56fe\swiperefreshlayout-28.0.0\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:asynclayoutinflater:28.0.0] C:\Users\koshman\.gradle\caches\transforms-2\files-2.1\699e03d2cbc668da0d189768d4447a8b\asynclayoutinflater-28.0.0\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:asynclayoutinflater:28.0.0] C:\Users\koshman\.gradle\caches\transforms-2\files-2.1\699e03d2cbc668da0d189768d4447a8b\asynclayoutinflater-28.0.0\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-compat:28.0.0] C:\Users\koshman\.gradle\caches\transforms-2\files-2.1\dd1cf78f22bdd94f550130b281f27c97\support-compat-28.0.0\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-compat:28.0.0] C:\Users\koshman\.gradle\caches\transforms-2\files-2.1\dd1cf78f22bdd94f550130b281f27c97\support-compat-28.0.0\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:versionedparcelable:28.0.0] C:\Users\koshman\.gradle\caches\transforms-2\files-2.1\8bb2478d12c0baf5b421024800cd7dbb\versionedparcelable-28.0.0\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:versionedparcelable:28.0.0] C:\Users\koshman\.gradle\caches\transforms-2\files-2.1\8bb2478d12c0baf5b421024800cd7dbb\versionedparcelable-28.0.0\AndroidManifest.xml:20:5-44
+MERGED from [android.arch.lifecycle:runtime:1.1.1] C:\Users\koshman\.gradle\caches\transforms-2\files-2.1\2a54fb7d4a09e43fd13a659c38a9bf2a\runtime-1.1.1\AndroidManifest.xml:20:5-44
+MERGED from [android.arch.lifecycle:runtime:1.1.1] C:\Users\koshman\.gradle\caches\transforms-2\files-2.1\2a54fb7d4a09e43fd13a659c38a9bf2a\runtime-1.1.1\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:documentfile:28.0.0] C:\Users\koshman\.gradle\caches\transforms-2\files-2.1\d86ffcf39ba8aec22a7ebfd4c1172e3f\documentfile-28.0.0\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:documentfile:28.0.0] C:\Users\koshman\.gradle\caches\transforms-2\files-2.1\d86ffcf39ba8aec22a7ebfd4c1172e3f\documentfile-28.0.0\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:localbroadcastmanager:28.0.0] C:\Users\koshman\.gradle\caches\transforms-2\files-2.1\7f3ed6ce49569e0dbf9accf24b63a15b\localbroadcastmanager-28.0.0\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:localbroadcastmanager:28.0.0] C:\Users\koshman\.gradle\caches\transforms-2\files-2.1\7f3ed6ce49569e0dbf9accf24b63a15b\localbroadcastmanager-28.0.0\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:print:28.0.0] C:\Users\koshman\.gradle\caches\transforms-2\files-2.1\707c6356496c3791d321c055fe777af8\print-28.0.0\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:print:28.0.0] C:\Users\koshman\.gradle\caches\transforms-2\files-2.1\707c6356496c3791d321c055fe777af8\print-28.0.0\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:interpolator:28.0.0] C:\Users\koshman\.gradle\caches\transforms-2\files-2.1\525bf97e52a2b96ba94f7509a71e8a56\interpolator-28.0.0\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:interpolator:28.0.0] C:\Users\koshman\.gradle\caches\transforms-2\files-2.1\525bf97e52a2b96ba94f7509a71e8a56\interpolator-28.0.0\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:cursoradapter:28.0.0] C:\Users\koshman\.gradle\caches\transforms-2\files-2.1\406adf1b047a0fb17968819a70f96dd9\cursoradapter-28.0.0\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:cursoradapter:28.0.0] C:\Users\koshman\.gradle\caches\transforms-2\files-2.1\406adf1b047a0fb17968819a70f96dd9\cursoradapter-28.0.0\AndroidManifest.xml:20:5-44
+MERGED from [android.arch.lifecycle:viewmodel:1.1.1] C:\Users\koshman\.gradle\caches\transforms-2\files-2.1\426821499609b124edd91485548e30d0\viewmodel-1.1.1\AndroidManifest.xml:20:5-44
+MERGED from [android.arch.lifecycle:viewmodel:1.1.1] C:\Users\koshman\.gradle\caches\transforms-2\files-2.1\426821499609b124edd91485548e30d0\viewmodel-1.1.1\AndroidManifest.xml:20:5-44
+MERGED from [android.arch.lifecycle:livedata:1.1.1] C:\Users\koshman\.gradle\caches\transforms-2\files-2.1\b5f1a18436322a4d6243b4d563cfece4\livedata-1.1.1\AndroidManifest.xml:20:5-44
+MERGED from [android.arch.lifecycle:livedata:1.1.1] C:\Users\koshman\.gradle\caches\transforms-2\files-2.1\b5f1a18436322a4d6243b4d563cfece4\livedata-1.1.1\AndroidManifest.xml:20:5-44
+MERGED from [android.arch.lifecycle:livedata-core:1.1.1] C:\Users\koshman\.gradle\caches\transforms-2\files-2.1\6104c576404b17797d5f42ae60105d1d\livedata-core-1.1.1\AndroidManifest.xml:20:5-44
+MERGED from [android.arch.lifecycle:livedata-core:1.1.1] C:\Users\koshman\.gradle\caches\transforms-2\files-2.1\6104c576404b17797d5f42ae60105d1d\livedata-core-1.1.1\AndroidManifest.xml:20:5-44
+MERGED from [android.arch.core:runtime:1.1.1] C:\Users\koshman\.gradle\caches\transforms-2\files-2.1\7c5e711cb7599bc18a19cc1df98bc8d6\runtime-1.1.1\AndroidManifest.xml:20:5-44
+MERGED from [android.arch.core:runtime:1.1.1] C:\Users\koshman\.gradle\caches\transforms-2\files-2.1\7c5e711cb7599bc18a19cc1df98bc8d6\runtime-1.1.1\AndroidManifest.xml:20:5-44
+INJECTED from C:\Users\koshman\AndroidStudioProjects\pick5football\app\src\main\AndroidManifest.xml
+INJECTED from C:\Users\koshman\AndroidStudioProjects\pick5football\app\src\main\AndroidManifest.xml
+	android:targetSdkVersion
+		INJECTED from C:\Users\koshman\AndroidStudioProjects\pick5football\app\src\main\AndroidManifest.xml
+		ADDED from C:\Users\koshman\AndroidStudioProjects\pick5football\app\src\main\AndroidManifest.xml
+		INJECTED from C:\Users\koshman\AndroidStudioProjects\pick5football\app\src\main\AndroidManifest.xml
+	android:minSdkVersion
+		INJECTED from C:\Users\koshman\AndroidStudioProjects\pick5football\app\src\main\AndroidManifest.xml
+		ADDED from C:\Users\koshman\AndroidStudioProjects\pick5football\app\src\main\AndroidManifest.xml
+		INJECTED from C:\Users\koshman\AndroidStudioProjects\pick5football\app\src\main\AndroidManifest.xml

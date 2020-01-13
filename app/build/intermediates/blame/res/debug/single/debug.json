@@ -1,0 +1,326 @@
+[
+    {
+        "merged": "C:\\Users\\koshman\\AndroidStudioProjects\\pick5football\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi_carolina_panthers_logo.gif.flat",
+        "source": "C:\\Users\\koshman\\AndroidStudioProjects\\pick5football\\app\\src\\main\\res\\drawable-mdpi\\carolina_panthers_logo.gif"
+    },
+    {
+        "merged": "C:\\Users\\koshman\\AndroidStudioProjects\\pick5football\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi_neworleans_saints_logo.gif.flat",
+        "source": "C:\\Users\\koshman\\AndroidStudioProjects\\pick5football\\app\\src\\main\\res\\drawable-mdpi\\neworleans_saints_logo.gif"
+    },
+    {
+        "merged": "C:\\Users\\koshman\\AndroidStudioProjects\\pick5football\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4_notify_panel_notification_icon_bg.png.flat",
+        "source": "C:\\Users\\koshman\\.gradle\\caches\\transforms-2\\files-2.1\\dd1cf78f22bdd94f550130b281f27c97\\support-compat-28.0.0\\res\\drawable-hdpi-v4\\notify_panel_notification_icon_bg.png"
+    },
+    {
+        "merged": "C:\\Users\\koshman\\AndroidStudioProjects\\pick5football\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi_oakland_raiders_logo.gif.flat",
+        "source": "C:\\Users\\koshman\\AndroidStudioProjects\\pick5football\\app\\src\\main\\res\\drawable-mdpi\\oakland_raiders_logo.gif"
+    },
+    {
+        "merged": "C:\\Users\\koshman\\AndroidStudioProjects\\pick5football\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi_ic_launcher.png.flat",
+        "source": "C:\\Users\\koshman\\AndroidStudioProjects\\pick5football\\app\\src\\main\\res\\drawable-xxhdpi\\ic_launcher.png"
+    },
+    {
+        "merged": "C:\\Users\\koshman\\AndroidStudioProjects\\pick5football\\app\\build\\intermediates\\res\\merged\\debug\\drawable_notification_icon_background.xml.flat",
+        "source": "C:\\Users\\koshman\\.gradle\\caches\\transforms-2\\files-2.1\\dd1cf78f22bdd94f550130b281f27c97\\support-compat-28.0.0\\res\\drawable\\notification_icon_background.xml"
+    },
+    {
+        "merged": "C:\\Users\\koshman\\AndroidStudioProjects\\pick5football\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi_philadelphia_eagles_logo.gif.flat",
+        "source": "C:\\Users\\koshman\\AndroidStudioProjects\\pick5football\\app\\src\\main\\res\\drawable-mdpi\\philadelphia_eagles_logo.gif"
+    },
+    {
+        "merged": "C:\\Users\\koshman\\AndroidStudioProjects\\pick5football\\app\\build\\intermediates\\res\\merged\\debug\\layout_notification_template_big_media.xml.flat",
+        "source": "C:\\Users\\koshman\\.gradle\\caches\\transforms-2\\files-2.1\\d1a6c7ee41fbe72753318d9586f1a513\\support-media-compat-28.0.0\\res\\layout\\notification_template_big_media.xml"
+    },
+    {
+        "merged": "C:\\Users\\koshman\\AndroidStudioProjects\\pick5football\\app\\build\\intermediates\\res\\merged\\debug\\layout-v21_notification_template_icon_group.xml.flat",
+        "source": "C:\\Users\\koshman\\.gradle\\caches\\transforms-2\\files-2.1\\dd1cf78f22bdd94f550130b281f27c97\\support-compat-28.0.0\\res\\layout-v21\\notification_template_icon_group.xml"
+    },
+    {
+        "merged": "C:\\Users\\koshman\\AndroidStudioProjects\\pick5football\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi_losangeles_rams_logo.gif.flat",
+        "source": "C:\\Users\\koshman\\AndroidStudioProjects\\pick5football\\app\\src\\main\\res\\drawable-mdpi\\losangeles_rams_logo.gif"
+    },
+    {
+        "merged": "C:\\Users\\koshman\\AndroidStudioProjects\\pick5football\\app\\build\\intermediates\\res\\merged\\debug\\layout_notification_template_lines_media.xml.flat",
+        "source": "C:\\Users\\koshman\\.gradle\\caches\\transforms-2\\files-2.1\\d1a6c7ee41fbe72753318d9586f1a513\\support-media-compat-28.0.0\\res\\layout\\notification_template_lines_media.xml"
+    },
+    {
+        "merged": "C:\\Users\\koshman\\AndroidStudioProjects\\pick5football\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi_tennessee_titans_logo.gif.flat",
+        "source": "C:\\Users\\koshman\\AndroidStudioProjects\\pick5football\\app\\src\\main\\res\\drawable-mdpi\\tennessee_titans_logo.gif"
+    },
+    {
+        "merged": "C:\\Users\\koshman\\AndroidStudioProjects\\pick5football\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi_jacksonville_jaguars_logo.gif.flat",
+        "source": "C:\\Users\\koshman\\AndroidStudioProjects\\pick5football\\app\\src\\main\\res\\drawable-mdpi\\jacksonville_jaguars_logo.gif"
+    },
+    {
+        "merged": "C:\\Users\\koshman\\AndroidStudioProjects\\pick5football\\app\\build\\intermediates\\res\\merged\\debug\\drawable_notification_tile_bg.xml.flat",
+        "source": "C:\\Users\\koshman\\.gradle\\caches\\transforms-2\\files-2.1\\dd1cf78f22bdd94f550130b281f27c97\\support-compat-28.0.0\\res\\drawable\\notification_tile_bg.xml"
+    },
+    {
+        "merged": "C:\\Users\\koshman\\AndroidStudioProjects\\pick5football\\app\\build\\intermediates\\res\\merged\\debug\\layout_notification_template_media.xml.flat",
+        "source": "C:\\Users\\koshman\\.gradle\\caches\\transforms-2\\files-2.1\\d1a6c7ee41fbe72753318d9586f1a513\\support-media-compat-28.0.0\\res\\layout\\notification_template_media.xml"
+    },
+    {
+        "merged": "C:\\Users\\koshman\\AndroidStudioProjects\\pick5football\\app\\build\\intermediates\\res\\merged\\debug\\layout_notification_template_big_media_narrow_custom.xml.flat",
+        "source": "C:\\Users\\koshman\\.gradle\\caches\\transforms-2\\files-2.1\\d1a6c7ee41fbe72753318d9586f1a513\\support-media-compat-28.0.0\\res\\layout\\notification_template_big_media_narrow_custom.xml"
+    },
+    {
+        "merged": "C:\\Users\\koshman\\AndroidStudioProjects\\pick5football\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi_edittext_bg.xml.flat",
+        "source": "C:\\Users\\koshman\\AndroidStudioProjects\\pick5football\\app\\src\\main\\res\\drawable-hdpi\\edittext_bg.xml"
+    },
+    {
+        "merged": "C:\\Users\\koshman\\AndroidStudioProjects\\pick5football\\app\\build\\intermediates\\res\\merged\\debug\\layout-v21_notification_template_custom_big.xml.flat",
+        "source": "C:\\Users\\koshman\\.gradle\\caches\\transforms-2\\files-2.1\\dd1cf78f22bdd94f550130b281f27c97\\support-compat-28.0.0\\res\\layout-v21\\notification_template_custom_big.xml"
+    },
+    {
+        "merged": "C:\\Users\\koshman\\AndroidStudioProjects\\pick5football\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi_washington_redskins_logo.gif.flat",
+        "source": "C:\\Users\\koshman\\AndroidStudioProjects\\pick5football\\app\\src\\main\\res\\drawable-mdpi\\washington_redskins_logo.gif"
+    },
+    {
+        "merged": "C:\\Users\\koshman\\AndroidStudioProjects\\pick5football\\app\\build\\intermediates\\res\\merged\\debug\\layout_matchup_fragment_layout.xml.flat",
+        "source": "C:\\Users\\koshman\\AndroidStudioProjects\\pick5football\\app\\src\\main\\res\\layout\\matchup_fragment_layout.xml"
+    },
+    {
+        "merged": "C:\\Users\\koshman\\AndroidStudioProjects\\pick5football\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi_newyork_giants_logo.gif.flat",
+        "source": "C:\\Users\\koshman\\AndroidStudioProjects\\pick5football\\app\\src\\main\\res\\drawable-mdpi\\newyork_giants_logo.gif"
+    },
+    {
+        "merged": "C:\\Users\\koshman\\AndroidStudioProjects\\pick5football\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi_greenbay_packers_logo.gif.flat",
+        "source": "C:\\Users\\koshman\\AndroidStudioProjects\\pick5football\\app\\src\\main\\res\\drawable-mdpi\\greenbay_packers_logo.gif"
+    },
+    {
+        "merged": "C:\\Users\\koshman\\AndroidStudioProjects\\pick5football\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4_notification_bg_low_pressed.9.png.flat",
+        "source": "C:\\Users\\koshman\\.gradle\\caches\\transforms-2\\files-2.1\\dd1cf78f22bdd94f550130b281f27c97\\support-compat-28.0.0\\res\\drawable-xhdpi-v4\\notification_bg_low_pressed.9.png"
+    },
+    {
+        "merged": "C:\\Users\\koshman\\AndroidStudioProjects\\pick5football\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4_notification_bg_normal_pressed.9.png.flat",
+        "source": "C:\\Users\\koshman\\.gradle\\caches\\transforms-2\\files-2.1\\dd1cf78f22bdd94f550130b281f27c97\\support-compat-28.0.0\\res\\drawable-hdpi-v4\\notification_bg_normal_pressed.9.png"
+    },
+    {
+        "merged": "C:\\Users\\koshman\\AndroidStudioProjects\\pick5football\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi-v4_notification_bg_low_normal.9.png.flat",
+        "source": "C:\\Users\\koshman\\.gradle\\caches\\transforms-2\\files-2.1\\dd1cf78f22bdd94f550130b281f27c97\\support-compat-28.0.0\\res\\drawable-mdpi-v4\\notification_bg_low_normal.9.png"
+    },
+    {
+        "merged": "C:\\Users\\koshman\\AndroidStudioProjects\\pick5football\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi_kansascity_chiefs_logo.gif.flat",
+        "source": "C:\\Users\\koshman\\AndroidStudioProjects\\pick5football\\app\\src\\main\\res\\drawable-mdpi\\kansascity_chiefs_logo.gif"
+    },
+    {
+        "merged": "C:\\Users\\koshman\\AndroidStudioProjects\\pick5football\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi_ic_launcher.png.flat",
+        "source": "C:\\Users\\koshman\\AndroidStudioProjects\\pick5football\\app\\src\\main\\res\\drawable-xhdpi\\ic_launcher.png"
+    },
+    {
+        "merged": "C:\\Users\\koshman\\AndroidStudioProjects\\pick5football\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi_baltimore_ravens_logo.gif.flat",
+        "source": "C:\\Users\\koshman\\AndroidStudioProjects\\pick5football\\app\\src\\main\\res\\drawable-mdpi\\baltimore_ravens_logo.gif"
+    },
+    {
+        "merged": "C:\\Users\\koshman\\AndroidStudioProjects\\pick5football\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi_cleveland_browns_logo.gif.flat",
+        "source": "C:\\Users\\koshman\\AndroidStudioProjects\\pick5football\\app\\src\\main\\res\\drawable-mdpi\\cleveland_browns_logo.gif"
+    },
+    {
+        "merged": "C:\\Users\\koshman\\AndroidStudioProjects\\pick5football\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4_notification_bg_normal.9.png.flat",
+        "source": "C:\\Users\\koshman\\.gradle\\caches\\transforms-2\\files-2.1\\dd1cf78f22bdd94f550130b281f27c97\\support-compat-28.0.0\\res\\drawable-xhdpi-v4\\notification_bg_normal.9.png"
+    },
+    {
+        "merged": "C:\\Users\\koshman\\AndroidStudioProjects\\pick5football\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4_notification_bg_low_normal.9.png.flat",
+        "source": "C:\\Users\\koshman\\.gradle\\caches\\transforms-2\\files-2.1\\dd1cf78f22bdd94f550130b281f27c97\\support-compat-28.0.0\\res\\drawable-hdpi-v4\\notification_bg_low_normal.9.png"
+    },
+    {
+        "merged": "C:\\Users\\koshman\\AndroidStudioProjects\\pick5football\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi_atlanta_falcons_logo.gif.flat",
+        "source": "C:\\Users\\koshman\\AndroidStudioProjects\\pick5football\\app\\src\\main\\res\\drawable-mdpi\\atlanta_falcons_logo.gif"
+    },
+    {
+        "merged": "C:\\Users\\koshman\\AndroidStudioProjects\\pick5football\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi_detroit_lions_logo.gif.flat",
+        "source": "C:\\Users\\koshman\\AndroidStudioProjects\\pick5football\\app\\src\\main\\res\\drawable-mdpi\\detroit_lions_logo.gif"
+    },
+    {
+        "merged": "C:\\Users\\koshman\\AndroidStudioProjects\\pick5football\\app\\build\\intermediates\\res\\merged\\debug\\layout-v21_notification_action_tombstone.xml.flat",
+        "source": "C:\\Users\\koshman\\.gradle\\caches\\transforms-2\\files-2.1\\dd1cf78f22bdd94f550130b281f27c97\\support-compat-28.0.0\\res\\layout-v21\\notification_action_tombstone.xml"
+    },
+    {
+        "merged": "C:\\Users\\koshman\\AndroidStudioProjects\\pick5football\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi_cincinnati_bengals_logo.gif.flat",
+        "source": "C:\\Users\\koshman\\AndroidStudioProjects\\pick5football\\app\\src\\main\\res\\drawable-mdpi\\cincinnati_bengals_logo.gif"
+    },
+    {
+        "merged": "C:\\Users\\koshman\\AndroidStudioProjects\\pick5football\\app\\build\\intermediates\\res\\merged\\debug\\drawable_notification_bg_low.xml.flat",
+        "source": "C:\\Users\\koshman\\.gradle\\caches\\transforms-2\\files-2.1\\dd1cf78f22bdd94f550130b281f27c97\\support-compat-28.0.0\\res\\drawable\\notification_bg_low.xml"
+    },
+    {
+        "merged": "C:\\Users\\koshman\\AndroidStudioProjects\\pick5football\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi_ic_launcher.png.flat",
+        "source": "C:\\Users\\koshman\\AndroidStudioProjects\\pick5football\\app\\src\\main\\res\\drawable-mdpi\\ic_launcher.png"
+    },
+    {
+        "merged": "C:\\Users\\koshman\\AndroidStudioProjects\\pick5football\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4_notification_bg_low_pressed.9.png.flat",
+        "source": "C:\\Users\\koshman\\.gradle\\caches\\transforms-2\\files-2.1\\dd1cf78f22bdd94f550130b281f27c97\\support-compat-28.0.0\\res\\drawable-hdpi-v4\\notification_bg_low_pressed.9.png"
+    },
+    {
+        "merged": "C:\\Users\\koshman\\AndroidStudioProjects\\pick5football\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi_buffalo_bills_logo.gif.flat",
+        "source": "C:\\Users\\koshman\\AndroidStudioProjects\\pick5football\\app\\src\\main\\res\\drawable-mdpi\\buffalo_bills_logo.gif"
+    },
+    {
+        "merged": "C:\\Users\\koshman\\AndroidStudioProjects\\pick5football\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi_minnesota_vikings_logo.gif.flat",
+        "source": "C:\\Users\\koshman\\AndroidStudioProjects\\pick5football\\app\\src\\main\\res\\drawable-mdpi\\minnesota_vikings_logo.gif"
+    },
+    {
+        "merged": "C:\\Users\\koshman\\AndroidStudioProjects\\pick5football\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi_newyork_jets_logo.gif.flat",
+        "source": "C:\\Users\\koshman\\AndroidStudioProjects\\pick5football\\app\\src\\main\\res\\drawable-mdpi\\newyork_jets_logo.gif"
+    },
+    {
+        "merged": "C:\\Users\\koshman\\AndroidStudioProjects\\pick5football\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi_tampabay_buccaneers_logo.gif.flat",
+        "source": "C:\\Users\\koshman\\AndroidStudioProjects\\pick5football\\app\\src\\main\\res\\drawable-mdpi\\tampabay_buccaneers_logo.gif"
+    },
+    {
+        "merged": "C:\\Users\\koshman\\AndroidStudioProjects\\pick5football\\app\\build\\intermediates\\res\\merged\\debug\\layout_notification_template_media_custom.xml.flat",
+        "source": "C:\\Users\\koshman\\.gradle\\caches\\transforms-2\\files-2.1\\d1a6c7ee41fbe72753318d9586f1a513\\support-media-compat-28.0.0\\res\\layout\\notification_template_media_custom.xml"
+    },
+    {
+        "merged": "C:\\Users\\koshman\\AndroidStudioProjects\\pick5football\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4_notification_bg_low_normal.9.png.flat",
+        "source": "C:\\Users\\koshman\\.gradle\\caches\\transforms-2\\files-2.1\\dd1cf78f22bdd94f550130b281f27c97\\support-compat-28.0.0\\res\\drawable-xhdpi-v4\\notification_bg_low_normal.9.png"
+    },
+    {
+        "merged": "C:\\Users\\koshman\\AndroidStudioProjects\\pick5football\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4_notify_panel_notification_icon_bg.png.flat",
+        "source": "C:\\Users\\koshman\\.gradle\\caches\\transforms-2\\files-2.1\\dd1cf78f22bdd94f550130b281f27c97\\support-compat-28.0.0\\res\\drawable-xhdpi-v4\\notify_panel_notification_icon_bg.png"
+    },
+    {
+        "merged": "C:\\Users\\koshman\\AndroidStudioProjects\\pick5football\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi_dallas_cowboys_logo.gif.flat",
+        "source": "C:\\Users\\koshman\\AndroidStudioProjects\\pick5football\\app\\src\\main\\res\\drawable-mdpi\\dallas_cowboys_logo.gif"
+    },
+    {
+        "merged": "C:\\Users\\koshman\\AndroidStudioProjects\\pick5football\\app\\build\\intermediates\\res\\merged\\debug\\layout_notification_template_part_time.xml.flat",
+        "source": "C:\\Users\\koshman\\.gradle\\caches\\transforms-2\\files-2.1\\dd1cf78f22bdd94f550130b281f27c97\\support-compat-28.0.0\\res\\layout\\notification_template_part_time.xml"
+    },
+    {
+        "merged": "C:\\Users\\koshman\\AndroidStudioProjects\\pick5football\\app\\build\\intermediates\\res\\merged\\debug\\layout_match_header_item.xml.flat",
+        "source": "C:\\Users\\koshman\\AndroidStudioProjects\\pick5football\\app\\src\\main\\res\\layout\\match_header_item.xml"
+    },
+    {
+        "merged": "C:\\Users\\koshman\\AndroidStudioProjects\\pick5football\\app\\build\\intermediates\\res\\merged\\debug\\menu_main.xml.flat",
+        "source": "C:\\Users\\koshman\\AndroidStudioProjects\\pick5football\\app\\src\\main\\res\\menu\\main.xml"
+    },
+    {
+        "merged": "C:\\Users\\koshman\\AndroidStudioProjects\\pick5football\\app\\build\\intermediates\\res\\merged\\debug\\layout_match_list_item.xml.flat",
+        "source": "C:\\Users\\koshman\\AndroidStudioProjects\\pick5football\\app\\src\\main\\res\\layout\\match_list_item.xml"
+    },
+    {
+        "merged": "C:\\Users\\koshman\\AndroidStudioProjects\\pick5football\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi_indianapolis_colts_logo.gif.flat",
+        "source": "C:\\Users\\koshman\\AndroidStudioProjects\\pick5football\\app\\src\\main\\res\\drawable-mdpi\\indianapolis_colts_logo.gif"
+    },
+    {
+        "merged": "C:\\Users\\koshman\\AndroidStudioProjects\\pick5football\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi_denver_broncos_logo.gif.flat",
+        "source": "C:\\Users\\koshman\\AndroidStudioProjects\\pick5football\\app\\src\\main\\res\\drawable-mdpi\\denver_broncos_logo.gif"
+    },
+    {
+        "merged": "C:\\Users\\koshman\\AndroidStudioProjects\\pick5football\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4_notification_bg_normal_pressed.9.png.flat",
+        "source": "C:\\Users\\koshman\\.gradle\\caches\\transforms-2\\files-2.1\\dd1cf78f22bdd94f550130b281f27c97\\support-compat-28.0.0\\res\\drawable-xhdpi-v4\\notification_bg_normal_pressed.9.png"
+    },
+    {
+        "merged": "C:\\Users\\koshman\\AndroidStudioProjects\\pick5football\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi-v4_notification_bg_low_pressed.9.png.flat",
+        "source": "C:\\Users\\koshman\\.gradle\\caches\\transforms-2\\files-2.1\\dd1cf78f22bdd94f550130b281f27c97\\support-compat-28.0.0\\res\\drawable-mdpi-v4\\notification_bg_low_pressed.9.png"
+    },
+    {
+        "merged": "C:\\Users\\koshman\\AndroidStudioProjects\\pick5football\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi_miami_dolphins_logo.gif.flat",
+        "source": "C:\\Users\\koshman\\AndroidStudioProjects\\pick5football\\app\\src\\main\\res\\drawable-mdpi\\miami_dolphins_logo.gif"
+    },
+    {
+        "merged": "C:\\Users\\koshman\\AndroidStudioProjects\\pick5football\\app\\build\\intermediates\\res\\merged\\debug\\layout-v21_notification_action.xml.flat",
+        "source": "C:\\Users\\koshman\\.gradle\\caches\\transforms-2\\files-2.1\\dd1cf78f22bdd94f550130b281f27c97\\support-compat-28.0.0\\res\\layout-v21\\notification_action.xml"
+    },
+    {
+        "merged": "C:\\Users\\koshman\\AndroidStudioProjects\\pick5football\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi_chicago_bears_logo.gif.flat",
+        "source": "C:\\Users\\koshman\\AndroidStudioProjects\\pick5football\\app\\src\\main\\res\\drawable-mdpi\\chicago_bears_logo.gif"
+    },
+    {
+        "merged": "C:\\Users\\koshman\\AndroidStudioProjects\\pick5football\\app\\build\\intermediates\\res\\merged\\debug\\layout_notification_template_big_media_narrow.xml.flat",
+        "source": "C:\\Users\\koshman\\.gradle\\caches\\transforms-2\\files-2.1\\d1a6c7ee41fbe72753318d9586f1a513\\support-media-compat-28.0.0\\res\\layout\\notification_template_big_media_narrow.xml"
+    },
+    {
+        "merged": "C:\\Users\\koshman\\AndroidStudioProjects\\pick5football\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi_bg_key.xml.flat",
+        "source": "C:\\Users\\koshman\\AndroidStudioProjects\\pick5football\\app\\src\\main\\res\\drawable-hdpi\\bg_key.xml"
+    },
+    {
+        "merged": "C:\\Users\\koshman\\AndroidStudioProjects\\pick5football\\app\\build\\intermediates\\res\\merged\\debug\\layout_notification_media_cancel_action.xml.flat",
+        "source": "C:\\Users\\koshman\\.gradle\\caches\\transforms-2\\files-2.1\\d1a6c7ee41fbe72753318d9586f1a513\\support-media-compat-28.0.0\\res\\layout\\notification_media_cancel_action.xml"
+    },
+    {
+        "merged": "C:\\Users\\koshman\\AndroidStudioProjects\\pick5football\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi_losangeles_chargers_logo.gif.flat",
+        "source": "C:\\Users\\koshman\\AndroidStudioProjects\\pick5football\\app\\src\\main\\res\\drawable-mdpi\\losangeles_chargers_logo.gif"
+    },
+    {
+        "merged": "C:\\Users\\koshman\\AndroidStudioProjects\\pick5football\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi_sanfrancisco_49ers_logo.gif.flat",
+        "source": "C:\\Users\\koshman\\AndroidStudioProjects\\pick5football\\app\\src\\main\\res\\drawable-mdpi\\sanfrancisco_49ers_logo.gif"
+    },
+    {
+        "merged": "C:\\Users\\koshman\\AndroidStudioProjects\\pick5football\\app\\build\\intermediates\\res\\merged\\debug\\layout_activity_gameday.xml.flat",
+        "source": "C:\\Users\\koshman\\AndroidStudioProjects\\pick5football\\app\\src\\main\\res\\layout\\activity_gameday.xml"
+    },
+    {
+        "merged": "C:\\Users\\koshman\\AndroidStudioProjects\\pick5football\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi-v4_notification_bg_normal_pressed.9.png.flat",
+        "source": "C:\\Users\\koshman\\.gradle\\caches\\transforms-2\\files-2.1\\dd1cf78f22bdd94f550130b281f27c97\\support-compat-28.0.0\\res\\drawable-mdpi-v4\\notification_bg_normal_pressed.9.png"
+    },
+    {
+        "merged": "C:\\Users\\koshman\\AndroidStudioProjects\\pick5football\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi-v4_notification_bg_normal.9.png.flat",
+        "source": "C:\\Users\\koshman\\.gradle\\caches\\transforms-2\\files-2.1\\dd1cf78f22bdd94f550130b281f27c97\\support-compat-28.0.0\\res\\drawable-mdpi-v4\\notification_bg_normal.9.png"
+    },
+    {
+        "merged": "C:\\Users\\koshman\\AndroidStudioProjects\\pick5football\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi_newengland_patriots_logo.gif.flat",
+        "source": "C:\\Users\\koshman\\AndroidStudioProjects\\pick5football\\app\\src\\main\\res\\drawable-mdpi\\newengland_patriots_logo.gif"
+    },
+    {
+        "merged": "C:\\Users\\koshman\\AndroidStudioProjects\\pick5football\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi_houston_texans_logo.gif.flat",
+        "source": "C:\\Users\\koshman\\AndroidStudioProjects\\pick5football\\app\\src\\main\\res\\drawable-mdpi\\houston_texans_logo.gif"
+    },
+    {
+        "merged": "C:\\Users\\koshman\\AndroidStudioProjects\\pick5football\\app\\build\\intermediates\\res\\merged\\debug\\layout_activity_main.xml.flat",
+        "source": "C:\\Users\\koshman\\AndroidStudioProjects\\pick5football\\app\\src\\main\\res\\layout\\activity_main.xml"
+    },
+    {
+        "merged": "C:\\Users\\koshman\\AndroidStudioProjects\\pick5football\\app\\build\\intermediates\\res\\merged\\debug\\drawable_notification_bg.xml.flat",
+        "source": "C:\\Users\\koshman\\.gradle\\caches\\transforms-2\\files-2.1\\dd1cf78f22bdd94f550130b281f27c97\\support-compat-28.0.0\\res\\drawable\\notification_bg.xml"
+    },
+    {
+        "merged": "C:\\Users\\koshman\\AndroidStudioProjects\\pick5football\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi_seattle_seahawks_logo.gif.flat",
+        "source": "C:\\Users\\koshman\\AndroidStudioProjects\\pick5football\\app\\src\\main\\res\\drawable-mdpi\\seattle_seahawks_logo.gif"
+    },
+    {
+        "merged": "C:\\Users\\koshman\\AndroidStudioProjects\\pick5football\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi_ic_launcher.png.flat",
+        "source": "C:\\Users\\koshman\\AndroidStudioProjects\\pick5football\\app\\src\\main\\res\\drawable-hdpi\\ic_launcher.png"
+    },
+    {
+        "merged": "C:\\Users\\koshman\\AndroidStudioProjects\\pick5football\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi-v4_notify_panel_notification_icon_bg.png.flat",
+        "source": "C:\\Users\\koshman\\.gradle\\caches\\transforms-2\\files-2.1\\dd1cf78f22bdd94f550130b281f27c97\\support-compat-28.0.0\\res\\drawable-mdpi-v4\\notify_panel_notification_icon_bg.png"
+    },
+    {
+        "merged": "C:\\Users\\koshman\\AndroidStudioProjects\\pick5football\\app\\build\\intermediates\\res\\merged\\debug\\layout_notification_media_action.xml.flat",
+        "source": "C:\\Users\\koshman\\.gradle\\caches\\transforms-2\\files-2.1\\d1a6c7ee41fbe72753318d9586f1a513\\support-media-compat-28.0.0\\res\\layout\\notification_media_action.xml"
+    },
+    {
+        "merged": "C:\\Users\\koshman\\AndroidStudioProjects\\pick5football\\app\\build\\intermediates\\res\\merged\\debug\\layout_notification_template_part_chronometer.xml.flat",
+        "source": "C:\\Users\\koshman\\.gradle\\caches\\transforms-2\\files-2.1\\dd1cf78f22bdd94f550130b281f27c97\\support-compat-28.0.0\\res\\layout\\notification_template_part_chronometer.xml"
+    },
+    {
+        "merged": "C:\\Users\\koshman\\AndroidStudioProjects\\pick5football\\app\\build\\intermediates\\res\\merged\\debug\\layout_notification_template_big_media_custom.xml.flat",
+        "source": "C:\\Users\\koshman\\.gradle\\caches\\transforms-2\\files-2.1\\d1a6c7ee41fbe72753318d9586f1a513\\support-media-compat-28.0.0\\res\\layout\\notification_template_big_media_custom.xml"
+    },
+    {
+        "merged": "C:\\Users\\koshman\\AndroidStudioProjects\\pick5football\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi_tab1.png.flat",
+        "source": "C:\\Users\\koshman\\AndroidStudioProjects\\pick5football\\app\\src\\main\\res\\drawable-hdpi\\tab1.png"
+    },
+    {
+        "merged": "C:\\Users\\koshman\\AndroidStudioProjects\\pick5football\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi_arizona_cardinals_logo.gif.flat",
+        "source": "C:\\Users\\koshman\\AndroidStudioProjects\\pick5football\\app\\src\\main\\res\\drawable-mdpi\\arizona_cardinals_logo.gif"
+    },
+    {
+        "merged": "C:\\Users\\koshman\\AndroidStudioProjects\\pick5football\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4_notification_bg_normal.9.png.flat",
+        "source": "C:\\Users\\koshman\\.gradle\\caches\\transforms-2\\files-2.1\\dd1cf78f22bdd94f550130b281f27c97\\support-compat-28.0.0\\res\\drawable-hdpi-v4\\notification_bg_normal.9.png"
+    },
+    {
+        "merged": "C:\\Users\\koshman\\AndroidStudioProjects\\pick5football\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi_pittsburgh_steelers_logo.gif.flat",
+        "source": "C:\\Users\\koshman\\AndroidStudioProjects\\pick5football\\app\\src\\main\\res\\drawable-mdpi\\pittsburgh_steelers_logo.gif"
+    },
+    {
+        "merged": "C:\\Users\\koshman\\AndroidStudioProjects\\pick5football\\app\\build\\intermediates\\res\\merged\\debug\\layout_list.xml.flat",
+        "source": "C:\\Users\\koshman\\AndroidStudioProjects\\pick5football\\app\\src\\main\\res\\layout\\list.xml"
+    },
+    {
+        "merged": "C:\\Users\\koshman\\AndroidStudioProjects\\pick5football\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v21_notification_action_background.xml.flat",
+        "source": "C:\\Users\\koshman\\.gradle\\caches\\transforms-2\\files-2.1\\dd1cf78f22bdd94f550130b281f27c97\\support-compat-28.0.0\\res\\drawable-v21\\notification_action_background.xml"
+    }
+]

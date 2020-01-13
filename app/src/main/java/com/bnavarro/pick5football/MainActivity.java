@@ -11,13 +11,18 @@ import com.bnavarro.pick5football.listeners.SubmitPicksMenuItemClickListener;
 import com.bnavarro.pick5football.listeners.MatchWeekOnItemSelectedListener;
 import com.bnavarro.pick5football.pager.ViewMatchesFragmentPagerAdapter;
 
+import android.Manifest;
+import android.content.Context;
+import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.os.Environment;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.DialogInterface.OnClickListener;
 import android.content.SharedPreferences;
+import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.FragmentActivity;
+import android.support.v4.content.ContextCompat;
 import android.support.v4.view.ViewPager;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -75,6 +80,7 @@ public class MainActivity extends FragmentActivity {
 		mViewPager = (ViewPager) findViewById(R.id.pager);
 		spnMatchWeek.setOnItemSelectedListener(new MatchWeekOnItemSelectedListener(this));
     }
+
 	
 	public ViewMatchesFragmentPagerAdapter getCustomPagerAdapter(){
 		return viewMatchesFragmentPagerAdapter;
@@ -114,6 +120,7 @@ public class MainActivity extends FragmentActivity {
      * 
      */
     private void initializeDataDirectory (){
+		ActivityCompat.requestPermissions(this,new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE,Manifest.permission.READ_EXTERNAL_STORAGE},1);
     	File exst = Environment.getExternalStorageDirectory();
 		exstPath = exst.getPath();
 		dataDir = new File(exstPath+"/Pick5FootballData");
