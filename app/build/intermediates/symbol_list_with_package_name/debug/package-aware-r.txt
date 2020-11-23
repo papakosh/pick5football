@@ -108,6 +108,7 @@ drawable seattle_seahawks_logo
 drawable tab1
 drawable tampabay_buccaneers_logo
 drawable tennessee_titans_logo
+drawable washington_football_team_logo
 drawable washington_redskins_logo
 id action0
 id action_container

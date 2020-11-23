@@ -107,7 +107,8 @@ int drawable seattle_seahawks_logo 0x7f05002b
 int drawable tab1 0x7f05002c
 int drawable tampabay_buccaneers_logo 0x7f05002d
 int drawable tennessee_titans_logo 0x7f05002e
-int drawable washington_redskins_logo 0x7f05002f
+int drawable washington_football_team_logo 0x7f05002f
+int drawable washington_redskins_logo 0x7f050030
 int id action0 0x7f060000
 int id action_container 0x7f060001
 int id action_divider 0x7f060002

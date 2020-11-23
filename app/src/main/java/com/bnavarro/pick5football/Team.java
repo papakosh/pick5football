@@ -47,8 +47,8 @@ public class Team {
                 return R.drawable.tennessee_titans_logo;
             case "Indianapolis Colts":
                 return R.drawable.indianapolis_colts_logo;
-            case "Washington Redskins":
-                return R.drawable.washington_redskins_logo;
+            case "Washington Football Team":
+                return R.drawable.washington_football_team_logo;
             case "Jacksonville Jaguars":
                 return R.drawable.jacksonville_jaguars_logo;
             case "New York Giants":
@@ -131,7 +131,7 @@ public class Team {
                 return "TEN";
             case "Indianapolis Colts":
                 return "IND";
-            case "Washington Redskins":
+            case "Washington Football Team":
                 return "WAS";
             case "Jacksonville Jaguars":
                 return "JAC";

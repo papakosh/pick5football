@@ -29,9 +29,8 @@ com/bnavarro/pick5football/gameday/GameDay.java
  com.bnavarro.pick5football.gameday.GameDay
 com/bnavarro/pick5football/async/GameDayAsync.java
  com.bnavarro.pick5football.async.GameDayAsync
-com/bnavarro/pick5football/constants/XMLConstants.java
- com.bnavarro.pick5football.constants.XMLConstants
- com.bnavarro.pick5football.constants.XMLConstants$GAME_DAY
+com/bnavarro/pick5football/Team.java
+ com.bnavarro.pick5football.Team
 com/bnavarro/pick5football/constants/IntentDataConstants.java
  com.bnavarro.pick5football.constants.IntentDataConstants
 com/bnavarro/pick5football/async/RetrieveMatchDataAsyncService.java
@@ -41,26 +40,27 @@ com/bnavarro/pick5football/pager/MatchListItem.java
  com.bnavarro.pick5football.pager.MatchListItem
 com/bnavarro/pick5football/constants/AsyncDataConstants.java
  com.bnavarro.pick5football.constants.AsyncDataConstants
-com/bnavarro/pick5football/gameday/GameDayActivity.java
- com.bnavarro.pick5football.gameday.GameDayActivity
-com/bnavarro/pick5football/BuildConfig.java
- com.bnavarro.pick5football.BuildConfig
-com/bnavarro/pick5football/listeners/LoadMatchesMenuItemClickListener.java
- com.bnavarro.pick5football.listeners.LoadMatchesMenuItemClickListener
-com/bnavarro/pick5football/listeners/SaveMatchesMenuItemClickListener.java
- com.bnavarro.pick5football.listeners.SaveMatchesMenuItemClickListener
-com/bnavarro/pick5football/MainActivity.java
- com.bnavarro.pick5football.MainActivity
- com.bnavarro.pick5football.MainActivity$1
 com/bnavarro/pick5football/Match.java
  com.bnavarro.pick5football.Match
-com/bnavarro/pick5football/Team.java
- com.bnavarro.pick5football.Team
-com/bnavarro/pick5football/listeners/MatchOnItemClickListener.java
- com.bnavarro.pick5football.listeners.MatchOnItemClickListener
+com/bnavarro/pick5football/BuildConfig.java
+ com.bnavarro.pick5football.BuildConfig
 com/bnavarro/pick5football/pager/MatchHeaderItem.java
  com.bnavarro.pick5football.pager.MatchHeaderItem
 com/bnavarro/pick5football/pager/ViewMatchesFragment.java
  com.bnavarro.pick5football.pager.ViewMatchesFragment
+com/bnavarro/pick5football/MainActivity.java
+ com.bnavarro.pick5football.MainActivity
+ com.bnavarro.pick5football.MainActivity$1
+com/bnavarro/pick5football/gameday/GameDayActivity.java
+ com.bnavarro.pick5football.gameday.GameDayActivity
+com/bnavarro/pick5football/listeners/SaveMatchesMenuItemClickListener.java
+ com.bnavarro.pick5football.listeners.SaveMatchesMenuItemClickListener
+com/bnavarro/pick5football/listeners/LoadMatchesMenuItemClickListener.java
+ com.bnavarro.pick5football.listeners.LoadMatchesMenuItemClickListener
+com/bnavarro/pick5football/constants/XMLConstants.java
+ com.bnavarro.pick5football.constants.XMLConstants
+ com.bnavarro.pick5football.constants.XMLConstants$GAME_DAY
+com/bnavarro/pick5football/listeners/MatchOnItemClickListener.java
+ com.bnavarro.pick5football.listeners.MatchOnItemClickListener
 com/bnavarro/pick5football/MatchDataManagementService.java
  com.bnavarro.pick5football.MatchDataManagementService

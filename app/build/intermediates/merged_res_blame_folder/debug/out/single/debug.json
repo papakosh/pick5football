@@ -1,19 +1,19 @@
 [
     {
-        "merged": "C:\\Users\\brian\\StudioProjects\\pick5football\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi_cleveland_browns_logo.gif.flat",
-        "source": "C:\\Users\\brian\\StudioProjects\\pick5football\\app\\src\\main\\res\\drawable-mdpi\\cleveland_browns_logo.gif"
-    },
-    {
-        "merged": "C:\\Users\\brian\\StudioProjects\\pick5football\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi_ic_launcher.png.flat",
-        "source": "C:\\Users\\brian\\StudioProjects\\pick5football\\app\\src\\main\\res\\drawable-hdpi\\ic_launcher.png"
+        "merged": "C:\\Users\\brian\\StudioProjects\\pick5football\\app\\build\\intermediates\\res\\merged\\debug\\menu_main.xml.flat",
+        "source": "C:\\Users\\brian\\StudioProjects\\pick5football\\app\\src\\main\\res\\menu\\main.xml"
     },
     {
         "merged": "C:\\Users\\brian\\StudioProjects\\pick5football\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi_tab1.png.flat",
         "source": "C:\\Users\\brian\\StudioProjects\\pick5football\\app\\src\\main\\res\\drawable-hdpi\\tab1.png"
     },
     {
-        "merged": "C:\\Users\\brian\\StudioProjects\\pick5football\\app\\build\\intermediates\\res\\merged\\debug\\menu_main.xml.flat",
-        "source": "C:\\Users\\brian\\StudioProjects\\pick5football\\app\\src\\main\\res\\menu\\main.xml"
+        "merged": "C:\\Users\\brian\\StudioProjects\\pick5football\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi_ic_launcher.png.flat",
+        "source": "C:\\Users\\brian\\StudioProjects\\pick5football\\app\\src\\main\\res\\drawable-hdpi\\ic_launcher.png"
+    },
+    {
+        "merged": "C:\\Users\\brian\\StudioProjects\\pick5football\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi_cleveland_browns_logo.gif.flat",
+        "source": "C:\\Users\\brian\\StudioProjects\\pick5football\\app\\src\\main\\res\\drawable-mdpi\\cleveland_browns_logo.gif"
     },
     {
         "merged": "C:\\Users\\brian\\StudioProjects\\pick5football\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi_houston_texans_logo.gif.flat",
@@ -114,6 +114,10 @@
     {
         "merged": "C:\\Users\\brian\\StudioProjects\\pick5football\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi_dallas_cowboys_logo.gif.flat",
         "source": "C:\\Users\\brian\\StudioProjects\\pick5football\\app\\src\\main\\res\\drawable-mdpi\\dallas_cowboys_logo.gif"
+    },
+    {
+        "merged": "C:\\Users\\brian\\StudioProjects\\pick5football\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi_washington_football_team_logo.gif.flat",
+        "source": "C:\\Users\\brian\\StudioProjects\\pick5football\\app\\src\\main\\res\\drawable-mdpi\\washington_football_team_logo.gif"
     },
     {
         "merged": "C:\\Users\\brian\\StudioProjects\\pick5football\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi_detroit_lions_logo.gif.flat",
