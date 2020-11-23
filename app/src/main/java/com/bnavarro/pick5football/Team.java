@@ -63,8 +63,8 @@ public class Team {
                 return  R.drawable.neworleans_saints_logo;
             case "Los Angeles Rams":
                 return  R.drawable.losangeles_rams_logo;
-            case "Oakland Raiders":
-                return  R.drawable.oakland_raiders_logo;
+            case "Las Vegas Raiders":
+                return  R.drawable.lasvegas_raiders_logo;
             case "Tampa Bay Buccaneers":
                 return  R.drawable.tampabay_buccaneers_logo;
             case "Cincinnati Bengals":
@@ -147,8 +147,8 @@ public class Team {
                 return "NO";
             case "Los Angeles Rams":
                 return "LAR";
-            case "Oakland Raiders":
-                return "OAK";
+            case "Las Vegas Raiders":
+                return "LAV";
             case "Tampa Bay Buccaneers":
                 return "TB";
             case "Cincinnati Bengals":

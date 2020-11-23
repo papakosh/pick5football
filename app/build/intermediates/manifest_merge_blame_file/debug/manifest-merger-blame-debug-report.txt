@@ -6,118 +6,118 @@
 6
 7    <uses-sdk
 8        android:minSdkVersion="21"
-8-->C:\Users\koshman\AndroidStudioProjects\pick5football\app\src\main\AndroidManifest.xml
+8-->C:\Users\brian\StudioProjects\pick5football\app\src\main\AndroidManifest.xml
 9        android:targetSdkVersion="28" />
-9-->C:\Users\koshman\AndroidStudioProjects\pick5football\app\src\main\AndroidManifest.xml
+9-->C:\Users\brian\StudioProjects\pick5football\app\src\main\AndroidManifest.xml
 10
 11    <uses-permission android:name="android.permission.INTERNET" />
-11-->C:\Users\koshman\AndroidStudioProjects\pick5football\app\src\main\AndroidManifest.xml:6:2-64
-11-->C:\Users\koshman\AndroidStudioProjects\pick5football\app\src\main\AndroidManifest.xml:6:19-61
+11-->C:\Users\brian\StudioProjects\pick5football\app\src\main\AndroidManifest.xml:6:2-64
+11-->C:\Users\brian\StudioProjects\pick5football\app\src\main\AndroidManifest.xml:6:19-61
 12    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
-12-->C:\Users\koshman\AndroidStudioProjects\pick5football\app\src\main\AndroidManifest.xml:7:2-76
-12-->C:\Users\koshman\AndroidStudioProjects\pick5football\app\src\main\AndroidManifest.xml:7:19-73
+12-->C:\Users\brian\StudioProjects\pick5football\app\src\main\AndroidManifest.xml:7:2-76
+12-->C:\Users\brian\StudioProjects\pick5football\app\src\main\AndroidManifest.xml:7:19-73
 13    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
-13-->C:\Users\koshman\AndroidStudioProjects\pick5football\app\src\main\AndroidManifest.xml:8:2-77
-13-->C:\Users\koshman\AndroidStudioProjects\pick5football\app\src\main\AndroidManifest.xml:8:19-75
+13-->C:\Users\brian\StudioProjects\pick5football\app\src\main\AndroidManifest.xml:8:2-77
+13-->C:\Users\brian\StudioProjects\pick5football\app\src\main\AndroidManifest.xml:8:19-75
 14    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
-14-->C:\Users\koshman\AndroidStudioProjects\pick5football\app\src\main\AndroidManifest.xml:9:2-76
-14-->C:\Users\koshman\AndroidStudioProjects\pick5football\app\src\main\AndroidManifest.xml:9:19-74
+14-->C:\Users\brian\StudioProjects\pick5football\app\src\main\AndroidManifest.xml:9:2-76
+14-->C:\Users\brian\StudioProjects\pick5football\app\src\main\AndroidManifest.xml:9:19-74
 15
 16    <application
-16-->C:\Users\koshman\AndroidStudioProjects\pick5football\app\src\main\AndroidManifest.xml:10:2-58:19
+16-->C:\Users\brian\StudioProjects\pick5football\app\src\main\AndroidManifest.xml:10:2-58:19
 17        android:allowBackup="true"
-17-->C:\Users\koshman\AndroidStudioProjects\pick5football\app\src\main\AndroidManifest.xml:11:9-35
+17-->C:\Users\brian\StudioProjects\pick5football\app\src\main\AndroidManifest.xml:11:9-35
 18        android:appComponentFactory="android.support.v4.app.CoreComponentFactory"
-18-->[com.android.support:support-compat:28.0.0] C:\Users\koshman\.gradle\caches\transforms-2\files-2.1\dd1cf78f22bdd94f550130b281f27c97\support-compat-28.0.0\AndroidManifest.xml:22:18-91
+18-->[com.android.support:support-compat:28.0.0] C:\Users\brian\.gradle\caches\transforms-2\files-2.1\2a6c121eda6c2cbe33230f54b72bbbd4\support-compat-28.0.0\AndroidManifest.xml:22:18-91
 19        android:debuggable="true"
 20        android:icon="@drawable/ic_launcher"
-20-->C:\Users\koshman\AndroidStudioProjects\pick5football\app\src\main\AndroidManifest.xml:12:9-45
+20-->C:\Users\brian\StudioProjects\pick5football\app\src\main\AndroidManifest.xml:12:9-45
 21        android:label="@string/app_name"
-21-->C:\Users\koshman\AndroidStudioProjects\pick5football\app\src\main\AndroidManifest.xml:13:9-41
+21-->C:\Users\brian\StudioProjects\pick5football\app\src\main\AndroidManifest.xml:13:9-41
 22        android:testOnly="true"
 23        android:theme="@style/AppTheme" >
-23-->C:\Users\koshman\AndroidStudioProjects\pick5football\app\src\main\AndroidManifest.xml:14:9-40
+23-->C:\Users\brian\StudioProjects\pick5football\app\src\main\AndroidManifest.xml:14:9-40
 24
 25        <!-- Main Activity -->
 26        <activity
-26-->C:\Users\koshman\AndroidStudioProjects\pick5football\app\src\main\AndroidManifest.xml:16:9-25:20
+26-->C:\Users\brian\StudioProjects\pick5football\app\src\main\AndroidManifest.xml:16:9-25:20
 27            android:name="com.bnavarro.pick5football.MainActivity"
-27-->C:\Users\koshman\AndroidStudioProjects\pick5football\app\src\main\AndroidManifest.xml:17:13-67
+27-->C:\Users\brian\StudioProjects\pick5football\app\src\main\AndroidManifest.xml:17:13-67
 28            android:configChanges="orientation|keyboardHidden"
-28-->C:\Users\koshman\AndroidStudioProjects\pick5football\app\src\main\AndroidManifest.xml:20:13-63
+28-->C:\Users\brian\StudioProjects\pick5football\app\src\main\AndroidManifest.xml:20:13-63
 29            android:label="@string/app_name"
-29-->C:\Users\koshman\AndroidStudioProjects\pick5football\app\src\main\AndroidManifest.xml:18:13-45
+29-->C:\Users\brian\StudioProjects\pick5football\app\src\main\AndroidManifest.xml:18:13-45
 30            android:screenOrientation="portrait" >
-30-->C:\Users\koshman\AndroidStudioProjects\pick5football\app\src\main\AndroidManifest.xml:19:13-49
+30-->C:\Users\brian\StudioProjects\pick5football\app\src\main\AndroidManifest.xml:19:13-49
 31            <intent-filter>
-31-->C:\Users\koshman\AndroidStudioProjects\pick5football\app\src\main\AndroidManifest.xml:21:13-24:29
+31-->C:\Users\brian\StudioProjects\pick5football\app\src\main\AndroidManifest.xml:21:13-24:29
 32                <action android:name="android.intent.action.MAIN" />
-32-->C:\Users\koshman\AndroidStudioProjects\pick5football\app\src\main\AndroidManifest.xml:22:17-69
-32-->C:\Users\koshman\AndroidStudioProjects\pick5football\app\src\main\AndroidManifest.xml:22:25-66
+32-->C:\Users\brian\StudioProjects\pick5football\app\src\main\AndroidManifest.xml:22:17-69
+32-->C:\Users\brian\StudioProjects\pick5football\app\src\main\AndroidManifest.xml:22:25-66
 33
 34                <category android:name="android.intent.category.LAUNCHER" />
-34-->C:\Users\koshman\AndroidStudioProjects\pick5football\app\src\main\AndroidManifest.xml:23:5-65
-34-->C:\Users\koshman\AndroidStudioProjects\pick5football\app\src\main\AndroidManifest.xml:23:15-62
+34-->C:\Users\brian\StudioProjects\pick5football\app\src\main\AndroidManifest.xml:23:5-65
+34-->C:\Users\brian\StudioProjects\pick5football\app\src\main\AndroidManifest.xml:23:15-62
 35            </intent-filter>
 36        </activity>
 37
 38        <!-- Authentication activity for Dropbox -->
 39        <activity
-39-->C:\Users\koshman\AndroidStudioProjects\pick5football\app\src\main\AndroidManifest.xml:28:9-40:14
+39-->C:\Users\brian\StudioProjects\pick5football\app\src\main\AndroidManifest.xml:28:9-40:14
 40            android:name="com.dropbox.client2.android.AuthActivity"
-40-->C:\Users\koshman\AndroidStudioProjects\pick5football\app\src\main\AndroidManifest.xml:29:6-61
+40-->C:\Users\brian\StudioProjects\pick5football\app\src\main\AndroidManifest.xml:29:6-61
 41            android:configChanges="orientation|keyboard"
-41-->C:\Users\koshman\AndroidStudioProjects\pick5football\app\src\main\AndroidManifest.xml:32:6-50
+41-->C:\Users\brian\StudioProjects\pick5football\app\src\main\AndroidManifest.xml:32:6-50
 42            android:launchMode="singleTask"
-42-->C:\Users\koshman\AndroidStudioProjects\pick5football\app\src\main\AndroidManifest.xml:30:6-37
+42-->C:\Users\brian\StudioProjects\pick5football\app\src\main\AndroidManifest.xml:30:6-37
 43            android:screenOrientation="portrait" >
-43-->C:\Users\koshman\AndroidStudioProjects\pick5football\app\src\main\AndroidManifest.xml:31:6-42
+43-->C:\Users\brian\StudioProjects\pick5football\app\src\main\AndroidManifest.xml:31:6-42
 44            <intent-filter>
-44-->C:\Users\koshman\AndroidStudioProjects\pick5football\app\src\main\AndroidManifest.xml:33:6-39:22
+44-->C:\Users\brian\StudioProjects\pick5football\app\src\main\AndroidManifest.xml:33:6-39:22
 45
 46                <!-- Change this to be db- followed by your app key -->
 47                <data android:scheme="db-1t3c5oggvr0hnhe" />
-47-->C:\Users\koshman\AndroidStudioProjects\pick5football\app\src\main\AndroidManifest.xml:35:7-51
-47-->C:\Users\koshman\AndroidStudioProjects\pick5football\app\src\main\AndroidManifest.xml:35:13-48
+47-->C:\Users\brian\StudioProjects\pick5football\app\src\main\AndroidManifest.xml:35:7-51
+47-->C:\Users\brian\StudioProjects\pick5football\app\src\main\AndroidManifest.xml:35:13-48
 48
 49                <action android:name="android.intent.action.VIEW" />
-49-->C:\Users\koshman\AndroidStudioProjects\pick5football\app\src\main\AndroidManifest.xml:36:7-59
-49-->C:\Users\koshman\AndroidStudioProjects\pick5football\app\src\main\AndroidManifest.xml:36:15-56
+49-->C:\Users\brian\StudioProjects\pick5football\app\src\main\AndroidManifest.xml:36:7-59
+49-->C:\Users\brian\StudioProjects\pick5football\app\src\main\AndroidManifest.xml:36:15-56
 50
 51                <category android:name="android.intent.category.BROWSABLE" />
-51-->C:\Users\koshman\AndroidStudioProjects\pick5football\app\src\main\AndroidManifest.xml:37:7-67
-51-->C:\Users\koshman\AndroidStudioProjects\pick5football\app\src\main\AndroidManifest.xml:37:17-65
+51-->C:\Users\brian\StudioProjects\pick5football\app\src\main\AndroidManifest.xml:37:7-67
+51-->C:\Users\brian\StudioProjects\pick5football\app\src\main\AndroidManifest.xml:37:17-65
 52                <category android:name="android.intent.category.DEFAULT" />
-52-->C:\Users\koshman\AndroidStudioProjects\pick5football\app\src\main\AndroidManifest.xml:38:7-66
-52-->C:\Users\koshman\AndroidStudioProjects\pick5football\app\src\main\AndroidManifest.xml:38:17-63
+52-->C:\Users\brian\StudioProjects\pick5football\app\src\main\AndroidManifest.xml:38:7-66
+52-->C:\Users\brian\StudioProjects\pick5football\app\src\main\AndroidManifest.xml:38:17-63
 53            </intent-filter>
 54        </activity>
 55
 56        <!-- Game Day Activity -->
 57        <activity
-57-->C:\Users\koshman\AndroidStudioProjects\pick5football\app\src\main\AndroidManifest.xml:43:9-56:20
+57-->C:\Users\brian\StudioProjects\pick5football\app\src\main\AndroidManifest.xml:43:9-56:20
 58            android:name="com.bnavarro.pick5football.gameday.GameDayActivity"
-58-->C:\Users\koshman\AndroidStudioProjects\pick5football\app\src\main\AndroidManifest.xml:44:13-52
+58-->C:\Users\brian\StudioProjects\pick5football\app\src\main\AndroidManifest.xml:44:13-52
 59            android:configChanges="orientation|keyboardHidden"
-59-->C:\Users\koshman\AndroidStudioProjects\pick5football\app\src\main\AndroidManifest.xml:47:7-57
+59-->C:\Users\brian\StudioProjects\pick5football\app\src\main\AndroidManifest.xml:47:7-57
 60            android:label="@string/app_name"
-60-->C:\Users\koshman\AndroidStudioProjects\pick5football\app\src\main\AndroidManifest.xml:45:13-45
+60-->C:\Users\brian\StudioProjects\pick5football\app\src\main\AndroidManifest.xml:45:13-45
 61            android:parentActivityName="com.bnavarro.pick5football.MainActivity"
-61-->C:\Users\koshman\AndroidStudioProjects\pick5football\app\src\main\AndroidManifest.xml:48:13-81
+61-->C:\Users\brian\StudioProjects\pick5football\app\src\main\AndroidManifest.xml:48:13-81
 62            android:screenOrientation="portrait" >
-62-->C:\Users\koshman\AndroidStudioProjects\pick5football\app\src\main\AndroidManifest.xml:46:13-49
+62-->C:\Users\brian\StudioProjects\pick5football\app\src\main\AndroidManifest.xml:46:13-49
 63            <meta-data
-63-->C:\Users\koshman\AndroidStudioProjects\pick5football\app\src\main\AndroidManifest.xml:49:6-51:72
+63-->C:\Users\brian\StudioProjects\pick5football\app\src\main\AndroidManifest.xml:49:6-51:72
 64                android:name="android.support.PARENT_ACTIVITY"
-64-->C:\Users\koshman\AndroidStudioProjects\pick5football\app\src\main\AndroidManifest.xml:50:14-60
+64-->C:\Users\brian\StudioProjects\pick5football\app\src\main\AndroidManifest.xml:50:14-60
 65                android:value="com.bnavarro.pick5football.MainActivity" />
-65-->C:\Users\koshman\AndroidStudioProjects\pick5football\app\src\main\AndroidManifest.xml:51:14-69
+65-->C:\Users\brian\StudioProjects\pick5football\app\src\main\AndroidManifest.xml:51:14-69
 66
 67            <intent-filter>
-67-->C:\Users\koshman\AndroidStudioProjects\pick5football\app\src\main\AndroidManifest.xml:53:13-55:29
+67-->C:\Users\brian\StudioProjects\pick5football\app\src\main\AndroidManifest.xml:53:13-55:29
 68                <action android:name="android.intent.action.MAIN" />
-68-->C:\Users\koshman\AndroidStudioProjects\pick5football\app\src\main\AndroidManifest.xml:22:17-69
-68-->C:\Users\koshman\AndroidStudioProjects\pick5football\app\src\main\AndroidManifest.xml:22:25-66
+68-->C:\Users\brian\StudioProjects\pick5football\app\src\main\AndroidManifest.xml:22:17-69
+68-->C:\Users\brian\StudioProjects\pick5football\app\src\main\AndroidManifest.xml:22:25-66
 69            </intent-filter>
 70        </activity>
 71    </application>
