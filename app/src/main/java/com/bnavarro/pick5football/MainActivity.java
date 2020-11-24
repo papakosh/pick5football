@@ -1,9 +1,12 @@
 package com.bnavarro.pick5football;
 
 import java.io.File;
+import java.util.LinkedHashMap;
 
 import com.bnavarro.pick5football.async.RetrieveMatchDataAsyncService;
 import com.bnavarro.pick5football.constants.MenuConstants;
+import com.bnavarro.pick5football.gameday.GameDay;
+import com.bnavarro.pick5football.listeners.GameDayMenuItemClickListener;
 import com.bnavarro.pick5football.listeners.LoadMatchesMenuItemClickListener;
 import com.bnavarro.pick5football.listeners.RefreshMatchesMenuItemClickListener;
 import com.bnavarro.pick5football.listeners.SaveMatchesMenuItemClickListener;
@@ -30,6 +33,7 @@ import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.Spinner;
+import android.widget.Toast;
 
 /** <P>Screen component for displaying the week selection which drives the list of matches displayed. </P>
  *  <P>The upper right hand corner menu displays four options. 
@@ -67,6 +71,7 @@ public class MainActivity extends FragmentActivity {
 	private RetrieveMatchDataAsyncService retrieval;
 	private ViewMatchesFragmentPagerAdapter viewMatchesFragmentPagerAdapter;
 	private ViewPager mViewPager;
+	private LinkedHashMap<String, Match> matchMap;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -94,6 +99,21 @@ public class MainActivity extends FragmentActivity {
 		this.viewMatchesFragmentPagerAdapter=new ViewMatchesFragmentPagerAdapter(getSupportFragmentManager());
 		mViewPager.setAdapter(viewMatchesFragmentPagerAdapter);
 		mViewPager.setVisibility(View.VISIBLE);
+	}
+
+	public void showScoreToast(String msg){
+    	//Toast.makeText(this, msg, Toast.LENGTH_LONG).show();
+
+		AlertDialog alertDialog = new AlertDialog.Builder(MainActivity.this).create();
+		alertDialog.setTitle("Scores");
+		alertDialog.setMessage(msg);
+		alertDialog.setButton(AlertDialog.BUTTON_NEUTRAL, "OK",
+				new DialogInterface.OnClickListener() {
+					public void onClick(DialogInterface dialog, int which) {
+						dialog.dismiss();
+					}
+				});
+		alertDialog.show();
 	}
 
 	public void setViewMatchesFragmentPagerAdapter (ViewMatchesFragmentPagerAdapter viewMatchesFragmentPagerAdapter){
@@ -141,11 +161,12 @@ public class MainActivity extends FragmentActivity {
     	menu.add(MenuConstants.FILE_MENU.SUBMIT_PICKS);
     	SubmitPicksMenuItemClickListener submitPicksListener = new SubmitPicksMenuItemClickListener (this);
     	menu.getItem(0).setOnMenuItemClickListener(submitPicksListener);
+    	//menu.add(MenuConstants.FILE_MENU.REFRESH_MATCHES);
+    	//menu.getItem(1).setOnMenuItemClickListener(new RefreshMatchesMenuItemClickListener(this));
+		menu.add(MenuConstants.FILE_MENU.SHOW_SCORES);
+		menu.getItem(1).setOnMenuItemClickListener(new GameDayMenuItemClickListener(this));
 
-    	menu.add(MenuConstants.FILE_MENU.REFRESH_MATCHES);
-    	menu.getItem(1).setOnMenuItemClickListener(new RefreshMatchesMenuItemClickListener(this));
-    	
-    	menu.add(MenuConstants.FILE_MENU.SAVE_PICKS);
+		menu.add(MenuConstants.FILE_MENU.SAVE_PICKS);
     	menu.getItem(2).setOnMenuItemClickListener(new SaveMatchesMenuItemClickListener(this));
     	
     	menu.add(MenuConstants.FILE_MENU.LOAD_PICKS);
@@ -210,4 +231,7 @@ public class MainActivity extends FragmentActivity {
     	return currentWeek;
     }
 
+    public void setMatchMapForReference(LinkedHashMap<String, Match> matchMap){
+		this.matchMap = matchMap;
+	}
 }

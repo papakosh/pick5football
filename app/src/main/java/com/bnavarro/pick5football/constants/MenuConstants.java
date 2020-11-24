@@ -14,5 +14,6 @@ public class MenuConstants {
 		public static String REFRESH_MATCHES = "Refresh Matches";
 		public static String SAVE_PICKS = "Save Picks";
 		public static String LOAD_PICKS = "Load Picks";
+		public static String SHOW_SCORES = "Show Scores";
 	}
 }

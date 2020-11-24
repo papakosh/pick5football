@@ -21,6 +21,7 @@ import com.bnavarro.pick5football.constants.AsyncDataConstants;
 import android.app.Activity;
 import android.os.AsyncTask;
 import android.os.Environment;
+import android.util.Log;
 import android.util.Xml;
 
 /** Retrieve game day information from NFL.com 
@@ -29,14 +30,18 @@ import android.util.Xml;
  * @author brian navarro
  *
  */
-public class GameDayAsync extends AsyncTask<Void, Long, GameDay> {
+public class GameDayAsyncService extends AsyncTask<Void, Long, GameDay> {
 
 	//private GameDay gameDay;
 	private MatchGameParms matchGameParms;
 	private Activity mainActivity; //likely used later when showing progress of downloading data in toast message
 		
-	public GameDayAsync (Activity mainActivity, MatchGameParms matchGameParms){
+	public GameDayAsyncService(Activity mainActivity, MatchGameParms matchGameParms){
 		this.mainActivity=mainActivity;
+		this.matchGameParms=matchGameParms;
+	}
+
+	public GameDayAsyncService(MatchGameParms matchGameParms){
 		this.matchGameParms=matchGameParms;
 	}
 
@@ -60,17 +65,17 @@ public class GameDayAsync extends AsyncTask<Void, Long, GameDay> {
 
 		try {
 			//Download data from internet and  copy to local file
-			URL url = new URL ("http://www.nfl.com/liveupdate/scorestrip/ss.xml");
+			URL url = new URL ("https://static.nfl.com/liveupdate/scorestrip/ss.xml");
 			File file = new File (dataDir.getAbsolutePath() + "/" +"ss.xml");
 			FileUtils.copyURLToFile(url, file);
 			in_s = new BufferedInputStream(new FileInputStream(file));
 			
 			//Setup parser and parse GameDay details out of the downloaded xml
 		    parser.setFeature(XmlPullParser.FEATURE_PROCESS_NAMESPACES, false);
-	        parser.setInput(in_s, null); 
+	        parser.setInput(in_s, null);
 	        GameDayParser gdParser = new GameDayParser (parser);
 	        gameDay = gdParser.parse(matchGameParms);
-	        
+
 		} catch (FileNotFoundException e) {
 			e.printStackTrace();
 		} catch (XmlPullParserException e) {
@@ -89,12 +94,4 @@ public class GameDayAsync extends AsyncTask<Void, Long, GameDay> {
 		}
 		return gameDay;
 	}
-	
-	
-//	protected void onProgressUpdate(Long result) {
-//        //showDialog("Downloaded " + result + " bytes");
-//		System.out.println ("in on progress update");
-//		Toast.makeText(context, gameDay.getHomeTeamScore() + " - " + gameDay.getVisitingTeamScore(), Toast.LENGTH_SHORT).show();
-//    }
-
 }

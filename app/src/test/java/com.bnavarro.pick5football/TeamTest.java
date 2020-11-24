@@ -55,8 +55,8 @@ public class TeamTest {
         team = new Team("Baltimore Ravens");
         assertEquals("NFL Code is BAL", "BAL", team.getNFLCode());
 
-        team = new Team("San Diego Chargers");
-        assertEquals("NFL Code is SD", "SD", team.getNFLCode());
+        team = new Team("Los Angeles Chargers");
+        assertEquals("NFL Code is LAC", "LAC", team.getNFLCode());
 
         team = new Team("Buffalo Bills");
         assertEquals("NFL Code is BUF", "BUF", team.getNFLCode());
@@ -73,13 +73,13 @@ public class TeamTest {
         team = new Team("Indianapolis Colts");
         assertEquals("NFL Code is IND", "IND", team.getNFLCode());
 
-        team = new Team("Washington Redskins");
+        team = new Team("Washington Football Team");
         assertEquals("NFL Code is WAS", "WAS", team.getNFLCode());
 
         team = new Team("Jacksonville Jaguars");
         assertEquals("NFL Code is JAC", "JAC", team.getNFLCode());
 
-        team = new Team("NY Giants");
+        team = new Team("New York Giants");
         assertEquals("NFL Code is NYG", "NYG", team.getNFLCode());
 
         team = new Team("Minnesota Vikings");
@@ -94,11 +94,11 @@ public class TeamTest {
         team = new Team("New Orleans Saints");
         assertEquals("NFL Code is NO", "NO", team.getNFLCode());
 
-        team = new Team("St. Louis Rams");
-        assertEquals("NFL Code is STL", "STL", team.getNFLCode());
+        team = new Team("Los Angeles Rams");
+        assertEquals("NFL Code is LAR", "LAR", team.getNFLCode());
 
-        team = new Team("Oakland Raiders");
-        assertEquals("NFL Code is OAK", "OAK", team.getNFLCode());
+        team = new Team("Las Vegas Raiders");
+        assertEquals("NFL Code is LAV", "LAV", team.getNFLCode());
 
         team = new Team("Tampa Bay Buccaneers");
         assertEquals("NFL Code is TB", "TB", team.getNFLCode());
@@ -121,7 +121,7 @@ public class TeamTest {
         team = new Team("Denver Broncos");
         assertEquals("NFL Code is DEN", "DEN", team.getNFLCode());
 
-        team = new Team("NY Jets");
+        team = new Team("New York Jets");
         assertEquals("NFL Code is NYJ", "NYJ", team.getNFLCode());
 
         team = new Team("Miami Dolphins");
@@ -166,7 +166,7 @@ public class TeamTest {
         team = new Team("Baltimore Ravens");
         assertNotNull("NFL Logo Id not null", team.getLogo());
 
-        team = new Team("San Diego Chargers");
+        team = new Team("Los Angeles Chargers");
         assertNotNull("NFL Logo Id not null", team.getLogo());
 
         team = new Team("Buffalo Bills");
@@ -184,13 +184,13 @@ public class TeamTest {
         team = new Team("Indianapolis Colts");
         assertNotNull("NFL Logo Id not null", team.getLogo());
 
-        team = new Team("Washington Redskins");
+        team = new Team("Washington Football Team");
         assertNotNull("NFL Logo Id not null", team.getLogo());
 
         team = new Team("Jacksonville Jaguars");
         assertNotNull("NFL Logo Id not null", team.getLogo());
 
-        team = new Team("NY Giants");
+        team = new Team("New York Giants");
         assertNotNull("NFL Logo Id not null", team.getLogo());
 
         team = new Team("Minnesota Vikings");
@@ -205,7 +205,7 @@ public class TeamTest {
         team = new Team("New Orleans Saints");
         assertNotNull("NFL Logo Id not null", team.getLogo());
 
-        team = new Team("St. Louis Rams");
+        team = new Team("Los Angeles Rams");
         assertNotNull("NFL Logo Id not null", team.getLogo());
 
         team = new Team("Oakland Raiders");
@@ -232,7 +232,7 @@ public class TeamTest {
         team = new Team("Denver Broncos");
         assertNotNull("NFL Logo Id not null", team.getLogo());
 
-        team = new Team("NY Jets");
+        team = new Team("New York Jets");
         assertNotNull("NFL Logo Id not null", team.getLogo());
 
         team = new Team("Miami Dolphins");

@@ -16,7 +16,7 @@ public class GameDay {
 	private String time;
 	private String clock;
 	private String date;
-	
+
 	public String getDate() {
 		return date;
 	}

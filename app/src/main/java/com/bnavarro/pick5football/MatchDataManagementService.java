@@ -4,11 +4,15 @@ import android.content.Context;
 import android.os.Environment;
 import android.util.Log;
 import android.util.Xml;
+import android.widget.Toast;
 
+import com.bnavarro.pick5football.async.GameDayAsyncService;
 import com.bnavarro.pick5football.async.RetrieveMatchDataAsyncService;
 import com.bnavarro.pick5football.async.SelectedPicksAsyncService;
 import com.bnavarro.pick5football.constants.FileConstants;
 import com.bnavarro.pick5football.constants.XMLConstants;
+import com.bnavarro.pick5football.gameday.GameDay;
+import com.bnavarro.pick5football.gameday.MatchGameParms;
 import com.bnavarro.pick5football.pager.ViewMatchesFragment;
 
 import org.xmlpull.v1.XmlPullParser;
@@ -19,6 +23,7 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.LinkedHashMap;
 import java.util.Locale;
@@ -29,11 +34,41 @@ import java.util.concurrent.ExecutionException;
 public class MatchDataManagementService {
     public static LinkedHashMap<String, Match> matchMap;
 
+    
+    // pull data for nfl scores
+    // parse data into array of strings
+    // print out text (later popup)
+    public static String showNFLScores(){
+        GameDay scores = null;
+
+        ArrayList<String> paramsHome = new ArrayList<String>();
+        ArrayList<String> paramsVisit = new ArrayList<String>();
+        Match[] matches = MatchDataManagementService.matchMapToArray();
+        for (int i = 0; i < matches.length; i++) {
+            paramsHome.add(matches[i].getTeam2().getNFLCode());
+            paramsVisit.add(matches[i].getTeam1().getNFLCode());
+        }
+        String msg = "";
+        try{
+            for (int i = 0; i < matches.length; i++) {
+                MatchGameParms matchGameParms = new MatchGameParms(paramsHome.get(i), paramsVisit.get(i));
+                GameDayAsyncService retrieval = new GameDayAsyncService(matchGameParms);
+                retrieval.execute();
+                scores = retrieval.get();
+                msg = msg + paramsHome.get(i) + " VS " + paramsVisit.get(i) +  " is " + scores.getHomeTeamScore() + " - " + scores.getVisitingTeamScore() + "\n" ;
+            }
+        }catch (Exception e){
+            Log.e("Retrieving scores", e.getMessage(),e);
+        }
+        return msg;
+    }
+
     /**
      *
      * @param week
      * @param context
      * @param isUpdate
+     *
      */
     public static void populateMatchMap ( String week, Context context, Boolean isUpdate ){
         String matchWeek = week.replace (" ","").toLowerCase(Locale.ENGLISH);
@@ -360,4 +395,5 @@ public class MatchDataManagementService {
             }
         }
     }
+
 }

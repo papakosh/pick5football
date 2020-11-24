@@ -134,7 +134,7 @@ public class Team {
             case "Washington Football Team":
                 return "WAS";
             case "Jacksonville Jaguars":
-                return "JAC";
+                return "JAX";
             case "New York Giants":
                 return "NYG";
             case "Minnesota Vikings":
@@ -146,9 +146,9 @@ public class Team {
             case "New Orleans Saints":
                 return "NO";
             case "Los Angeles Rams":
-                return "LAR";
+                return "LA";
             case "Las Vegas Raiders":
-                return "LAV";
+                return "LV";
             case "Tampa Bay Buccaneers":
                 return "TB";
             case "Cincinnati Bengals":

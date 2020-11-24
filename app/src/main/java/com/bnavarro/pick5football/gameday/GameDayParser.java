@@ -1,5 +1,7 @@
 package com.bnavarro.pick5football.gameday;
 
+import android.util.Log;
+
 import java.io.IOException;
 
 import org.xmlpull.v1.XmlPullParser;
@@ -52,7 +54,6 @@ public class GameDayParser {
                     break;
                 case XmlPullParser.START_TAG:
                     name = xmlParser.getName();
-                    
                     if (XMLConstants.GAME_DAY.START_TAG_GAME.equals(name)){
                  		String homeTeamSign = matchGameParms.getHomeTeamSign();
                 		String visitingTeamSign = matchGameParms.getVisitingTeamSign();
