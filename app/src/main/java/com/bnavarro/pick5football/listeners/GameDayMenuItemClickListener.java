@@ -28,9 +28,9 @@ public class GameDayMenuItemClickListener implements	OnMenuItemClickListener {
 	@Override
 	public boolean onMenuItemClick(MenuItem item) {
 		String currentWeek = mainActivity.getCurrentWeek();
-		String msg = MatchDataManagementService.showNFLScores();
+		String msg = MatchDataManagementService.retrieveNFLScores();
 
-		mainActivity.showScoreToast(msg);
+		mainActivity.showScoreDialog(msg);
 		return true;
 	}
 }

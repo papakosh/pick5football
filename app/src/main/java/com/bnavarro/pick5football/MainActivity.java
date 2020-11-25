@@ -101,7 +101,7 @@ public class MainActivity extends FragmentActivity {
 		mViewPager.setVisibility(View.VISIBLE);
 	}
 
-	public void showScoreToast(String msg){
+	public void showScoreDialog(String msg){
     	//Toast.makeText(this, msg, Toast.LENGTH_LONG).show();
 
 		AlertDialog alertDialog = new AlertDialog.Builder(MainActivity.this).create();

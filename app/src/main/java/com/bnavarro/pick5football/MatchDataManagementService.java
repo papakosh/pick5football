@@ -38,7 +38,7 @@ public class MatchDataManagementService {
     // pull data for nfl scores
     // parse data into array of strings
     // print out text (later popup)
-    public static String showNFLScores(){
+    public static String retrieveNFLScores(){
         GameDay scores = null;
 
         ArrayList<String> paramsHome = new ArrayList<String>();
@@ -55,7 +55,9 @@ public class MatchDataManagementService {
                 GameDayAsyncService retrieval = new GameDayAsyncService(matchGameParms);
                 retrieval.execute();
                 scores = retrieval.get();
-                msg = msg + paramsHome.get(i) + " VS " + paramsVisit.get(i) +  " is " + scores.getHomeTeamScore() + " - " + scores.getVisitingTeamScore() + "\n" ;
+                String favoredTeamNFLCode = Match.getFavoredTeamNFLCode(matches[i].getTeam1(), matches[i].getTeam2(),matches[i].getFavoredTeam());
+                String favoredByAndSpread = " (" + favoredTeamNFLCode + " by " +matches[i].getSpread() + ")";
+                msg = msg + paramsHome.get(i) + " VS " + paramsVisit.get(i) +  " is " + scores.getHomeTeamScore() + " - " + scores.getVisitingTeamScore() + favoredByAndSpread+"\n" ;
             }
         }catch (Exception e){
             Log.e("Retrieving scores", e.getMessage(),e);

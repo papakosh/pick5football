@@ -1,6 +1,8 @@
 package com.bnavarro.pick5football;
 
 
+import android.util.Log;
+
 /** Stores match selection details. This includes:
  * <li>team 1 name
  * <li>team 2 name
@@ -54,6 +56,13 @@ public class Match {
 
 	public void setHomeTeam(String homeTeam) {	this.homeTeam = homeTeam;}
 
+	public String getFavoredTeam(){
+		return favoredTeam;
+	}
+
+	public Double getSpread(){
+		return spread;
+	}
 	public void setFavoredTeam (String favoredTeam, Double spread){
 		this.favoredTeam=favoredTeam;
 		this.spread=spread;
@@ -105,5 +114,18 @@ public class Match {
 				headerDetails.append(spread);
 		}
 		return headerDetails.toString();
+	}
+
+	public static String getFavoredTeamNFLCode(Team team1, Team  team2, String favoredTeam){
+		CommonUtils.validateNotNull(team1, null);
+		CommonUtils.validateNotNull(team2, null);
+
+		Log.i("NFL Code", "Team 1 is " + team1.getName() + " and Team 2 is " + team2.getName() + " and favored is " + favoredTeam);
+		if (CommonUtils.hasText(team1.getName()) && team1.getName().contains(favoredTeam)){
+			return team1.getNFLCode();
+		}else if (CommonUtils.hasText(team2.getName()) && team2.getName().contains(favoredTeam)){
+			return team2.getNFLCode();
+		}
+		return null;
 	}
 }

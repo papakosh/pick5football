@@ -29,7 +29,6 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c639f1a3-7f9e-40b7-ac68-a9c04a16ae61" name="Default Changelist" comment="Updated football teams for 2020 (part 1)">
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/bnavarro/pick5football/listeners/GameDayMenuItemClickListener.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/6.5/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.5/executionHistory/executionHistory.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/6.5/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.5/executionHistory/executionHistory.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/6.5/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.5/fileHashes/fileHashes.bin" afterDir="false" />
@@ -37,36 +36,21 @@
       <change beforePath="$PROJECT_DIR$/.gradle/6.5/javaCompile/classAnalysis.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.5/javaCompile/classAnalysis.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/6.5/javaCompile/javaCompile.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.5/javaCompile/javaCompile.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/build/intermediates/dex/debug/mergeProjectDexDebug/classes.dex" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/dex/debug/mergeProjectDexDebug/classes.dex" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/build/intermediates/incremental/packageDebug/tmp/debug/dex-renamer-state.txt" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/incremental/packageDebug/tmp/debug/dex-renamer-state.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/build/intermediates/javac/debug/classes/com/bnavarro/pick5football/MainActivity$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/javac/debug/classes/com/bnavarro/pick5football/MainActivity$1.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/build/intermediates/javac/debug/classes/com/bnavarro/pick5football/MainActivity.class" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/javac/debug/classes/com/bnavarro/pick5football/MainActivity.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/build/intermediates/javac/debug/classes/com/bnavarro/pick5football/MatchDataManagementService.class" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/javac/debug/classes/com/bnavarro/pick5football/MatchDataManagementService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/javac/debug/classes/com/bnavarro/pick5football/async/GameDayAsync.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/javac/debug/classes/com/bnavarro/pick5football/constants/MenuConstants$FILE_MENU.class" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/javac/debug/classes/com/bnavarro/pick5football/constants/MenuConstants$FILE_MENU.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/javac/debug/classes/com/bnavarro/pick5football/gameday/GameDayParser.class" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/javac/debug/classes/com/bnavarro/pick5football/gameday/GameDayParser.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/javac/debug/classes/com/bnavarro/pick5football/listeners/MatchWeekOnItemSelectedListener.class" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/javac/debug/classes/com/bnavarro/pick5football/listeners/MatchWeekOnItemSelectedListener.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/build/intermediates/project_dex_archive/debug/out/com/bnavarro/pick5football/MainActivity$1.dex" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/project_dex_archive/debug/out/com/bnavarro/pick5football/MainActivity$1.dex" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/build/intermediates/project_dex_archive/debug/out/com/bnavarro/pick5football/MainActivity.dex" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/project_dex_archive/debug/out/com/bnavarro/pick5football/MainActivity.dex" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/build/intermediates/project_dex_archive/debug/out/com/bnavarro/pick5football/MatchDataManagementService.dex" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/project_dex_archive/debug/out/com/bnavarro/pick5football/MatchDataManagementService.dex" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/project_dex_archive/debug/out/com/bnavarro/pick5football/Team.dex" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/project_dex_archive/debug/out/com/bnavarro/pick5football/Team.dex" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/project_dex_archive/debug/out/com/bnavarro/pick5football/async/GameDayAsync.dex" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/project_dex_archive/debug/out/com/bnavarro/pick5football/constants/MenuConstants$FILE_MENU.dex" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/project_dex_archive/debug/out/com/bnavarro/pick5football/constants/MenuConstants$FILE_MENU.dex" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/project_dex_archive/debug/out/com/bnavarro/pick5football/gameday/GameDayParser.dex" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/project_dex_archive/debug/out/com/bnavarro/pick5football/gameday/GameDayParser.dex" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/project_dex_archive/debug/out/com/bnavarro/pick5football/listeners/MatchWeekOnItemSelectedListener.dex" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/project_dex_archive/debug/out/com/bnavarro/pick5football/listeners/MatchWeekOnItemSelectedListener.dex" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/build/outputs/apk/debug/app-debug.apk" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/outputs/apk/debug/app-debug.apk" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/build/tmp/compileDebugJavaWithJavac/source-classes-mapping.txt" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/tmp/compileDebugJavaWithJavac/source-classes-mapping.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/bnavarro/pick5football/MainActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/bnavarro/pick5football/MainActivity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/bnavarro/pick5football/Match.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/bnavarro/pick5football/Match.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/bnavarro/pick5football/MatchDataManagementService.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/bnavarro/pick5football/MatchDataManagementService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/bnavarro/pick5football/Team.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/bnavarro/pick5football/Team.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/bnavarro/pick5football/async/GameDayAsync.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/bnavarro/pick5football/async/GameDayAsyncService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/bnavarro/pick5football/constants/MenuConstants.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/bnavarro/pick5football/constants/MenuConstants.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/bnavarro/pick5football/gameday/GameDay.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/bnavarro/pick5football/gameday/GameDay.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/bnavarro/pick5football/gameday/GameDayParser.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/bnavarro/pick5football/gameday/GameDayParser.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/bnavarro/pick5football/listeners/MatchWeekOnItemSelectedListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/bnavarro/pick5football/listeners/MatchWeekOnItemSelectedListener.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/test/java/com.bnavarro.pick5football/TeamTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/test/java/com.bnavarro.pick5football/TeamTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/bnavarro/pick5football/listeners/GameDayMenuItemClickListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/bnavarro/pick5football/listeners/GameDayMenuItemClickListener.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -77,7 +61,7 @@
     <option name="testRunner" value="GRADLE" />
     <option name="delegatedBuild" value="true" />
   </component>
-  <component name="ExecutionTargetManager" SELECTED_TARGET="device_and_snapshot_combo_box_target[]" />
+  <component name="ExecutionTargetManager" SELECTED_TARGET="device_and_snapshot_combo_box_target[ZY2245HV5R]" />
   <component name="ExternalProjectsData">
     <projectState path="$PROJECT_DIR$">
       <ProjectState />
@@ -229,26 +213,30 @@
     <option name="LAST_COMMIT_MESSAGE" value="Updated football teams for 2020 (part 1)" />
   </component>
   <component name="WindowStateProjectService">
+    <state x="726" y="182" key="#Auto_Import" timestamp="1606339509421">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="726" y="182" key="#Auto_Import/0.0.1920.1040@0.0.1920.1040" timestamp="1606339509421" />
     <state x="92" y="92" width="1736" height="856" key="AVDManager" timestamp="1606150705724">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="92" y="92" width="1736" height="856" key="AVDManager/0.0.1920.1040@0.0.1920.1040" timestamp="1606150705724" />
-    <state width="1340" height="194" key="GridCell.Tab.0.bottom" timestamp="1606231274338">
+    <state width="923" height="180" key="GridCell.Tab.0.bottom" timestamp="1606336019574">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1340" height="194" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1606231274338" />
-    <state width="1340" height="194" key="GridCell.Tab.0.center" timestamp="1606231274338">
+    <state width="923" height="180" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1606336019574" />
+    <state width="923" height="180" key="GridCell.Tab.0.center" timestamp="1606336019574">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1340" height="194" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1606231274338" />
-    <state width="1340" height="194" key="GridCell.Tab.0.left" timestamp="1606231274338">
+    <state width="923" height="180" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1606336019574" />
+    <state width="923" height="180" key="GridCell.Tab.0.left" timestamp="1606336019574">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1340" height="194" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1606231274338" />
-    <state width="1340" height="194" key="GridCell.Tab.0.right" timestamp="1606231274338">
+    <state width="923" height="180" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1606336019574" />
+    <state width="923" height="180" key="GridCell.Tab.0.right" timestamp="1606336019574">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1340" height="194" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1606231274338" />
+    <state width="923" height="180" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1606336019574" />
     <state x="461" y="165" key="SettingsEditor" timestamp="1606147846657">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
