@@ -105,7 +105,7 @@ public class MainActivity extends FragmentActivity {
     	//Toast.makeText(this, msg, Toast.LENGTH_LONG).show();
 
 		AlertDialog alertDialog = new AlertDialog.Builder(MainActivity.this).create();
-		alertDialog.setTitle("Scores");
+		alertDialog.setTitle(currentWeek + " Scores");
 		alertDialog.setMessage(msg);
 		alertDialog.setButton(AlertDialog.BUTTON_NEUTRAL, "OK",
 				new DialogInterface.OnClickListener() {

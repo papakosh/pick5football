@@ -65,8 +65,8 @@ public class GameDayParser {
                     			gameDay.setVisitingTeam(xmlParser.getAttributeValue(9));
                     			gameDay.setDate(xmlParser.getAttributeValue(0).substring(0, 8));
                     			gameDay.setClock(xmlParser.getAttributeValue(5));
-                    			gameDay.setQuarter(xmlParser.getAttributeValue(4));
-	                    		gameDay.setTime(xmlParser.getAttributeValue(3));
+								gameDay.setQuarter(xmlParser.getAttributeValue(4));
+								gameDay.setTime(xmlParser.getAttributeValue(3));
 	                    		gameDay.setHomeTeamScore(Integer.valueOf(xmlParser.getAttributeValue(8)));
 	                    		gameDay.setVisitingTeamScore(Integer.valueOf(xmlParser.getAttributeValue(11)));
                     		}

@@ -15,7 +15,7 @@ public class XMLConstants {
 		public static String ATTR_VAL_SECOND_QUARTER = "2";
 		public static String ATTR_VAL_THIRD_QUARTER = "3";
 		public static String ATTR_VAL_FOURTH_QUARTER = "4";
-		public static String ATTR_NM_CLOCK = "K";
+		public static String ATTR_NM_CLOCK = "k";
 		public static String START_TAG_GAME = "g";
 	}
 	

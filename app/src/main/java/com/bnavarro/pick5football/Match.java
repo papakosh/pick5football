@@ -120,7 +120,7 @@ public class Match {
 		CommonUtils.validateNotNull(team1, null);
 		CommonUtils.validateNotNull(team2, null);
 
-		Log.i("NFL Code", "Team 1 is " + team1.getName() + " and Team 2 is " + team2.getName() + " and favored is " + favoredTeam);
+		//Log.i("NFL Code", "Team 1 is " + team1.getName() + " and Team 2 is " + team2.getName() + " and favored is " + favoredTeam);
 		if (CommonUtils.hasText(team1.getName()) && team1.getName().contains(favoredTeam)){
 			return team1.getNFLCode();
 		}else if (CommonUtils.hasText(team2.getName()) && team2.getName().contains(favoredTeam)){
